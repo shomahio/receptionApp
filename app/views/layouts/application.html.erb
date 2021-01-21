@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ReceptionApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class= "inner">
+        <div class= "nav">
+          <div class= "nav_left">
+            ビジネス版食べログ
+          </div>
+          <%# if store_signed_in? %>
+            <div class= "nav_right">
+              <%= link_to "お店ログアウト", "#", method: :delete, class: :nav_logout %>
+              <%= link_to "お店マイページ", "#", class: :nav_btn %>
+            </div>
+          <%# else %>
+            <div class= "nav_right">
+              <%= link_to "お店ログイン", "#", class: :nav_btn %>
+              <%= link_to "お店新規登録", "#", class: :nav_btn %>
+            </div>
+          <%# end %>
+        </div>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
