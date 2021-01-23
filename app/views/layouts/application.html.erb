@@ -17,17 +17,17 @@
           <div class= "nav_left">
             ビジネス版食べログ
           </div>
-          <%# if store_signed_in? %>
+          <% if store_signed_in? %>
             <div class= "nav_right">
-              <%= link_to "お店ログアウト", "#", method: :delete, class: :nav_logout %>
+              <%= link_to "お店ログアウト", destroy_store_session_path, method: :delete, class: :nav_logout %>
               <%= link_to "お店マイページ", "#", class: :nav_btn %>
             </div>
-          <%# else %>
+          <% else %>
             <div class= "nav_right">
-              <%= link_to "お店ログイン", "#", class: :nav_btn %>
-              <%= link_to "お店新規登録", "#", class: :nav_btn %>
+              <%= link_to "お店ログイン", new_store_session_path, class: :nav_btn %>
+              <%= link_to "お店新規登録", new_store_registration_path, class: :nav_btn %>
             </div>
-          <%# end %>
+          <% end %>
         </div>
       </div>
     </header>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get 'informations/index'
+  devise_for :stores
   root to: "informations#index"
+  resources :stores, only: [:edit, :update]
 end

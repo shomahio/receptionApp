@@ -1,0 +1,68 @@
+<div class="main">
+  <div class="inner">
+    <div class="form_wrapper">
+      <h2 class="page-heading">お店新規登録</h2>
+      <%= form_with model: @store,url: store_registration_path, local: true do |f| %>
+
+      <div class="field">
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, "パスワード（6文字以上）" %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "パスワード再入力" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :store_name, "店名" %><br />
+        <%= f.text_field :store_name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :postal_code, "郵便番号" %><br />
+        <%= f.text_field :postal_code %>
+      </div>
+
+      <div class="field">
+        <%= f.label :prefecture_id, "都道府県" %><br />
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+      </div>
+
+      <div class="field">
+        <%= f.label :city, "市町村" %><br />
+        <%= f.text_field :city %>
+      </div>
+
+      <div class="field">
+        <%= f.label :address, "番地" %><br />
+        <%= f.text_field :address %>
+      </div>
+
+      <div class="field">
+        <%= f.label :building, "建物" %><br />
+        <%= f.text_field :building %>
+      </div>
+
+      <div class="field">
+        <%= f.label :director, "責任者のお名前" %><br />
+        <%= f.text_field :director %>
+      </div>
+
+      <div class="field">
+        <%= f.label :tel, "電話番号" %><br />
+        <%= f.text_field :tel %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "新規登録", class: :form__btn  %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
