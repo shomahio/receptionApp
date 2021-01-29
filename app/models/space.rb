@@ -5,7 +5,7 @@ class Space < ActiveHash::Base
     {id: 7, name: '座敷'}, {id: 8, name: '掘りごたつ'}, {id: 9, name: 'オープンテラス'},
     {id: 10, name: 'カラオケあり'}, {id: 11, name: 'ダーツ'}, {id: 12, name: 'ライブ・生演奏'},
     {id: 13, name: 'スポーツ観戦'}, {id: 14, name: 'プロジェクターあり'}, {id: 15, name: '電源あり'},
-    {id: 16, name: 'Wi-Fiあり'},
+    {id: 16, name: 'Wi-Fiあり'}
   ]
 
 end
