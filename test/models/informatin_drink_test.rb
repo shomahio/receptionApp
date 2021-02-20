@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class InformatinDrinkTest < ActiveSupport::TestCase
+class InformationDrinkTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

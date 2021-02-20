@@ -1,6 +1,7 @@
 class Information < ApplicationRecord
   belongs_to :store
   has_one_attached :image
+  belongs_to :ancestry
   has_many :information_musics
   has_many :musics, through: :information_musics
   has_many :information_payments

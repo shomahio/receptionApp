@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_041228) do
+ActiveRecord::Schema.define(version: 2021_02_20_185419) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -36,11 +36,13 @@ ActiveRecord::Schema.define(version: 2021_02_07_041228) do
   create_table "ages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "drinks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,19 +52,9 @@ ActiveRecord::Schema.define(version: 2021_02_07_041228) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "informatin_drinks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "information_id"
-    t.bigint "drink_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["drink_id"], name: "index_informatin_drinks_on_drink_id"
-    t.index ["information_id"], name: "index_informatin_drinks_on_information_id"
-  end
-
   create_table "information", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "store_name", null: false
     t.string "postal_code", null: false
-    t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
     t.string "building"
@@ -71,18 +63,13 @@ ActiveRecord::Schema.define(version: 2021_02_07_041228) do
     t.integer "genre_id", null: false
     t.integer "light_id", null: false
     t.integer "volume_id", null: false
-    t.integer "age_id", null: false
     t.integer "budget_id", null: false
-    t.integer "room_id", null: false
-    t.integer "space_id", null: false
     t.integer "tobacco_id", null: false
-    t.integer "location_id", null: false
-    t.integer "service_id", null: false
-    t.integer "food_id", null: false
-    t.integer "drink_id", null: false
     t.bigint "store_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "mail"
+    t.integer "place_id"
     t.index ["store_id"], name: "index_information_on_store_id"
   end
 
@@ -93,6 +80,15 @@ ActiveRecord::Schema.define(version: 2021_02_07_041228) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["age_id"], name: "index_information_ages_on_age_id"
     t.index ["information_id"], name: "index_information_ages_on_information_id"
+  end
+
+  create_table "information_drinks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "information_id"
+    t.bigint "drink_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["drink_id"], name: "index_information_drinks_on_drink_id"
+    t.index ["information_id"], name: "index_information_drinks_on_information_id"
   end
 
   create_table "information_locations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -152,19 +148,24 @@ ActiveRecord::Schema.define(version: 2021_02_07_041228) do
   create_table "locations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "musics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
-  create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "ancestry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -172,16 +173,19 @@ ActiveRecord::Schema.define(version: 2021_02_07_041228) do
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "services", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "spaces", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "stores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -205,11 +209,11 @@ ActiveRecord::Schema.define(version: 2021_02_07_041228) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "informatin_drinks", "drinks"
-  add_foreign_key "informatin_drinks", "information"
   add_foreign_key "information", "stores"
   add_foreign_key "information_ages", "ages"
   add_foreign_key "information_ages", "information"
+  add_foreign_key "information_drinks", "drinks"
+  add_foreign_key "information_drinks", "information"
   add_foreign_key "information_locations", "information"
   add_foreign_key "information_locations", "locations"
   add_foreign_key "information_musics", "information"
