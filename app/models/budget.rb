@@ -6,5 +6,6 @@ class Budget < ActiveHash::Base
     {id: 10, name: '15000円〜20000円'}, {id: 11, name: '20000円〜40000円'}, {id: 12, name: '40000円〜60000円'},
     {id: 13, name: '60000円〜80000円'}, {id: 14, name: '80000円〜100000円'}, {id: 15, name: '100000円以上'}
   ]
-
+  include ActiveHash::Associations
+  has_many :information
 end

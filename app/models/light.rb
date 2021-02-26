@@ -5,4 +5,7 @@ class Light < ActiveHash::Base
     {id: 7, name: '明るい（寒色）'}, {id: 8, name: '暗い（寒色）'}, {id: 9, name: 'かなり暗い（寒色）'}
   ]
 
+  include ActiveHash::Associations
+  has_many :information
+
 end
