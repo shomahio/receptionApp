@@ -75,6 +75,21 @@
             <span class="form-any">任意</span>
           </div>
           <%= f.text_field :building, class:"input-default", id:"building", placeholder:"例）柳ビル103"%>
+          <div class= "weight-bold-text">
+            交通手段
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :transportation, class:"input-default", id:"transportation", placeholder:"例）○○駅から北に徒歩○○分"%>
+          <div class= "weight-bold-text">
+            営業時間
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :business_hours, class:"input-default", id:"business_hours", placeholder:"例）16時〜22時"%>
+          <div class= "weight-bold-text">
+            定休日
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :holiday, class:"input-default", id:"holiday", placeholder:"例）水曜日"%>
           <div class="listing-product-detail__genre">
           <%= f.label '食べ物のジャンル', class: 'listing-default__label' %>
             <span class="listing-default--require">必須</span>
@@ -85,6 +100,16 @@
               </div>
             </div>
           </div>
+          <div class= "weight-bold-text">
+            予約可能かどうか
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:booking_id, Booking.all, :id, :name, {}, {class:"select-box", id:"booking"}) %>
+          <div class= "weight-bold-text">
+            駐車場の有無
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:parking_id, Parking.all, :id, :name, {}, {class:"select-box", id:"parking"}) %>
           <div class= "weight-bold-text">
             店内照明
             <span class="indispensable">必須</span>

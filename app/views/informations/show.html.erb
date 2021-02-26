@@ -3,5 +3,25 @@
     <h2 class= "name">
       <%= "#{@information.store_name}" %>
     </h2>
+    <div class= "information_img_content">
+      <%= image_tag @information.image, class: "information-box-img" %>
+    </div>
+    <div class= "information_kihon">
+      <div class = "name">
+        店名
+        <%= "#{@information.store_name}" %>
+      </div>
+      <div class= "genre">
+        ジャンル
+        <%= @information.genre.name %>
+      </div>
+      <div class= "otoiawase">
+        予約・お問い合わせ
+        <%= "#{@information.tel}" %>
+      </div>
+      <div class= "yoyaku">
+        
+      </div>
+    </div>
   </div>
 </div>
