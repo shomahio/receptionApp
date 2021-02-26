@@ -12,9 +12,10 @@ class Store < ApplicationRecord
            validates :address
            validates :director
            validates :tel,               format: { with: /\A\d{10,11}\z/}
+           validates :email
            validates :password,          format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, length: { minimum: 6 }, message: '半角文字で英数どちらも最低１文字は使用してください' }
          end
   
-  has_one :information
+  has_many :informations, dependent: :destroy
 
 end

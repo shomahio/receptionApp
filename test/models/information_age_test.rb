@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PrefectureTest < ActiveSupport::TestCase
+class InformationAgeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
