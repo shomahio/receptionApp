@@ -1,7 +1,53 @@
 <div class= "information_show">
   <div class= "information_box">
     <h2 class= "name">
-      <%= "#{@information.store_name}" %>
+      <%= @information.store_name %>
     </h2>
+    <div class= "information_img_content">
+      <%= image_tag @information.image, class: "information-box-img" %>
+    </div>
+    <div class= "information_kihon">
+      <div class = "name">
+        店名
+        <%= @information.store_name %>
+      </div>
+      <div class= "genre">
+        ジャンル
+        <%= @information.genre.name %>
+      </div>
+      <div class= "otoiawase">
+        予約・お問い合わせ
+        <%= @information.tel %>
+      </div>
+      <div class= "yoyaku">
+        予約の可否
+        <%= @information.booking.name %>
+      </div>
+      <div class= "zyuusyo">
+        住所
+        <%= @information.prefecture.name %><%= @information.city %><%= @information.address %>
+      </div>
+      <div class= "transportation">
+        交通手段
+        <%= @information.transportation %>
+        
+      </div>
+      <div class= "business_hours">
+        営業時間・定休日
+        <%= @information.business_hours %>
+        <%= @information.holiday %>
+      </div>
+      <div class= "budget">
+        予算
+        <%= @information.budget.name %>
+      </div>
+      <div class= "payment">
+        支払い方法
+        <% @information.payments.each do |payment| %>
+          <%= payment.name %>
+        <% end %>
+      </div>
+      
+    </div>
   </div>
 </div>

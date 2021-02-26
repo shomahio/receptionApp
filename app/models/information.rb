@@ -1,7 +1,15 @@
 class Information < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :store
-  has_one_attached :image
+  has_one_attached :image, dependent: :destroy
   belongs_to :genre
+  belongs_to :booking
+  belongs_to :light
+  belongs_to :tobacco
+  belongs_to :prefecture
+  belongs_to :budget
+  belongs_to :volume
+  belongs_to :parking
   has_many :information_musics, dependent: :destroy
   has_many :musics, through: :information_musics, dependent: :destroy
   has_many :information_payments, dependent: :destroy
@@ -29,16 +37,15 @@ class Information < ApplicationRecord
     validates :payment_ids
     validates :music_ids
     validates :postal_code,       format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "にハイフンを含めてください" }
-    validates :password,          format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, length: { minimum: 6 }, message: '半角文字で英数どちらも最低１文字は使用してください' }
     validates :tel,               format: { with: /\A\d{10,11}\z/}
     with_options numericality: { other_than: 1, message:'を選択してください'} do
       validates :genre_id
       validates :place_id
-      validates :prefecture_id
       validates :light_id
       validates :volume_id
       validates :budget_id
       validates :tobacco_id
+      validates :prefecture_id
     end
   end
 
