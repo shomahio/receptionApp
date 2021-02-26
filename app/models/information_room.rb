@@ -1,4 +1,5 @@
 class InformationRoom < ApplicationRecord
-  belongs_to :information
-  belongs_to :room
+  belongs_to :information, optional: true
+  belongs_to :room, optional: true
+
 end

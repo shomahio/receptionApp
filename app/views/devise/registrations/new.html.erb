@@ -29,7 +29,10 @@
         <%= f.text_field :postal_code %>
       </div>
 
-      
+      <div class="field">
+        <%= f.label :prefecture_id, "都道府県" %><br />
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+      </div>
 
       <div class="field">
         <%= f.label :city, "市町村" %><br />

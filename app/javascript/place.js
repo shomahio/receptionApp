@@ -1,12 +1,13 @@
+
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(place){
-    var html = `<option value="${place.name}" data-place="${place.id}">${place.name}</option>`;
+    let html = `<option value="${place.id}" data-place="${place.id}">${place.name}</option>`;
     return html;
   }
   // 子カテゴリーの表示作成
   function appendChidrenBox(insertHTML){
-    var childSelectHtml = '';
+    let childSelectHtml = '';
     childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
                         <div class='listing-select-wrapper__box'>
                           <select class="listing-select-wrapper__box--select" id="child_place" name="place_id">
@@ -18,9 +19,11 @@ $(function(){
                       </div>`;
     $('.listing-product-detail__place').append(childSelectHtml);
   }
+  
   // 親カテゴリー選択後のイベント
   $('#parent_place').on('change', function(){
-    var parentPlace = document.getElementById('parent_place').value; //選択された親カテゴリーの名前を取得
+    var parentPlace = document.getElementById("parent_place").value; //選択された親カテゴリーの名前を取得
+    //debugger
     if (parentPlace != "---"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
         url: 'get_place_children',

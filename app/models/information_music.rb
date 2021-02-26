@@ -1,4 +1,6 @@
 class InformationMusic < ApplicationRecord
-  belongs_to :information
-  belongs_to :music
+  belongs_to :information, optional: true
+  belongs_to :music, optional: true
+
+  
 end

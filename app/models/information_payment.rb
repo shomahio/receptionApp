@@ -1,4 +1,6 @@
 class InformationPayment < ApplicationRecord
-  belongs_to :information
-  belongs_to :payment
+  belongs_to :information, optional: true
+  belongs_to :payment, optional: true
+
+  
 end

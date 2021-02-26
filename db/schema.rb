@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_20_185419) do
+ActiveRecord::Schema.define(version: 2021_02_22_101043) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2021_02_20_185419) do
     t.string "address", null: false
     t.string "building"
     t.string "tel", null: false
-    t.integer "area_id", null: false
     t.integer "genre_id", null: false
     t.integer "light_id", null: false
     t.integer "volume_id", null: false
@@ -68,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_185419) do
     t.bigint "store_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "mail"
+    t.string "email"
     t.integer "place_id"
     t.index ["store_id"], name: "index_information_on_store_id"
   end
@@ -111,11 +110,11 @@ ActiveRecord::Schema.define(version: 2021_02_20_185419) do
 
   create_table "information_payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "information_id"
-    t.bigint "payments_id"
+    t.bigint "payment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["information_id"], name: "index_information_payments_on_information_id"
-    t.index ["payments_id"], name: "index_information_payments_on_payments_id"
+    t.index ["payment_id"], name: "index_information_payments_on_payment_id"
   end
 
   create_table "information_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -219,7 +218,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_185419) do
   add_foreign_key "information_musics", "information"
   add_foreign_key "information_musics", "musics"
   add_foreign_key "information_payments", "information"
-  add_foreign_key "information_payments", "payments", column: "payments_id"
+  add_foreign_key "information_payments", "payments"
   add_foreign_key "information_rooms", "information"
   add_foreign_key "information_rooms", "rooms"
   add_foreign_key "information_services", "information"

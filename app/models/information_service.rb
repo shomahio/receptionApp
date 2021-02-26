@@ -1,4 +1,5 @@
 class InformationService < ApplicationRecord
-  belongs_to :information
-  belongs_to :service
+  belongs_to :information, optional: true
+  belongs_to :service, optional: true
+
 end

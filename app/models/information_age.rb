@@ -1,4 +1,6 @@
 class InformationAge < ApplicationRecord
-  belongs_to :information
-  belongs_to :age
+  belongs_to :information, optional: true
+  belongs_to :age, optional: true
+
+  
 end

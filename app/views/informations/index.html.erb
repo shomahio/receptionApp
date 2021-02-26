@@ -1,4 +1,29 @@
-
-<%= link_to new_information_path, class: 'purchase-btn' do %> 
-  <span class='purchase-btn-text'>出店する</span>
-<% end %>
+<div class = "main">
+  <div class = "btn">
+    <%= link_to new_information_path, class: 'purchase-btn' do %> 
+      <span class='purchase-btn-text'>出店する</span>
+    <% end %>
+  </div>
+  <div class= "information_contents">
+    <h2 class= "title">おすすめ店舗</h2>
+    <ul clas= "information_lists">
+      <% @information.each do |information| %>
+        <li class= "list">
+          <%= link_to information_path(information.id) do %>
+            <div class = "information_img_content">
+            <%= image_tag information.image, class: "item-img" %>
+            </div>
+            <div class= "information_info">
+              <h3 class= "information_name">
+                <%= information.store_name %>
+              </h3>
+              <div class= "information_genre">
+                <span><br><%= information.genre.name %></span>
+              </div>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
