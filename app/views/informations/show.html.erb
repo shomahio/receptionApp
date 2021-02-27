@@ -15,6 +15,11 @@
         ジャンル
         <%= @information.genre.name %>
       </div>
+      <div class= "drink">
+        <% @information.drinks.each do |drink| %>
+          <%= drink.name %>
+        <% end %>
+      </div>
       <div class= "otoiawase">
         予約・お問い合わせ
         <%= @information.tel %>
@@ -47,7 +52,32 @@
           <%= payment.name %>
         <% end %>
       </div>
-      
+    </div>
+    <div class= "information_setubi">
+      <div class= "tobacco">
+        喫煙・禁煙
+        <%= @information.tobacco.name %>
+      </div>
+      <div class= "parking">
+        <%= @information.parking.name %>
+      </div>
+      <div class= "space">
+        <% @information.spaces.each do |space| %>
+          <%= space.name %>
+        <% end %>
+      </div>
+    </div>
+    <div class= "information_tokutyou">
+      <div class= "location">
+        <% @information.locations.each do |location| %>
+          <%= location.name %>
+        <% end %>
+      </div>
+      <div class= "service">
+        <% @information.services.each do |service| %>
+          <%= service.name %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

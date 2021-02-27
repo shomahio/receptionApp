@@ -20,18 +20,31 @@
           <div class= "nav_left">
             ビジネス版食べログ
           </div>
+          <% unless user_signed_in? || store_signed_in? %>
+            <div class= "nav_right">
+              <%= link_to "お店ログイン", new_store_session_path, class: :nav_btn %>
+              <%= link_to "お店新規登録", new_store_registration_path, class: :nav_btn %>
+            </div>
+            <div class= "nav_right">
+              <%= link_to "ログイン", new_user_session_path, class: :nav_btn %>
+              <%= link_to "新規登録", new_user_registration_path, class: :nav_btn %>
+            </div>
+          <% end %>
           <% if store_signed_in? %>
             <div class= "nav_right">
               <%= link_to "お店ログアウト", destroy_store_session_path, method: :delete, class: :nav_logout %>
               <%= link_to "お店マイページ", "#", class: :nav_btn %>
             </div>
-          <% else %>
+          <% end %>
+
+          <% if user_signed_in? %>
             <div class= "nav_right">
-              <%= link_to "お店ログイン", new_store_session_path, class: :nav_btn %>
-              <%= link_to "お店新規登録", new_store_registration_path, class: :nav_btn %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav_logout %>
+              <%= link_to "マイページ", "#", class: :nav_btn %>
             </div>
           <% end %>
         </div>
+        
       </div>
     </header>
     <%= yield %>

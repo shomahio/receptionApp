@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
-  devise_for :stores
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
+  devise_for :stores, controllers: {
+  sessions:      'stores/sessions',
+  passwords:     'stores/passwords',
+  registrations: 'stores/registrations'
+  }
   root to: "informations#index"
   resources :stores, only: [:edit, :update]
   resources :informations  do
