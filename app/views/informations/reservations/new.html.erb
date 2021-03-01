@@ -1,0 +1,33 @@
+<div class= "reservation_information_form">
+  <div class= "form">
+    <div class= "form_text">予約できる日を入力</div>
+    <div class= "form_contents">
+      <%= form_with(model: @reservation, url:information_informations_reservations_path,local: true) do |f| %>
+        <div class= "form">
+          <div class= "weight-bold-text">
+            予約可能日
+            <span class="indispensable">必須</span>
+          </div>
+          <%= raw sprintf(
+                  f.datetime_select(
+                    :start_time,
+                    use_month_numbers: true,
+                    prompt:'--',
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+          <%= raw sprintf(
+                  f.datetime_select(
+                    :end_time,
+                    use_month_numbers: true,
+                    prompt:'--',
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+          
+          <div class="actions">
+          <%= f.submit "新規登録", class: :form__btn  %>
+          </div>
+      <% end %>
+      
+    </div>
+  </div>
+</div>

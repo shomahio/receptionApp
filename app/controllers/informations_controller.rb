@@ -2,6 +2,7 @@ class InformationsController < ApplicationController
   
   def index
     @information = Information.all
+    @tweets = Tweet.all
   end
 
   def new

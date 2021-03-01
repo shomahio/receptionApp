@@ -1,0 +1,2 @@
+module Informations::ReservationsHelper
+end

@@ -4,6 +4,11 @@
       <span class='purchase-btn-text'>出店する</span>
     <% end %>
   </div>
+  <div class = "btn">
+    <%= link_to new_tweet_path, class: 'purchase-btn' do %> 
+      <span class='purchase-btn-text'>投稿する</span>
+    <% end %>
+  </div>
   <div class= "information_contents">
     <h2 class= "title">おすすめ店舗</h2>
     <ul clas= "information_lists">
@@ -22,6 +27,23 @@
               </div>
             </div>
           <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class= "information_tweets">
+    <h2 class= "title">みんなの声</h2>
+    <ul clas= "information_tweet_lists">
+      <% @tweets.each do |tweet| %>
+        <li class= "list">
+          <div class= "tweet_info">
+            <h3 class= "tweet_name">
+              <%= tweet.name %>
+            </h3>
+            <div class= "tweet_text">
+              <span><%= tweet.text %></span>
+            </div>
+          </div>
         </li>
       <% end %>
     </ul>

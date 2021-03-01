@@ -80,4 +80,27 @@
       </div>
     </div>
   </div>
+  <%= month_calendar do |date| %>
+  <%= date.day %>
+  <% end %>
+  <%= link_to new_information_informations_reservation_path(@information.id), class: 'purchase-btn' do %>
+    <div class= "information_reservation">
+    新規作成
+    </div>
+  <% end %>
+  <%#= link_to edit_informations_reservation_path, class: 'purchase-btn' do %>
+    <div class= "information_reservation">
+    information編集ページ
+    </div>
+  <%# end %>
+  <%#= link_to informations_reservation_path, method: :delete, class: 'purchase-btn' do %>
+    <div class= "information_reservation">
+    information削除リンク
+    </div>
+  <%# end %>
+  <%= link_to  new_users_reservation_path, class: 'purchase-btn' do %>
+    <div class= "user_reservation">
+    予約ページ
+    </div>
+  <% end %>
 </div>
