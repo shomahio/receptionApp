@@ -90,6 +90,18 @@
             <span class="indispensable">必須</span>
           </div>
           <%= f.text_field :business_hours, class:"input-default", id:"business_hours", placeholder:"例）16時〜22時"%>
+
+          <div class= "weight-bold-text">
+            営業開始時間
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.time_field :open_time, class:"input-default", id:"business_hours", placeholder:"例）16時"%>
+          <div class= "weight-bold-text">
+            営業終了時間
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.time_field :close_time, class:"input-default", id:"business_hours", placeholder:"例）16時"%>
+
           <div class= "weight-bold-text">
             定休日
             <span class="indispensable">必須</span>

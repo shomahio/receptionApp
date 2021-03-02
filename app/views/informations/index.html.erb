@@ -43,6 +43,9 @@
             <div class= "tweet_text">
               <span><%= tweet.text %></span>
             </div>
+            <div class= "tweet_img">
+              <%= image_tag tweet.image, class: "item-img" %>
+            </div>
           </div>
         </li>
       <% end %>

@@ -22,6 +22,7 @@ class InformationsController < ApplicationController
   end
 
   def create
+    binding.pry
     @place_parent_array = Place.place_parent_array_create
     @genre_parent_array = Genre.genre_parent_array_create
     @information = Information.new(information_params)
@@ -34,12 +35,13 @@ class InformationsController < ApplicationController
 
   def show
     @information = Information.find(params[:id])
+    #ReservationCollection.new(@information)
   end
 
 
   private
   def information_params
-    params.require(:information).permit(:name, :email, :image, :store_name, :postal_code, :city, :address, :building, :tel, :building, :transportation, :business_hours, :holiday, :prefecture_id, :light_id, :volume_id, :budget_id, :tobacco_id, :booking_id, :parking_id, drink_ids: [], age_ids: [], location_ids: [], music_ids: [], payment_ids: [], room_ids: [], service_ids: [], space_ids: []).merge(store_id: current_store.id, place_id: params[:place_id],genre_id: params[:genre_id])
+    params.require(:information).permit(:name, :email, :image, :store_name, :postal_code, :city, :address, :building, :tel, :building, :transportation, :business_hours, :holiday, :prefecture_id, :light_id, :volume_id, :budget_id, :tobacco_id, :booking_id, :parking_id, :open_time, :close_time, drink_ids: [], age_ids: [], location_ids: [], music_ids: [], payment_ids: [], room_ids: [], service_ids: [], space_ids: []).merge(store_id: current_store.id, place_id: params[:place_id],genre_id: params[:genre_id])
   end
 
 end

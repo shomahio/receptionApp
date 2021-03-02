@@ -1,17 +1,17 @@
 class Informations::ReservationsController < ApplicationController
-  def new
-    @reservation = Reservation.new
-  end
+  #def new
+    #@reservation = Reservation.new
+  #end
 
-  def create
+  #def create
     #binding.pry
-    @reservation = Reservation.new(reservation_params)
-    if @reservation.save
-      redirect_to information_path(params[:information_id])
-    else
-      render :new
-    end
-  end
+    #@reservation = Reservation.new(reservation_params)
+    #if @reservation.save
+      #redirect_to information_path(params[:information_id])
+    #else
+      #render :new
+    #end
+  #end
 
   def edit
     @reservation = Reservation.find(params[:information_id])
