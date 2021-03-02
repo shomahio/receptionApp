@@ -95,6 +95,16 @@
             営業開始時間
             <span class="indispensable">必須</span>
           </div>
+          <%= f.number_field :open, class:"input-default", min:0, max:27 %>
+          <div class= "weight-bold-text">
+            営業終了時間
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.number_field :close, class:"input-default", min:0, max:27 %>
+          <div class= "weight-bold-text">
+            営業開始時間
+            <span class="indispensable">必須</span>
+          </div>
           <%= f.time_field :open_time, class:"input-default", id:"business_hours", placeholder:"例）16時"%>
           <div class= "weight-bold-text">
             営業終了時間

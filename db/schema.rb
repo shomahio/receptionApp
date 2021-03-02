@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_072745) do
+ActiveRecord::Schema.define(version: 2021_03_02_143924) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(version: 2021_03_01_072745) do
     t.integer "prefecture_id"
     t.time "open_time"
     t.time "close_time"
+    t.integer "open"
+    t.integer "close"
     t.index ["store_id"], name: "index_information_on_store_id"
   end
 
@@ -180,12 +182,13 @@ ActiveRecord::Schema.define(version: 2021_03_01_072745) do
   create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "information_id"
     t.bigint "user_id"
-    t.datetime "start_time"
-    t.datetime "end_time"
     t.string "name"
     t.integer "number_of_people"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.time "start_time"
+    t.time "end_time"
+    t.date "day"
     t.index ["information_id"], name: "index_reservations_on_information_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
