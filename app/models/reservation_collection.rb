@@ -12,19 +12,23 @@ class ReservationCollection
     close_time = information.close
     open_time = information.open
     oneday = close_time - open_time
+    require "date"
+    year = Date.today.year
+    month = Date.today.month
+    day = Date.today.day
+    dt = DateTime.new(year, month, day, open_time, 0, 0, 0.375)
     60.times do |i|
       oneday.times do |t|
         new_record = Reservation.new(
           information_id: information.id,
-          start_time: information.open_time + (t * 3600),
-          end_time: information.open_time + 3600 + (t * 3600),
-          day: Date.today + i
+          start_time: dt + Rational(t, 24)
         )
-        @record = Reservation.find_by(information_id: new_record.information_id, start_time: new_record.start_time, end_time: new_record.end_time, day: new_record.day)
+        @record = Reservation.find_by(information_id: new_record.information_id, start_time: new_record.start_time)
         new_record.save if @record.nil?
-        end
       end
+      dt = dt + 1
     end
+  end
 
 
 

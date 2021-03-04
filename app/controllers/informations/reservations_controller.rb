@@ -38,7 +38,7 @@ class Informations::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:start_time, :end_time).merge(information_id: params[:information_id])
+    params.require(:reservation).permit(:starting_time, :ending_time).merge(information_id: params[:information_id])
   end
 end
 

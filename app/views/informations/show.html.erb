@@ -39,7 +39,6 @@
       </div>
       <div class= "business_hours">
         営業時間・定休日
-        <%= @information.business_hours %>
         <%= @information.holiday %>
       </div>
       <div class= "budget">
@@ -80,9 +79,13 @@
       </div>
     </div>
   </div>
-  <%= month_calendar do |date| %>
-  <%= date.day %>
+  <%= month_calendar events: @reservations do |date, reservations| %>
+    <%= date.day %>
+    <% reservations.each do |reservation| %>
+      <%= reservation.start_time.strftime("%H:%M") %>
+    <% end %>
   <% end %>
+  
   <%= link_to new_information_informations_reservation_path(@information.id), class: 'purchase-btn' do %>
     <div class= "information_reservation">
     新規作成
