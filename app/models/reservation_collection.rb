@@ -9,6 +9,7 @@ class ReservationCollection
 
   # 予約の数分だけのレコードを生成
   def initialize(information)
+    new_records = []
     close_time = information.close
     open_time = information.open
     oneday = close_time - open_time
@@ -24,10 +25,11 @@ class ReservationCollection
           start_time: dt + Rational(t, 24)
         )
         @record = Reservation.find_by(information_id: new_record.information_id, start_time: new_record.start_time)
-        new_record.save if @record.nil?
+        new_records << new_record if @record.nil?
       end
       dt = dt + 1
     end
+    Reservation.import new_records
   end
 
 
