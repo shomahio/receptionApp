@@ -1,0 +1,16 @@
+<div class= "main">
+  <div class= "user_edit_header">
+    <div class= "user_edit_contents">
+      <div class= "user_edit_day">
+        <%= @reservation.start_time.strftime("%m/%d %H:%M") %>
+      </div>
+      <div class= "user_edit_detail">
+        <h2 class= "user_reservation_title">代表者名と人数を入力してください</h2>
+        <%= form_with(model: [@user, @reservation],url: users_reservation_path(@reservation.id), local: true) do |f| %>
+          <%= f.text_field :name, class:"reservation_input", id:"reservation_name" %>
+          <%= f.number_field :number_of_people, class:"input-default", min:0, max:6 %>
+          <%= f.submit "予約する", class: :form__btn  %>
+        <% end %>
+    </div>
+  </div>
+<div>

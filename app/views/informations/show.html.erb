@@ -82,7 +82,12 @@
   <%= month_calendar events: @reservations do |date, reservations| %>
     <%= date.day %>
     <% reservations.each do |reservation| %>
+      <%= link_to edit_users_reservation_path(reservation.id) do %>
       <%= reservation.start_time.strftime("%H:%M") %>
+      <div class= "yoyakukanou">
+      ◎
+      </div>
+      <% end %>
     <% end %>
   <% end %>
   

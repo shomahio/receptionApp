@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :users do
     resources :reservations 
   end
+  
   devise_for :stores, controllers: {
   sessions:      'stores/sessions',
   passwords:     'stores/passwords',

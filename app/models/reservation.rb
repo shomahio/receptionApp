@@ -3,7 +3,6 @@ class Reservation < ApplicationRecord
   belongs_to :user, optional: true
   
   validates :start_time, presence: true
-  #validates :ending_time, presence: true
   validates :name, presence: true, on: :update
   validates :number_of_people, presence: true, on: :update
 end
