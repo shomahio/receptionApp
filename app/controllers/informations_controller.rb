@@ -35,8 +35,10 @@ class InformationsController < ApplicationController
 
   def show
     @information = Information.find(params[:id])
-    ReservationCollection.new(@information)
-    @reservations = Reservation.where(@information_id)
+    ReservationCollection.new(@information,@records)
+    @reservations = Reservation.where(information_id: @information.id, user_id: nil)
+    @records = Reservation.where("start_time < ?", 0.times.ago)
+    @records.destroy_all
   end
 
 

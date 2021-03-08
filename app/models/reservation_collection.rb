@@ -8,7 +8,7 @@ class ReservationCollection
   attr_accessor :collection  # ここに作成したreservationモデルが格納される
 
   # 予約の数分だけのレコードを生成
-  def initialize(information)
+  def initialize(information,destroy_records)
     new_records = []
     close_time = information.close
     open_time = information.open
@@ -30,8 +30,12 @@ class ReservationCollection
       dt = dt + 1
     end
     Reservation.import new_records
+    #destroy_records.destroy.all
   end
 
+  def self_records_destroy
+    @records.destroy
+  end
 
 
   # レコードが存在するか確認するメソッド
