@@ -59,3 +59,7 @@ gem 'image_processing', '~> 1.2'
 gem 'ancestry'
 gem 'seed-fu'
 gem 'pry-rails'
+gem 'simple_calendar', '~> 2.0'
+gem 'rails-i18n'
+gem 'activerecord-import'
+

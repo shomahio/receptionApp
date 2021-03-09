@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_180140) do
+ActiveRecord::Schema.define(version: 2021_03_09_111247) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -70,11 +70,14 @@ ActiveRecord::Schema.define(version: 2021_02_26_180140) do
     t.string "email"
     t.integer "place_id"
     t.string "transportation"
-    t.string "business_hours"
     t.string "holiday"
     t.integer "booking_id"
     t.integer "parking_id"
     t.integer "prefecture_id"
+    t.integer "open"
+    t.integer "close"
+    t.datetime "opening_time"
+    t.datetime "closing_time"
     t.index ["store_id"], name: "index_information_on_store_id"
   end
 
@@ -175,6 +178,18 @@ ActiveRecord::Schema.define(version: 2021_02_26_180140) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "information_id"
+    t.bigint "user_id"
+    t.string "name"
+    t.integer "number_of_people"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_time"
+    t.index ["information_id"], name: "index_reservations_on_information_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -213,6 +228,15 @@ ActiveRecord::Schema.define(version: 2021_02_26_180140) do
     t.index ["reset_password_token"], name: "index_stores_on_reset_password_token", unique: true
   end
 
+  create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "text"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tweets_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -247,4 +271,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_180140) do
   add_foreign_key "information_services", "services"
   add_foreign_key "information_spaces", "information"
   add_foreign_key "information_spaces", "spaces"
+  add_foreign_key "reservations", "information"
+  add_foreign_key "reservations", "users"
+  add_foreign_key "tweets", "users"
 end

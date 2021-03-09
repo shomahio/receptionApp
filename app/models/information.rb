@@ -10,6 +10,7 @@ class Information < ApplicationRecord
   belongs_to :budget
   belongs_to :volume
   belongs_to :parking
+  has_many :reservations
   has_many :information_musics, dependent: :destroy
   has_many :musics, through: :information_musics, dependent: :destroy
   has_many :information_payments, dependent: :destroy
