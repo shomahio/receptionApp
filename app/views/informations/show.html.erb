@@ -96,7 +96,7 @@
       <% end %>
       <% reservations.each do |reservation| %>
         <div class= "hidden" id= "6" >
-          <% if reservation.user_id == nil %>
+          <% if reservation.name == nil && user_signed_in? %>
             <%= link_to edit_users_reservation_path(reservation.id) do %>
               <%= reservation.start_time.strftime("%H:%M") %>
               <div class= "yoyakukanou1">
@@ -104,13 +104,15 @@
               </div>
             <% end %>
           <% end %>
+          <% if reservation.name == nil && store_signed_in? && reservation.information.store_id == current_store.id %>
+            <%= link_to edit_informations_reservation_path(reservation.id) do %>
+              <%= reservation.start_time.strftime("%H:%M") %>
+              <div class= "delete">
+              ◎ 編集
+              </div>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
-  <% end %>
-  
-  <%= link_to new_information_informations_reservation_path(@information.id), class: 'purchase-btn' do %>
-    <div class= "information_reservation">
-    新規作成
-    </div>
   <% end %>
 </div>

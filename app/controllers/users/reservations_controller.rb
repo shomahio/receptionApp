@@ -13,7 +13,7 @@ class Users::ReservationsController < ApplicationController
     else
       render :edit
     end
-
+    
   end
 
   private

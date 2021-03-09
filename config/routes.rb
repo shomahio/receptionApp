@@ -22,9 +22,12 @@ Rails.application.routes.draw do
       get 'get_place_children', defaults: { format: 'json' }
       get 'get_genre_children', defaults: { format: 'json' }
     end
-    namespace :informations do
-      resources :reservations
-    end
+    #namespace :informations do
+      #resources :reservations
+    #end
+  end
+  namespace :informations do
+    resources :reservations
   end
   resources :tweets
 end

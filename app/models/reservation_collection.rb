@@ -5,7 +5,7 @@ class ReservationCollection
   include ActiveModel::AttributeMethods
   include ActiveModel::Validations
   
-  attr_accessor :collection  # ここに作成したreservationモデルが格納される
+  attr_accessor :collection  
 
   # 予約の数分だけのレコードを生成
   def initialize(information,destroy_records)
@@ -18,19 +18,21 @@ class ReservationCollection
     month = Date.today.month
     day = Date.today.day
     dt = DateTime.new(year, month, day, open_time, 0, 0, 0.375)
+    #現在から60日分のレコード作成
     60.times do |i|
+      #1日の予約分のレコード作成
       oneday.times do |t|
         new_record = Reservation.new(
           information_id: information.id,
           start_time: dt + Rational(t, 24)
         )
+        #同じレコードを作成しない為の条件分岐
         @record = Reservation.find_by(information_id: new_record.information_id, start_time: new_record.start_time)
         new_records << new_record if @record.nil?
       end
       dt = dt + 1
     end
     Reservation.import new_records
-    #destroy_records.destroy.all
   end
 
   def self_records_destroy

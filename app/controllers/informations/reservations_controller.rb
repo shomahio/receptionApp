@@ -1,44 +1,23 @@
 class Informations::ReservationsController < ApplicationController
-  #def new
-    #@reservation = Reservation.new
-  #end
-
-  #def create
-    #binding.pry
-    #@reservation = Reservation.new(reservation_params)
-    #if @reservation.save
-      #redirect_to information_path(params[:information_id])
-    #else
-      #render :new
-    #end
-  #end
-
   def edit
-    @reservation = Reservation.find(params[:information_id])
+    @reservation = Reservation.find(params[:id])
+    
   end
 
   def update
+    #@information = Informations.find(current_user.id)
     @reservation = Reservation.find(params[:id])
     if @reservation.update(reservation_params)
-      redirect_to information_path(params[:information_id])
+      redirect_to root_path
     else
       render :edit
     end
-  end
-
-  def destroy
-    @reservation = Reservation.find(params[:id])
-    if @reservation.destroy
-      redirect_to information_path(params[:information_id])
-      else
-      render :show
-    end
+    
   end
 
   private
 
   def reservation_params
-    params.require(:reservation).permit(:starting_time, :ending_time).merge(information_id: params[:information_id])
+    params.require(:reservation).permit(:name, :number_of_people, :information_id, :starting_time)
   end
 end
-
