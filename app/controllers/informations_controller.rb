@@ -36,7 +36,7 @@ class InformationsController < ApplicationController
   def show
     @information = Information.find(params[:id])
     ReservationCollection.new(@information,@records)
-    @reservations = Reservation.where(information_id: @information.id, user_id: nil)
+    @reservations = Reservation.where(information_id: @information.id, name: nil)
     #過去のレコードの自動削除
     @records = Reservation.where("start_time < ?", Time.now)
     @records.destroy_all

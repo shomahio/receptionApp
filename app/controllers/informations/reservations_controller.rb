@@ -18,6 +18,6 @@ class Informations::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:name, :number_of_people, :tel :information_id, :starting_time)
+    params.require(:reservation).permit(:name, :number_of_people, :tel, :information_id, :start_time)
   end
 end
