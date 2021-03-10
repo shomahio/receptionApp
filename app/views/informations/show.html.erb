@@ -94,8 +94,8 @@
         ✖︎
         </div>
       <% end %>
-      <% reservations.each do |reservation| %>
-        <div class= "hidden" id= "6" >
+      <div class= "hidden" style="display:none;" id= "6" >
+        <% reservations.each do |reservation| %>
           <% if reservation.name == nil && user_signed_in? %>
             <%= link_to edit_users_reservation_path(reservation.id) do %>
               <%= reservation.start_time.strftime("%H:%M") %>
@@ -112,7 +112,7 @@
               </div>
             <% end %>
           <% end %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
   <% end %>
 </div>
