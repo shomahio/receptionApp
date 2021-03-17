@@ -3,13 +3,14 @@ class Information < ApplicationRecord
   belongs_to :store
   has_one_attached :image, dependent: :destroy
   belongs_to :genre
-  belongs_to :booking
+  belongs_to_active_hash :booking
   belongs_to :light
-  belongs_to :tobacco
-  belongs_to :prefecture
-  belongs_to :budget
-  belongs_to :volume
-  belongs_to :parking
+  belongs_to_active_hash :tobacco
+  belongs_to_active_hash :prefecture
+  belongs_to_active_hash :budget
+  belongs_to_active_hash :volume
+  belongs_to_active_hash :parking
+  belongs_to :place
   has_many :reservations
   has_many :information_musics, dependent: :destroy
   has_many :musics, through: :information_musics, dependent: :destroy

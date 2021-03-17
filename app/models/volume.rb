@@ -4,5 +4,5 @@ class Volume < ActiveHash::Base
     {id: 5, name: '話し声が聞こえるくらいの大きさ'}, {id: 6, name: 'とても賑やか'}
   ]
   include ActiveHash::Associations
-  has_many :information
+  has_many :informations
 end

@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+  has_many :informations
   has_ancestry
   
   def self.place_parent_array_create

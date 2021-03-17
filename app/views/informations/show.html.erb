@@ -13,7 +13,17 @@
       </div>
       <div class= "genre">
         ジャンル
+        <%= @information.genre.parent.name %>
         <%= @information.genre.name %>
+      </div>
+      <div class= "prefecture">
+        <%= @information.place.parent.name %>
+      </div>
+      <div class= "prefecture">
+        <%= @information.place.name %>
+      </div>
+      <div class= "light">
+        <%= @information.light.name %>
       </div>
       <div class= "drink">
         <% @information.drinks.each do |drink| %>
@@ -35,7 +45,6 @@
       <div class= "transportation">
         交通手段
         <%= @information.transportation %>
-        
       </div>
       <div class= "business_hours">
         営業時間・定休日

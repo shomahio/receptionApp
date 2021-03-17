@@ -1,0 +1,8 @@
+<h1>お店検索</h1>
+  <%= search_form_for(@q, url: search_informations_path) do |f| %>
+    <%= f.label :store_name_or_genre_name_cont, "Keyword" %>
+    <%= f.search_field :store_name_or_genre_name_cont %>
+    <%= f.collection_select :light_id_eq, Light.all, :id, :name, :include_blank => '店内照明' %>
+    <br>
+    <%= f.submit "検索" %>
+  <% end %>
