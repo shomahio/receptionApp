@@ -3,8 +3,11 @@ class InformationsController < ApplicationController
   def index
     @information = Information.all
     @tweets = Tweet.all
-    @q = Information.ransack(params[:q])
+    @q = Information.includes(:genre).ransack(params[:q])
+    @place_parent_array = Place.place_parent_array_create
+    @genre_parent_array = Genre.genre_parent_array_create
     #@informations = @q.result(distinct: true)
+    
   end
 
   def new
@@ -43,11 +46,27 @@ class InformationsController < ApplicationController
     @records.destroy_all
   end
 
-  def search
-    @q = Information.includes(:genre).search(search_params)
-    @informations = @q.result(distinct: true)
-  end
 
+  def search
+    keyword = params[:q][:store_name_or_genre_name]
+    area_word = params[:q][:city_or_address_or_place_name]
+  
+    genre_parent = Genre.where(ancestry: nil).where("name LIKE (?)", "%#{keyword}%").ids
+    genre_array = Genre.where(ancestry: genre_parent).ids
+  
+    place_parent = Place.where(ancestry: nil).where("name LIKE (?)", "%#{area_word}%").ids
+    place_array = Place.where(ancestry: place_parent).ids
+  
+    @q = Information.ransack(search_params.merge(
+        g: {
+          '0' => { m: 'or', store_name_or_genre_name_cont: keyword, genre_id_in: genre_array },
+          '1' => { m: 'or', city_or_address_or_place_name_cont: area_word, place_id_in: place_array }
+        }
+      )
+    )
+    @informations = @q.result
+    #binding.pry
+  end
 
   private
   def information_params
