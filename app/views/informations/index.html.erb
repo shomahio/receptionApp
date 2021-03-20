@@ -1,14 +1,20 @@
 <div class = "main">
-  <div class = "btn">
-    <%= link_to new_information_path, class: 'purchase-btn' do %> 
-      <span class='purchase-btn-text'>出店する</span>
-    <% end %>
-  </div>
-  <div class = "btn">
-    <%= link_to new_tweet_path, class: 'purchase-btn' do %> 
-      <span class='purchase-btn-text'>投稿する</span>
-    <% end %>
-  </div>
+
+  <%= render "shared/ransack_form" %>
+  <% if store_signed_in? %>
+    <div class = "btn">
+      <%= link_to new_information_path, class: 'purchase-btn' do %> 
+        <span class='purchase-btn-text'>出店する</span>
+      <% end %>
+    </div>
+  <% end %>
+  <% if user_signed_in? %>
+    <div class = "btn">
+      <%= link_to new_tweet_path, class: 'purchase-btn' do %> 
+        <span class='purchase-btn-text'>投稿する</span>
+      <% end %>
+    </div>
+  <% end %>
   <div class= "information_contents">
     <h2 class= "title">おすすめ店舗</h2>
     <ul clas= "information_lists">

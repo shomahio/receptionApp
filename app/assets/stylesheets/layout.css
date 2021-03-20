@@ -21,3 +21,16 @@ header {
   color: aquamarine;
 }
 
+.information-box-img {
+  width: 600px;
+  height: 600px;
+}
+
+.item-img {
+  width: 400px;
+  height: 400px;
+}
+
+.has-events.simple {
+  height: 300px;
+}

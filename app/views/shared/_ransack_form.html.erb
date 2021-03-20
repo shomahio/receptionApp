@@ -1,0 +1,42 @@
+<h1>お店検索</h1>
+  <%= search_form_for(@q, url: search_informations_path) do |f| %>
+    <%= f.search_field :store_name_or_genre_name, placeholder: "キーワード"%>
+    <%= f.search_field :city_or_address_or_place_name, placeholder: "エリア" %>
+    
+    <div class = "serch_genre">
+      <h1>ジャンルから探す</h1>
+      <%= f.collection_radio_buttons :genre_ancestry_eq, Genre.where(ancestry: nil), :id, :name %>
+    </div>
+    <div class = "serch_place">
+      <h1>エリアから探す</h1>
+      <%= f.collection_radio_buttons :place_ancestry_eq, Place.where(ancestry: nil), :id, :name %>
+    </div>
+    <%= f.label :light_id_in, "明るさを選択"%>
+    <br>
+    <%= f.collection_check_boxes :light_id_in, Light.where.not(id: 1), :id, :name %>
+    <br>
+    <%= f.collection_check_boxes :volume_id_in, Volume.where.not(id: 1), :id, :name %>
+    <br>
+    <%= f.collection_check_boxes :tobacco_id_in, Tobacco.where.not(id: 1), :id, :name %>
+    <br>
+    <%= f.collection_check_boxes :drinks_id_in, Drink.all, :id, :name %>
+    <br>
+    <%= f.collection_check_boxes :ages_id_in, Age.all, :id, :name %>
+    <br>
+    <%= f.collection_check_boxes :musics_id_in, Music.all, :id, :name %>
+    <br>
+    <%= f.collection_check_boxes :locations_id_in, Location.all, :id, :name %>
+    <br>
+    <%= f.collection_check_boxes :payments_id_in, Payment.all, :id, :name %>
+    <br>
+    <%= f.collection_check_boxes :rooms_id_in, Room.all, :id, :name %>
+    <br>
+    <%= f.collection_check_boxes :services_id_in, Service.all, :id, :name %>
+    <br>
+    <%= f.collection_check_boxes :spaces_id_in, Space.all, :id, :name %>
+    <br>
+    <%= f.label :budget_id_gt, "予算"%>
+    <%= f.collection_select :budget_id_gt, Budget.where.not(id: 1), :id, :min, {include_blank:"下限なし"} %>
+    <%= f.collection_select :budget_id_lt, Budget.where.not(id: 1), :id, :max, {include_blank:"上限なし"} %>
+    <%= f.submit "検索" %>
+  <% end %>

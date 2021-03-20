@@ -3,5 +3,5 @@ class Booking < ActiveHash::Base
     {id: 1, name: '---'}, {id: 2, name: '予約可能'}, {id: 3, name: '予約不可'},
   ]
   include ActiveHash::Associations
-  has_many :information
+  has_many :informations
 end

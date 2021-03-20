@@ -13,7 +13,17 @@
       </div>
       <div class= "genre">
         ジャンル
+        <%= @information.genre.parent.name %>
         <%= @information.genre.name %>
+      </div>
+      <div class= "prefecture">
+        <%= @information.place.parent.name %>
+      </div>
+      <div class= "prefecture">
+        <%= @information.place.name %>
+      </div>
+      <div class= "light">
+        <%= @information.light.name %>
       </div>
       <div class= "drink">
         <% @information.drinks.each do |drink| %>
@@ -35,7 +45,6 @@
       <div class= "transportation">
         交通手段
         <%= @information.transportation %>
-        
       </div>
       <div class= "business_hours">
         営業時間・定休日
@@ -94,8 +103,8 @@
         ✖︎
         </div>
       <% end %>
-      <% reservations.each do |reservation| %>
-        <div class= "hidden" id= "6" >
+      <div class= "hidden" style="display:none;" >
+        <% reservations.each do |reservation| %>
           <% if reservation.name == nil && user_signed_in? %>
             <%= link_to edit_users_reservation_path(reservation.id) do %>
               <%= reservation.start_time.strftime("%H:%M") %>
@@ -112,7 +121,7 @@
               </div>
             <% end %>
           <% end %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
   <% end %>
 </div>

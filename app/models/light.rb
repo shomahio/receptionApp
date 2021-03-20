@@ -6,6 +6,6 @@ class Light < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :information
+  has_many :informations
 
 end

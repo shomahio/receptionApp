@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   registrations: 'stores/registrations'
   }
   root to: "informations#index"
+  
   resources :stores, only: [:edit, :update]
   
   resources :informations  do
@@ -21,11 +22,10 @@ Rails.application.routes.draw do
     collection do
       get 'get_place_children', defaults: { format: 'json' }
       get 'get_genre_children', defaults: { format: 'json' }
+      get 'search'
     end
-    #namespace :informations do
-      #resources :reservations
-    #end
   end
+
   namespace :informations do
     resources :reservations
   end
