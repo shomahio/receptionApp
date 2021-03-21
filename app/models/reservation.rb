@@ -1,6 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :information, optional: true
   belongs_to :user, optional: true
+  has_one :receipt
   
   validates :start_time, presence: true
   validates :name, presence: true, on: :update

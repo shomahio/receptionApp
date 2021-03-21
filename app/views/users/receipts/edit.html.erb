@@ -1,0 +1,10 @@
+<div class= "recipt">
+  <h1>領収書承認</h1>
+  <div class= "receipt_from">
+    <%= form_with(model: @reseipt, url: users_receipt_path(@receipt.id), method: :patch, local: true) do |f| %>
+      <%= f.label "承認する" %>
+      <%= f.check_box :consent, {},:as => :boolean%>
+      <%= f.submit "決定する", class: :form__btn  %>
+    <% end %>
+  </div>
+</div>

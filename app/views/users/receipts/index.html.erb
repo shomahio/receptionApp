@@ -1,0 +1,14 @@
+<div class = "receipt">
+  <h1>領収書があったら表示<h1>
+  <% @receipts.each do |reseipt| %>
+    <%= link_to edit_users_receipt_path(reseipt.id) do %>
+      <%= reseipt.name %>
+    <% end %>
+  <% end %>
+  <h1>確定領収書</h1>
+  <% @receipts1.each do |reseipt| %>
+    <%= link_to users_receipt_path(reseipt.id) do %>
+      <%= reseipt.name %>
+    <% end %>
+  <% end %>
+</div>

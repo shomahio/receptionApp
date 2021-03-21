@@ -1,0 +1,8 @@
+<div class = "yoyakuitirann">
+  <h1>予約があったら表示<h1>
+  <% @reservations.each do |reservation| %>
+    <%= reservation.start_time.strftime("%H:%M") %>
+    <%= reservation.name %>
+    <%= reservation.number_of_people %>
+  <% end %>
+</div>
