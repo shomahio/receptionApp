@@ -1,0 +1,7 @@
+<h1>ユーザーマイページだよ</h1>
+<div class = "yoyakuitiran">
+  <%= link_to "予約一覧", users_reservations_path(id: current_user.id), method: :get %>
+</div>
+<div class= "receipt">
+  <%= link_to "領収書一覧", users_receipts_path(id: current_user.id), method: :get %>
+</div>

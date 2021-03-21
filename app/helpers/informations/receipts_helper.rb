@@ -1,0 +1,2 @@
+module Informations::ReceiptsHelper
+end

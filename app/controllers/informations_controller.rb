@@ -65,7 +65,6 @@ class InformationsController < ApplicationController
       )
     )
     @informations = @q.result
-    #binding.pry
   end
 
   private

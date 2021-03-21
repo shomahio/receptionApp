@@ -1,0 +1,2 @@
+module Users::ReceiptsHelper
+end

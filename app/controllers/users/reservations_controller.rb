@@ -1,4 +1,8 @@
 class Users::ReservationsController < ApplicationController
+  def index
+    @reservations = Reservation.where(user_id: params[:id])
+  end
+
   def edit
     @reservation = Reservation.find(params[:id])
     @user = User.find(current_user.id)

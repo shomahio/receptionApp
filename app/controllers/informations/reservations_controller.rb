@@ -1,7 +1,11 @@
 class Informations::ReservationsController < ApplicationController
+  def index
+    @reservations = Reservation.where.not(name: nil)
+  end
+
+
   def edit
     @reservation = Reservation.find(params[:id])
-    
   end
 
   def update
@@ -12,7 +16,6 @@ class Informations::ReservationsController < ApplicationController
     else
       render :edit
     end
-    
   end
 
   private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_103320) do
+ActiveRecord::Schema.define(version: 2021_03_20_123033) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -178,6 +178,21 @@ ActiveRecord::Schema.define(version: 2021_03_10_103320) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "receipts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "price", null: false
+    t.string "name", null: false
+    t.string "proviso", null: false
+    t.boolean "consent"
+    t.bigint "reservation_id"
+    t.bigint "user_id"
+    t.bigint "information_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["information_id"], name: "index_receipts_on_information_id"
+    t.index ["reservation_id"], name: "index_receipts_on_reservation_id"
+    t.index ["user_id"], name: "index_receipts_on_user_id"
+  end
+
   create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "information_id"
     t.bigint "user_id"
@@ -272,6 +287,9 @@ ActiveRecord::Schema.define(version: 2021_03_10_103320) do
   add_foreign_key "information_services", "services"
   add_foreign_key "information_spaces", "information"
   add_foreign_key "information_spaces", "spaces"
+  add_foreign_key "receipts", "information"
+  add_foreign_key "receipts", "reservations"
+  add_foreign_key "receipts", "users"
   add_foreign_key "reservations", "information"
   add_foreign_key "reservations", "users"
   add_foreign_key "tweets", "users"

@@ -1,0 +1,11 @@
+<h1>お店の予約一覧</h1>
+<div class = "yoyakuitirann">
+  <% @reservations.each do |reservation| %>
+    <%= link_to new_informations_reservation_receipt_path(reservation.id) do%>
+      <%= reservation.start_time.strftime("%H:%M") %>
+      <%= reservation.name %>
+      <%= reservation.number_of_people %>
+      <br>
+    <% end %>
+  <% end %>
+</div>

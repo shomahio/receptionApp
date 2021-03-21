@@ -32,14 +32,14 @@
           <% if store_signed_in? %>
             <div class= "nav_right">
               <%= link_to "お店ログアウト", destroy_store_session_path, method: :delete, class: :nav_logout %>
-              <%= link_to "お店マイページ", "#", class: :nav_btn %>
+              <%= link_to "お店マイページ", store_path(current_store.id), method: :get, class: :nav_btn %>
             </div>
           <% end %>
 
           <% if user_signed_in? %>
             <div class= "nav_right">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav_logout %>
-              <%= link_to "マイページ", "#", class: :nav_btn %>
+              <%= link_to "マイページ", user_path(current_user.id), method: :get, class: :nav_btn %>
             </div>
           <% end %>
         </div>

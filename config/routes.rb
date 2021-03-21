@@ -4,9 +4,13 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
+  
+
   namespace :users do
     resources :reservations 
+    resources :receipts, only: [:index, :edit, :update, :show]
   end
+  resources :users, only: [:show]
   
   devise_for :stores, controllers: {
   sessions:      'stores/sessions',
@@ -14,9 +18,15 @@ Rails.application.routes.draw do
   registrations: 'stores/registrations'
   }
   root to: "informations#index"
-  
-  resources :stores, only: [:edit, :update]
-  
+
+  resources :stores, only: [:edit, :update, :show]
+
+  namespace :informations do
+    resources :reservations do
+      resources :receipts, only: [:new, :create, :edit, :update, :destroy]
+    end
+  end
+
   resources :informations  do
     #Ajaxで動くアクションのルートを作成
     collection do
@@ -26,8 +36,5 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :informations do
-    resources :reservations
-  end
   resources :tweets
 end

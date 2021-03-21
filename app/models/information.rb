@@ -28,6 +28,8 @@ class Information < ApplicationRecord
   has_many :rooms, through: :information_rooms, dependent: :destroy
   has_many :information_spaces, dependent: :destroy
   has_many :spaces, through: :information_spaces, dependent: :destroy
+  has_many :receipts
+  
   
   #バリデーション
   with_options presence: true do
