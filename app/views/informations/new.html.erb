@@ -61,11 +61,6 @@
             </div>
           </div>
           <div class= "weight-bold-text">
-            都道府県
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
-          <div class= "weight-bold-text">
             市町村
             <span class="indispensable">必須</span>
           </div>
@@ -85,27 +80,16 @@
             <span class="indispensable">必須</span>
           </div>
           <%= f.text_field :transportation, class:"input-default", id:"transportation", placeholder:"例）○○駅から北に徒歩○○分"%>
-          
           <div class= "weight-bold-text">
             営業開始時間
             <span class="indispensable">必須</span>
           </div>
-          <%= f.number_field :open, class:"input-default", min:0, max:27 %>
+          <%= f.time_field :opening_time, class:"input-default", id:"business_hours", placeholder:"例）16時"%>
           <div class= "weight-bold-text">
             営業終了時間
             <span class="indispensable">必須</span>
           </div>
-          <%= f.number_field :close, class:"input-default", min:0, max:27 %>
-          <div class= "weight-bold-text">
-            営業開始時間
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.datetime_field :opening_time, class:"input-default", id:"business_hours", placeholder:"例）16時"%>
-          <div class= "weight-bold-text">
-            営業終了時間
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.datetime_field :closing_time, class:"input-default", id:"business_hours", placeholder:"例）16時"%>
+          <%= f.time_field :closing_time, class:"input-default", id:"business_hours", placeholder:"例）16時"%>
 
           <div class= "weight-bold-text">
             定休日

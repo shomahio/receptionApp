@@ -40,7 +40,7 @@
       </div>
       <div class= "zyuusyo">
         住所
-        <%= @information.prefecture.name %><%= @information.city %><%= @information.address %>
+        <%= @information.place.parent.name %><%= @information.city %><%= @information.address %>
       </div>
       <div class= "transportation">
         交通手段
@@ -124,4 +124,7 @@
         <% end %>
       </div>
   <% end %>
+  <div class ="btn">
+    <%= link_to "情報を削除する", information_path(@information.id), method: :delete %>
+  </div>
 </div>
