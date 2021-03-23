@@ -34,6 +34,10 @@ Rails.application.routes.draw do
       get 'get_genre_children', defaults: { format: 'json' }
       get 'search'
     end
+    member do
+      get 'get_place_children', defaults: { format: 'json' }
+      get 'get_genre_children', defaults: { format: 'json' }
+    end
   end
 
   resources :tweets
