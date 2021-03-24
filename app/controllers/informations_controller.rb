@@ -6,8 +6,6 @@ class InformationsController < ApplicationController
     @q = Information.includes(:genre).ransack(params[:q])
     @place_parent_array = Place.place_parent_array_create
     @genre_parent_array = Genre.genre_parent_array_create
-    #@informations = @q.result(distinct: true)
-    
   end
 
   def new
