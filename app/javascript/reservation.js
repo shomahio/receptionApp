@@ -18,4 +18,4 @@ function check() {
     });
   });
 }
-window.addEventListener("load", check)
+window.addEventListener("turbolinks:load", check)

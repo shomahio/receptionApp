@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_123033) do
+ActiveRecord::Schema.define(version: 2021_03_21_133916) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -73,11 +73,8 @@ ActiveRecord::Schema.define(version: 2021_03_20_123033) do
     t.string "holiday"
     t.integer "booking_id"
     t.integer "parking_id"
-    t.integer "prefecture_id"
-    t.integer "open"
-    t.integer "close"
-    t.datetime "opening_time"
-    t.datetime "closing_time"
+    t.time "opening_time", null: false
+    t.time "closing_time", null: false
     t.index ["store_id"], name: "index_information_on_store_id"
   end
 

@@ -10,8 +10,8 @@ class ReservationCollection
   # 予約の数分だけのレコードを生成
   def initialize(information,destroy_records)
     new_records = []
-    close_time = information.close
-    open_time = information.open
+    close_time = information.closing_time.strftime("%H").to_i
+    open_time = information.opening_time.strftime("%H").to_i
     oneday = close_time - open_time
     require "date"
     year = Date.today.year

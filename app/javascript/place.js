@@ -23,7 +23,6 @@ $(function(){
   // 親カテゴリー選択後のイベント
   $('#parent_place').on('change', function(){
     var parentPlace = document.getElementById("parent_place").value; //選択された親カテゴリーの名前を取得
-    //debugger
     if (parentPlace != "---"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
         url: 'get_place_children',

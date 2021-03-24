@@ -1,6 +1,6 @@
 class Informations::ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.where.not(name: nil)
+    @reservations = Reservation.where(information_id: params[:format]).where.not(name: nil)
   end
 
 

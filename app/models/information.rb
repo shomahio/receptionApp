@@ -6,12 +6,11 @@ class Information < ApplicationRecord
   belongs_to_active_hash :booking
   belongs_to :light
   belongs_to_active_hash :tobacco
-  belongs_to_active_hash :prefecture
   belongs_to_active_hash :budget
   belongs_to_active_hash :volume
   belongs_to_active_hash :parking
   belongs_to :place
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
   has_many :information_musics, dependent: :destroy
   has_many :musics, through: :information_musics, dependent: :destroy
   has_many :information_payments, dependent: :destroy
@@ -28,7 +27,7 @@ class Information < ApplicationRecord
   has_many :rooms, through: :information_rooms, dependent: :destroy
   has_many :information_spaces, dependent: :destroy
   has_many :spaces, through: :information_spaces, dependent: :destroy
-  has_many :receipts
+  has_many :receipts, dependent: :destroy
   
   
   #バリデーション
@@ -49,7 +48,6 @@ class Information < ApplicationRecord
       validates :volume_id
       validates :budget_id
       validates :tobacco_id
-      validates :prefecture_id
     end
   end
 
