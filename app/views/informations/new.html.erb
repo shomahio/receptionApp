@@ -15,9 +15,51 @@
         </div>
         <div class="click-upload">
           <p>
-            クリックしてファイルをアップロード
+            クリックしてトップ画像ファイルをアップロード
           </p>
           <%= f.file_field :image, id:"store-image" %>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックして料理ファイルをアップロード
+          </p>
+          <%= f.file_field :image_foods, direct_upload: true, multiple: true, id:"store-image" %>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてお店の外観ファイルをアップロード
+          </p>
+          <%= f.file_field :image_appearances, direct_upload: true, multiple: true, id:"store-image" %>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてお店の外観ファイルをアップロード
+          </p>
+          <%= f.file_field :image_introspections, direct_upload: true, multiple: true, id:"store-image" %>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてお店の入り口からの画像ファイルをアップロード
+          </p>
+          <%= f.file_field :image_entrances, direct_upload: true, multiple: true, id:"store-image" %>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてお店の席の画像ファイルをアップロード
+          </p>
+          <%= f.file_field :image_seats, direct_upload: true, multiple: true, id:"store-image" %>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてお店の景色の画像ファイルをアップロード
+          </p>
+          <%= f.file_field :image_views, direct_upload: true, multiple: true, id:"store-image" %>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてお店のトイレの画像ファイルをアップロード
+          </p>
+          <%= f.file_field :image_toilets, direct_upload: true, multiple: true, id:"store-image" %>
         </div>
       </div>
       <%# /店内画像 %>

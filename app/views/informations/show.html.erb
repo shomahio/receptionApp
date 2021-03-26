@@ -6,6 +6,48 @@
     <div class= "information_img_content">
       <%= image_tag @information.image, class: "information-box-img" %>
     </div>
+    <div class= "information_img_content">
+      <h2>料理画像</h2>
+      <% @information.image_foods.each do |image_food| %>
+        <%= image_tag image_food %>
+      <% end %>
+    </div>
+    <div class= "information_img_content">
+      <h2>お店の外観画像</h2>
+      <% @information.image_appearances.each do |image_appearance| %>
+        <%= image_tag image_appearance %>
+      <% end %>
+    </div>
+    <div class= "information_img_content">
+      <h2>お店の内観画像</h2>
+      <% @information.image_introspections.each do |image_introspection| %>
+        <%= image_tag image_introspection %>
+      <% end %>
+    </div>
+    <div class= "information_img_content">
+      <h2>お店の入り口からの画像</h2>
+      <% @information.image_entrances.each do |image_entrance| %>
+        <%= image_tag image_entrance %>
+      <% end %>
+    </div>
+    <div class= "information_img_content">
+      <h2>お店の席の画像</h2>
+      <% @information.image_seats.each do |image_seat| %>
+        <%= image_tag image_seat %>
+      <% end %>
+    </div>
+    <div class= "information_img_content">
+      <h2>お店の景色の画像</h2>
+      <% @information.image_views.each do |image_view| %>
+        <%= image_tag image_view %>
+      <% end %>
+    </div>
+    <div class= "information_img_content">
+      <h2>お店のトイレの画像</h2>
+      <% @information.image_toilets.each do |image_toilet| %>
+        <%= image_tag image_toilet %>
+      <% end %>
+    </div>
     <div class= "information_kihon">
       <div class = "name">
         店名
