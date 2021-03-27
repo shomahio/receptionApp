@@ -3,13 +3,17 @@
     <%= f.search_field :store_name_or_genre_name, placeholder: "キーワード"%>
     <%= f.search_field :city_or_address_or_place_name, placeholder: "エリア" %>
     
-    <div class = "serch_genre">
-      <h1>ジャンルから探す</h1>
-      <%= f.collection_radio_buttons :genre_ancestry_eq, Genre.where(ancestry: nil), :id, :name %>
+    <div class = "genre">
+      <div class= "search_genre" id="search_genre1">ジャンルから探す</div>
+      <div class= "genre_btn" style="display:none;" id="genre_btn1">
+        <%= f.collection_radio_buttons :genre_ancestry_eq, Genre.where(ancestry: nil), :id, :name %>
+      </div>
     </div>
-    <div class = "serch_place">
-      <h1>エリアから探す</h1>
-      <%= f.collection_radio_buttons :place_ancestry_eq, Place.where(ancestry: nil), :id, :name %>
+    <div class = "search_place">
+      <div class="search_name" id="search_place1">エリアから探す</div>
+      <div class= "place_btn" style="display:none;" id="place_btn1">
+        <%= f.collection_radio_buttons :place_ancestry_eq, Place.where(ancestry: nil), :id, :name %>
+      </div>
     </div>
     <%= f.label :light_id_in, "明るさを選択"%>
     <br>

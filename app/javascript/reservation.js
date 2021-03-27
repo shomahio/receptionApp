@@ -1,5 +1,3 @@
-const { nodeName } = require("jquery");
-
 function check() {
   const days = document.querySelectorAll(".has-events");
   days.forEach(function (day) {
