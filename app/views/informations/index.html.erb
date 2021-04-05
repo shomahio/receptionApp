@@ -1,4 +1,33 @@
 <div class = "main">
+  <div class= "index_header">
+    <div class= "nav_left">
+      <div class= "top_text">ビジネス版食べログ</div>
+    </div>
+    <div class= "nav_right">
+      <% unless user_signed_in? || store_signed_in? %>
+        <div class= "nav_btn">
+          <%= link_to "お店ログイン", new_store_session_path, class: nav_btn %>
+          <%= link_to "お店新規登録", new_store_registration_path, class: nav_btn %>
+        </div>
+        <div class= "nav_btn">
+          <%= link_to "ログイン", new_user_session_path, class: "nav_btn"%>
+          <%= link_to "新規登録", new_user_registration_path , class: "nav_btn" %>
+        </div>
+      <% end %>
+      <% if store_signed_in? %>
+        <div class= "nav_btn">
+          <%= link_to "お店ログアウト", destroy_store_session_path, method: :delete, class: "nav_btn" %>
+          <%= link_to "お店マイページ", store_path(current_store.id), method: :get, class: "nav_btn" %>
+        </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <div class= "nav_btn">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav_btn"  %>
+          <%= link_to "マイページ", user_path(current_user.id), method: :get, class: "nav_btn"  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
   <%= render "shared/ransack_form" %>
   <% if store_signed_in? %>
     <div class = "btn">
@@ -36,11 +65,11 @@
       <% end %>
     </ul>
   </div>
-  <div class= "information_tweets">
-    <h2 class= "title">みんなの声</h2>
-    <ul clas= "information_tweet_lists">
+  <div class= "information_tweets_main">
+    <h2 class= "tweet_title">ツイート欄</h2>
+    <div class= "information_tweet_lists">
       <% @tweets.each do |tweet| %>
-        <li class= "list">
+        <%= link_to tweet_path(tweet.id) do %>
           <div class= "tweet_info">
             <h3 class= "tweet_name">
               <%= tweet.name %>
@@ -52,21 +81,8 @@
               <%= image_tag tweet.image, class: "item-img" %>
             </div>
           </div>
-          <div class="more">
-            <ul class="more_list">
-              <li>
-                <%= link_to '詳細', tweet_path(tweet.id), method: :get %>
-              </li>
-              <li>
-                <%= link_to '編集', edit_tweet_path(tweet.id), method: :get %>
-              </li>
-              <li>
-                <%= link_to '削除', tweet_path(tweet.id), method: :delete %>
-              </li>
-            </ul>
-          </div>
-        </li>
+        <% end %>
       <% end %>
-    </ul>
+    </div>
   </div>
 </div>
