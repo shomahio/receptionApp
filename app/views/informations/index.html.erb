@@ -10,12 +10,18 @@
           <%= link_to "新規登録", new_user_registration_path , class: "nav_btn" %>
         </div>
       <% end %>
-      <% if store_signed_in? %>
+      <% if store_signed_in? && Information.find_by(store_id: current_store.id) != nil %>
         <div class= "nav_btns">
           <%= link_to "お店ログアウト", destroy_store_session_path, method: :delete, class: "nav_btn" %>
           <%= link_to "お店マイページ", store_path(current_store.id), method: :get, class: "nav_btn" %>
         </div>
+      <% elsif store_signed_in? %>
+        <div class= "nav_btns">
+          <%= link_to "お店ログアウト", destroy_store_session_path, method: :delete, class: "nav_btn" %>
+          <%= link_to "出店する", new_information_path, data: {"turbolinks" => false}, class: 'nav_btn' %> 
+        </div>
       <% end %>
+
       <% if user_signed_in? %>
         <div class= "nav_btns">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav_btn"  %>
@@ -54,20 +60,13 @@
     </div>
   </div>
   <div class = "for_shop_contents">
+    <% unless user_signed_in? || store_signed_in? %>
     <div class = "for_shop_tag">
       <h1 class = "shop_tag_text"> 飲食店・食関連企業の方</h1>
     </div>
-    <% unless user_signed_in? || store_signed_in? %>
     <div class ="store_log_btns">
       <%= link_to "店舗ログイン", new_store_session_path, class: "store_log_btn" %>
       <%= link_to "店舗新規登録", new_store_registration_path, class: "store_log_btn" %>
-    </div>
-    <% end %>
-    <% if store_signed_in? %>
-    <div class = "information_post_btn">
-      <div class = "btn">
-          <%= link_to "出店する", new_information_path, data: {"turbolinks" => false}, class: 'information_post_btn_url' %> 
-      </div>
     </div>
     <% end %>
     <div class = "for_shop_details">

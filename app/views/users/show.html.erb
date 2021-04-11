@@ -1,32 +1,41 @@
 <div class="tabs">
-  <% if current_user.id == @user.id %>
-  <input type='radio' id='company-page' name='tab-item'checked>
-  <%= link_to 'ユーザー情報',user_path(current_user.id), class: 'tab-item'%>
-    <input type='radio' id='staff-page' name='tab-item'>
-    <%= link_to '予約一覧', users_reservations_path(id: current_user.id), method: :get, class: 'tab-item' %>
-    <input type='radio' id='index-page' name='tab-item'>
-    <%= link_to '領収書一覧', users_receipts_path(id: current_user.id), method: :get, class: 'tab-item' %>
+  <% if user_signed_in? &&  current_user.id == @user.id %>
+    <input type='radio' id='company-page' name='tab-item'checked>
+    <%= link_to 'ユーザー情報',user_path(@user.id), class: 'tab-item'%>
+      <input type='radio' id='staff-page' name='tab-item'>
+      <%= link_to '予約一覧', users_reservations_path(id: current_user.id), method: :get, class: 'tab-item' %>
+      <input type='radio' id='index-page' name='tab-item'>
+      <%= link_to '領収書一覧', users_receipts_path(id: current_user.id), method: :get, class: 'tab-item' %>
+  <% else %>
+    <h1 class= "tweet_user_tag"><%= @user.nickname %>さんの投稿</h1>
   <% end %>
 </div>
-  <div class= "tweets">
-    <div class= "tweet_contents">
-      <h1 class= "tweet_user_tag"><%= @user.nickname %>さんの投稿</h1>
-      <div class= "tweet_content">
-        <% @tweets.each do |tweet| %>
-          <div class= "tweet_detail_content">
-            <div class= "tweet_content_img">
-              <%= image_tag tweet.image, class: "item_img_top" %>
+<div class= "tweets">
+  <div class= "tweet_contents">
+    <div class= "tweet_content">
+      <% @tweets.each do |tweet| %>
+        <div class= "tweet_detail_content">
+          <div class= "tweet_content_img">
+            <%= image_tag tweet.image, class: "item_img_top" %>
+          </div>
+          <div class= "tweet_content_text">
+            <%= tweet.text %>
+          </div>
+          <div class= "tweet_content_date">
+            <div class="more">
+            <% if current_user.id == tweet.user.id %>
+              <%= link_to '編集', edit_tweet_path(tweet.id), method: :get %>
+              <%= link_to '削除', tweet_path(tweet.id), method: :delete %>
             </div>
-            <div class= "tweet_content_text">
-              <%= tweet.text %>
-            </div>
-            <div class= "tweet_content_date">
+            <div class= "tweet_content_time">
               <%= tweet.created_at.strftime("%m/%d") %>
             </div>
+          <% end %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+
 

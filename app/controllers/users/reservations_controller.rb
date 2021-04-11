@@ -1,6 +1,6 @@
 class Users::ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.where(user_id: params[:id])
+    @reservations = Reservation.where(user_id: params[:id]).where("start_time > ?", Time.now - 1.days).order("start_time ASC")
   end
 
   def edit

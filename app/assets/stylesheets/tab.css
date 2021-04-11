@@ -1,8 +1,7 @@
 /*タブ切り替え全体のスタイル*/
 .tabs {
-  /* width: 90%;
-  margin: 30px auto; */
-  background-color: #fff;
+  height: 50px;
+  background-color: #5ab4bd;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 

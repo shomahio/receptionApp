@@ -1,25 +1,25 @@
-window.addEventListener('load', function(){
+window.addEventListener('pageshow', function(){
   const genrePictures = document.querySelector(".genre_btn")
   const placeBtns = document.querySelector(".place_btn")
   const detailTags = document.querySelectorAll(".detail_tag")
   const detailBtns = document.querySelectorAll(".radio_btns")
   const sampleBtns = document.querySelectorAll(".sample_btn")
+  
 
   const genrePicture = genrePictures.childNodes
   genrePicture.forEach(function (picture) { 
-    if (picture.checked) {
-      picture.setAttribute("style", "filter: opacity(40%);")
-    }
     picture.addEventListener ("click", () => {
       if (picture.getAttribute("style") == "filter: opacity(40%);") {
         picture.removeAttribute("style", "filter: opacity(40%);")
       }else {
         picture.setAttribute("style", "filter: opacity(40%);")
-      }
+      };
     });
   });
   
-
+  sampleBtns.forEach(function (sampleBtn) {
+    sampleBtn.checked = false;
+  });
 
 
   const placeChild = placeBtns.childNodes
@@ -29,7 +29,7 @@ window.addEventListener('load', function(){
         placeBtn.removeAttribute("style", "background-color:#FFBEDA;")
       }else {
         placeBtn.setAttribute("style", "background-color:#FFBEDA;")
-      }
+      };
     });
   });
 

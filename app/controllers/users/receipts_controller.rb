@@ -1,7 +1,7 @@
 class Users::ReceiptsController < ApplicationController
   def index
-    @receipts = Receipt.where(user_id: params[:id], consent: nil)
-    @receipts1 = Receipt.where(user_id: params[:id], consent: 1)
+    @receipts = Receipt.where(user_id: params[:id], consent: nil).order("created_at ASC")
+    @receipts1 = Receipt.where(user_id: params[:id], consent: 1).order("created_at ASC")
   end
 
   def edit

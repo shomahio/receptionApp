@@ -18,46 +18,119 @@
         </div>
       </div>
     </div>
-  <% end %>
 
-<div class='search-page'>
-  <div class='search-page__inner-left'>
-    <h2>詳細検索</h2>
-    <div class='search-content'>
-      <div class='ambience-search'>
-        <h3>雰囲気検索</h3>
-        <div class='search'>
-          <div class='search-tag'>明るさ</div>
-          <div class='search-select'>チェックボックスだす</div>
+    <div class='search-page'>
+      <div class='search-page__inner-left'>
+        <h2>詳細検索</h2>
+        <div class='search-content'>
+          <div class='ambience-search'>
+            <h3>雰囲気検索</h3>
+            <div class='search'>
+              <div class='search-tag'>明るさ</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :light_id_in, Light.where.not(id: 1), :id, :name, include_hidden: false  do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>店内音量</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :volume_id_in, Volume.where.not(id: 1), :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>利用者年齢層</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :ages_id_in, Age.all, :id, :name  do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>BGM</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :musics_id_in, Music.all, :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+                                          </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>席</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :rooms_id_in, Room.all, :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>利用シーン</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :reception_id_in, Reception.where.not(id: 1), :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <%= f.submit "絞り込む" ,class: "search_submit_detail", class:"submit-btn" %>
+          </div>
+          <div class='commitment-search'>
+            <h3>こだわり検索</h3>
+            <div class='search'>
+              <div class='search-tag'>喫煙・禁煙</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :tobacco_id_in, Tobacco.where.not(id: 1), :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>飲み物</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :drinks_id_in, Drink.all, :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>ロケーション</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :locations_id_in, Location.all, :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>支払い方法を選択</div>
+            <div class='search-select'>
+              <%= f.collection_check_boxes :payments_id_in, Payment.all, :id, :name do |b| %>
+                <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+              <% end %>
+            </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>サービスを選択</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :services_id_in, Service.all, :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>空間を選択</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :spaces_id_in, Space.all, :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <%= f.submit "絞り込む" ,class: "search_submit_detail", class:"submit-btn" %>
+          </div>
         </div>
-        <div class='search'>
-          <div class='search-tag'>BGM</div>
-          <div class='search-select'>チェックボックスだす</div>
-        </div>
-        <div class='search'>
-          <div class='search-tag'>利用シーン</div>
-          <div class='search-select'>チェックボックスだす</div>
-        </div>
-        <input type="submit" value="絞り込む" class="submit-btn">
       </div>
-      <div class='commitment-search'>
-        <h3>こだわり検索</h3>
-        <div class='search'>
-          <div class='search-tag'>支払い方法</div>
-          <div class='search-select'>チェックボックスだす</div>
-        </div>
-        <div class='search'>
-          <div class='search-tag'>喫煙・禁煙</div>
-          <div class='search-select'>チェックボックスだす</div>
-        </div>
-        <div class='search'>
-          <div class='search-tag'>わああああああああ</div>
-          <div class='search-select'>チェックボックスだす</div>
-        </div>
-        <input type="submit" value="絞り込む" class="submit-btn">
-      </div>
-    </div>
-  </div>
+    
+  <% end %>
   <div class='search-page__inner-right'>
     <h2>検索結果 <%= @informations.length %>件</h2>
     <% @informations.each do |information|%>

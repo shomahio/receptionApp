@@ -5,27 +5,34 @@
   <%= link_to '予約一覧', informations_reservations_path(@information.id), method: :get, class: 'tab-item' %>
   <input type='radio' id='index-page' name='tab-item'>
   <%= link_to '領収書一覧', informations_reservation_receipts_path(@information.id), method: :get, class: 'tab-item' %>
-  <div class= "reservations">
-    <div class= "reservation">
-      <div class = "reservation_down">
-        <h1 class= "reservation_down_tag"><%= @information.store_name %>の予約一覧</h1>
-        <div class = "recipt_reservation_table">
-          <table>
-            <tr >
-              <th>お名前</th>
-              <th>予約人数</th>
-              <th>予約時刻</th>
-              
+</div>
+<div class= "reservations">
+  <div class= "reservation">
+    <div class = "reservation_down">
+      <h1 class= "reservation_down_tag"><%= @information.store_name %>の予約一覧</h1>
+      <div class = "recipt_reservation_table">
+        <table>
+          <tr >
+            <th>お名前</th>
+            <th>予約人数</th>
+            <th>予約時刻</th>
+            <th>領収書</th>
+          </tr>
+          <% @reservations.each do |reservation| %>
+            <tr>
+              <td><%=reservation.name %></td>
+              <td><%= reservation.number_of_people %>人</td>
+              <td><%= reservation.start_time.strftime("%Y/%m/%d/%H:%M") %></td>
+              <td>
+              <% if reservation.receipt == nil%>
+              <%=link_to "未作成", new_informations_reservation_receipt_path(reservation.id) %>
+              <% else %>
+              作成済
+              <% end %>
+              </td>
             </tr>
-            <% @reservations.each do |reservation| %>
-              <tr>
-                <td><%=link_to reservation.name, new_informations_reservation_receipt_path(reservation.id) %></td>
-                <td><%= reservation.number_of_people %>人</td>
-                <td><%= reservation.start_time.strftime("%Y/%m/%d/%H:%M") %></td>
-              </tr>
-            <% end %>
-          </table>
-        </div>
+          <% end %>
+        </table>
       </div>
     </div>
   </div>

@@ -376,89 +376,11 @@ margin: auto;
   height: 45px;
 }
 
+
 .submit_detail_btn {
   text-align: center;
 }
 
-.information_tweets_main {
-  width: 100%;
-}
-
-.tweet_title {
-  font-family: 'Courier New', Courier, monospace;
-  color: coral;
-  font-size: 30px;
-  margin-left: 70px;
-}
-
-.information_tweet_lists {
-  width: 80%;
-  margin: auto;
-  display: flex;
-  justify-content: space-around;
-}
-
-.tweet_info {
-  height: 500px;
-  width: calc(90% / 3);
-  position: relative;
-  padding: 0.5em 0.7em;
-  margin: 2em 0;
-  background: #e6f4ff;
-  color: #5c98d4;
-  font-weight: bold;
-}
-
-.tweet_info:after {
-  position: absolute;
-  content: '';
-  top: 100%;
-  left: 30px;
-  border: 15px solid transparent;
-  border-top: 15px solid #e6f4ff;
-  width: 0;
-  height: 0;
-}
-.tweet_info p {
-  margin: 0; 
-  padding: 0;
-}
-
-.tweet_path_url {
-  text-decoration: none;
-}
-
-.tweet_name {
-  width: 80%;
-  margin: auto;
-}
-
-.tweet_img {
-  width: 100%;
-  height: 250px;
-}
-
-.item_tweet_img {
-  width: 100%;
-  height: 100%;
-}
-
-.tweet_text {
-  width: 90%;
-  height: 150px;
-  margin: 20px auto;
-  background-color: white;
-  font-size: 18px;
-  padding-top: 10px;
-  
-}
-
-.user_tweet_post_btn {
-  width: 240px;
-  height: 60px;
-  margin: 0 auto;
-  text-align: center;
-}
 
 .tweet_post_btn {
   margin: auto;
@@ -478,9 +400,6 @@ margin: auto;
   height: 300px;
 }
 
-.for_shop_contents {
-
-}
 
 .for_shop_tag {
   width: 100%;

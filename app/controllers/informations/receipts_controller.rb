@@ -1,7 +1,7 @@
 class Informations::ReceiptsController < ApplicationController
   def index
-    @receipts = Receipt.where(information_id: params[:reservation_id], consent: nil)
-    @receipts1 = Receipt.where(information_id: params[:reservation_id], consent: 1)
+    @receipts = Receipt.where(information_id: params[:reservation_id], consent: nil).order("created_at ASC")
+    @receipts1 = Receipt.where(information_id: params[:reservation_id], consent: 1).order("created_at ASC")
     @information = Information.find_by(store_id: current_store.id)
     #binding.pry
   end

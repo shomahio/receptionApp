@@ -58,7 +58,7 @@ class InformationsController < ApplicationController
     #レコードの自動作成
     ReservationCollection.new(@information,@records)
     #過去のレコードの自動削除
-    @records = Reservation.where("start_time < ?", Time.now - 1.days)
+    @records = Reservation.where("start_time < ?", Time.now - 1.days).where(user_id: nil)
     @records.destroy_all
   end
 
@@ -90,7 +90,6 @@ class InformationsController < ApplicationController
     )
     @informations = @q.result
     @reservations = Reservation.where(information_id: @informations.ids, name: nil)
-    #binding.pry
   end
 
   private

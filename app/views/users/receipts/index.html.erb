@@ -4,51 +4,51 @@
   <input type='radio' id='staff-page' name='tab-item'>
   <%= link_to '予約一覧', users_reservations_path(id: current_user.id), method: :get, class: 'tab-item' %>
   <input type='radio' id='index-page' name='tab-item'checked>
-  <%= link_to '領収書一覧', users_receipts_path(id: current_user.id), method: :get, class: 'tab-item' %>    
-    <div class = "receipt">
-      <div class= "recipts">
-        <div class= "recipt_unapproved">
-          <h1 class ="recipt_unapproved_tag">未承認の領収書</h1>
-          <div class = "recipt_reservation_table">
-            <table>
-              <tr >
-                <th>お名前</th>
-                <th>店名</th>
-                <th>料金</th>
-                <th>日付</th>
-              </tr>
-              <% @receipts.each do |receipt| %>
-                <tr>
-                  <td><%= link_to receipt.name, edit_users_receipt_path(receipt.id) %></td>
-                  <td><%= receipt.information.store_name %></td>
-                  <td>￥<%= receipt.price %></td>
-                  <td><%= receipt.created_at.strftime("%Y/%m/%d") %></td>
-                </tr>
-              <% end %>
-            </table>
-          </div>
-        </div>
-        <div class= "recipt_approved">
-          <h1 class ="recipt_approved_tag"> 過去の確定領収書</h1>
-          <div class = "recipt_reservation_table">
-            <table>
-              <tr >
-                <th>お名前</th>
-                <th>店名</th>
-                <th>料金</th>
-                <th>日付</th>
-              </tr>
-              <% @receipts1.each do |receipt| %>
-                  <tr>
-                    <td><%= link_to receipt.name, users_receipt_path(receipt.id) %></td>
-                    <td><%= receipt.information.store_name %></td>
-                    <td>￥<%= receipt.price %></td>
-                    <td><%= receipt.created_at.strftime("%Y/%m/%d") %></td>
-                  </tr>
-              <% end %>
-            </table>
-          </div>
-        </div>
+  <%= link_to '領収書一覧', users_receipts_path(id: current_user.id), method: :get, class: 'tab-item' %>
+</div>    
+<div class = "receipt">
+  <div class= "recipts">
+    <div class= "recipt_unapproved">
+      <h1 class ="recipt_unapproved_tag">未承認の領収書</h1>
+      <div class = "recipt_reservation_table">
+        <table>
+          <tr >
+            <th>お名前</th>
+            <th>店名</th>
+            <th>料金</th>
+            <th>日付</th>
+          </tr>
+          <% @receipts.each do |receipt| %>
+            <tr>
+              <td><%= link_to receipt.name, edit_users_receipt_path(receipt.id) %></td>
+              <td><%= receipt.information.store_name %></td>
+              <td>￥<%= receipt.price %></td>
+              <td><%= receipt.created_at.strftime("%Y/%m/%d") %></td>
+            </tr>
+          <% end %>
+        </table>
       </div>
     </div>
+    <div class= "recipt_approved">
+      <h1 class ="recipt_approved_tag"> 過去の確定領収書</h1>
+      <div class = "recipt_reservation_table">
+        <table>
+          <tr >
+            <th>お名前</th>
+            <th>店名</th>
+            <th>料金</th>
+            <th>日付</th>
+          </tr>
+          <% @receipts1.each do |receipt| %>
+              <tr>
+                <td><%= link_to receipt.name, users_receipt_path(receipt.id) %></td>
+                <td><%= receipt.information.store_name %></td>
+                <td>￥<%= receipt.price %></td>
+                <td><%= receipt.created_at.strftime("%Y/%m/%d") %></td>
+              </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
