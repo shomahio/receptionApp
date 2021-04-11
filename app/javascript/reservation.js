@@ -1,10 +1,8 @@
-const { nodeName } = require("jquery");
-
 function check() {
   const days = document.querySelectorAll(".has-events");
   days.forEach(function (day) {
     const hiddenClass = day.getAttribute("class");
-      let children = day.childNodes;
+      const children = day.childNodes;
       const children2 = children[3];
       const children3 = children[1];
     day.addEventListener("click", () => {

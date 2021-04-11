@@ -10,7 +10,7 @@ $(function(){
     let childSelectHtml = '';
     childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
                         <div class='listing-select-wrapper__box'>
-                          <select class="listing-select-wrapper__box--select" id="child_place" name="place_id">
+                          <select class="input-default" id="child_place" name="place_id">
                             <option value="---" data-place="---">---</option>
                             ${insertHTML}
                           <select>

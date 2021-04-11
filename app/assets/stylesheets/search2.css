@@ -1,0 +1,167 @@
+.search-page {
+  width: 100%;
+  padding: 30px;
+  background-color: #fff;
+  display: flex;
+}
+/* --------------------
+      検索フォーム
+   -------------------- */
+.search-page__inner-left {
+  width: 25%;
+  margin-right: 40px;
+}
+.search-page__inner-left h2 {
+  font-size: 25px;
+  color: #874E4C;
+}
+.search-page__inner-left .search-content {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #565656;
+}
+/* --- 雰囲気検索・こだわり検索 --- */
+.ambience-search, .commitment-search {
+  padding: 5px 15px;
+  margin: 2px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.search-content h3 {
+  color: #874E4C;
+  border-bottom: 1px solid #C09933;
+}
+.search-content .search {
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.search-content .search-tag {
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+.search-content .search-select {
+  padding: 5px;
+}
+.submit-btn {
+  height: 30px;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #849974;
+  color: #fff;
+}
+
+.left_sample_radio {
+  padding-right: 15px;
+}
+
+/* --------------------
+        お店一覧
+   -------------------- */
+.search-page__inner-right {
+  width: 75%;
+}
+.search-page__inner-right h2 {
+  font-size: 25px;
+  color: #874E4C;
+}
+.search-page__inner-right .information-content-back {
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #36384C;
+  border-radius: 5px;
+}
+.search-page__inner-right .information-content {
+  height: 370px;
+  padding: 15px;
+  border: 3px solid #C09933;
+  border-radius: 5px;
+  background-color: #fff;
+  display: flex;
+}
+/* --- お店写真 --- */
+.information-content__inner-left {
+  width: 35%;
+  margin-right: 30px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.search_information-box-img {
+  width: 100%;
+  height: 100%;
+}
+
+/* --- お店情報 --- */
+.information-content__inner-right {
+  width: 65%;
+}
+.information-content__inner-right a {
+  font-size: 30px;
+  color: #874E4C;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+.information-content__inner-right .address {
+  width: 100%;
+  margin-bottom: 5px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+.information-content__inner-right .store-desc {
+  margin-bottom: 5px;
+  display: flex;
+}
+.store-desc__inner-left, .store-desc__inner-right {
+  width: 50%;
+}
+.store-desc__inner-left .desc, .store-desc__inner-right .desc {
+  display: flex;
+}
+
+.icon_text {
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+
+
+.image-icon {
+  height: 25px;
+  width: 25px;
+  padding: 3px;
+  margin: 0 5px 5px 0;
+  border: 1px solid #565656;
+  border-radius: 5px;
+}
+.calendar {
+  height: 65px;
+  padding-top: 15px;
+  
+}
+
+.calendar .simple-calendar {
+  height: 10%;
+  width: 100%;
+}
+
+.calendar .calendar-heading {
+  display: none;
+}
+
+.calendar .th {
+  height: 30%;
+}
+
+.calendar .td {
+  height: 70%;
+}

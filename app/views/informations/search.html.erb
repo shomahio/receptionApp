@@ -1,6 +1,219 @@
-<h1>検索結果</h1>
-<div class= "search_contents">
-  <% @informations.each do |information| %>
-    <%= information.store_name %>
+<div class= "search_main">
+  <%= search_form_for(@q, url: search_informations_path) do |f| %>
+    <div class= "search_boxes">
+      <div class= "search_text">
+        <div class= "search_text_secondary">
+          <%= link_to "ビジログ" ,root_path , class: "root_url"%>
+        </div>
+        <div class= "search_text_boxes">
+          <div class= "search_text_keyword">
+            <%= f.search_field :store_name_or_genre_name, placeholder: "キーワード（例 焼肉"%>
+          </div>
+          <div class ="search_text_genre">
+            <%= f.search_field :city_or_address_or_place_name, placeholder: "エリア（例 東京" %>
+          </div>
+          <div class = "search_submit1">
+            <%= f.submit "検索", class: "search_submit_word" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='search-page'>
+      <div class='search-page__inner-left'>
+        <h2>詳細検索</h2>
+        <div class='search-content'>
+          <div class='ambience-search'>
+            <h3>雰囲気検索</h3>
+            <div class='search'>
+              <div class='search-tag'>明るさ</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :light_id_in, Light.where.not(id: 1), :id, :name, include_hidden: false  do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>店内音量</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :volume_id_in, Volume.where.not(id: 1), :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>利用者年齢層</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :ages_id_in, Age.all, :id, :name  do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>BGM</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :musics_id_in, Music.all, :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+                                          </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>席</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :rooms_id_in, Room.all, :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>利用シーン</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :reception_id_in, Reception.where.not(id: 1), :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <%= f.submit "絞り込む" ,class: "search_submit_detail", class:"submit-btn" %>
+          </div>
+          <div class='commitment-search'>
+            <h3>こだわり検索</h3>
+            <div class='search'>
+              <div class='search-tag'>喫煙・禁煙</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :tobacco_id_in, Tobacco.where.not(id: 1), :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>飲み物</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :drinks_id_in, Drink.all, :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>ロケーション</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :locations_id_in, Location.all, :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>支払い方法を選択</div>
+            <div class='search-select'>
+              <%= f.collection_check_boxes :payments_id_in, Payment.all, :id, :name do |b| %>
+                <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+              <% end %>
+            </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>サービスを選択</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :services_id_in, Service.all, :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <div class='search'>
+              <div class='search-tag'>空間を選択</div>
+              <div class='search-select'>
+                <%= f.collection_check_boxes :spaces_id_in, Space.all, :id, :name do |b| %>
+                  <% b.check_box(class: 'left_sample_btn') + b.label(class: 'left_sample_radio') %>
+                <% end %>
+              </div>
+            </div>
+            <%= f.submit "絞り込む" ,class: "search_submit_detail", class:"submit-btn" %>
+          </div>
+        </div>
+      </div>
+    
   <% end %>
+  <div class='search-page__inner-right'>
+    <h2>検索結果 <%= @informations.length %>件</h2>
+    <% @informations.each do |information|%>
+      <div class='information-content-back'>
+        <div class='information-content'>
+          <div class='information-content__inner-left'>
+            <%= image_tag information.image, class: "search_information-box-img" %>
+          </div>
+          <div class='information-content__inner-right'>
+            <div class='store-name'>
+              <%= link_to information.store_name, information_path(information.id)%>
+            </div>
+            <div class="address">
+              <%= information.store.postal_code %> <%= information.place.parent.name %><%= information.city %><%= information.address %>
+            </div>
+            <div class='store-desc'>
+              <div class='store-desc__inner-left'>
+                <div class='desc'>
+                  <%= image_tag 'genre.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                  <div class='icon_text'><%= information.genre.parent.name %>/<%= information.genre.name %></div>
+                </div>
+                <div class='desc'>
+                  <%= image_tag 'budget.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                  <div class ="icon_text" ><%= information.budget.name %></div>
+                </div>
+                <div class='desc'>
+                  <%= image_tag 'location.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                  <div class='icon_text'>
+                    <% information.locations.each do |location| %>
+                      <%= location.name %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class='desc'>
+                  <%= image_tag 'time.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                  <div class='icon_text'><%= information.opening_time.strftime("%H:%M") %>~<%= information.closing_time.strftime("%H:%M") %></div>
+                </div>
+              </div>
+              <div class='store-desc__inner-right'>
+                <div class='desc'>
+                  <%= image_tag 'light.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                  <div class='icon_text'><%= information.light.name %></div>
+                </div>
+                <div class='desc'>
+                  <%= image_tag 'music.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                  <div class='icon_text'>
+                    <% information.musics.each do |music| %>
+                      <%= music.name %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class='desc'>
+                  <%= image_tag 'seat.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                  <div class='icon_text'>○○席数</div>
+                </div>
+                <div class='desc'>
+                  <%= image_tag 'tobacco.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                  <div class='icon_text'><%= information.tobacco.name %></div>
+                </div>
+              </div>
+            </div>
+            <div class='calendar'>
+              <%= week_calendar( events: @reservations.where(information_id: information.id), number_of_weeks: 1) do |date, reservations| %>
+                  <%= date.day %>
+                  <% if reservations.length >= 2 %>
+                    <div class= "yoyakukanou">
+                      <%= link_to "◎", information_path(information.id), :style=>"color:blue;" %>
+                    </div>
+                  <% elsif reservations.length == 1%>
+                    <div class= "yoyakugiri">
+                      <%= link_to "△", information_path(information.id), :style=>"color:blue;" %>
+                    </div>
+                  <% else %>
+                    <div class= "yoyakuhuka">
+                    ✖︎
+                    </div>
+                  <% end %>
+                  </div>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

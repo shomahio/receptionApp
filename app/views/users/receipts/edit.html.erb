@@ -1,10 +1,38 @@
-<div class= "recipt">
-  <h1>領収書承認</h1>
-  <div class= "receipt_from">
+<div class= "recipt_user_edit">
+  <div class= "receipt_show">
+    <div class= "receipt_show_main">
+      <div class= "receipt_main_tag">
+      領収書
+      </div>
+      <div class= "receipt_number">
+      No.○○○○○○○○○○
+      </div>
+      <div class= "receipt_name_date">
+        <div class= "receipt_name">
+          <%= @receipt.name %>様
+        </div>
+        <div class= "receipt_date">
+          <%= @receipt.created_at.strftime("%Y") %>年<%= @receipt.created_at.strftime("%m") %>月<%= @receipt.created_at.strftime("%d") %>日
+        </div>
+      </div>
+      <div class= "receipt_price">
+        ￥<%= @receipt.price %>-
+      </div>
+      <div class= "receipt_priviso">
+      但<%= @receipt.proviso %>として頂きました。
+      </div>
+      <div class= "receipt_address">
+        <%= @receipt.information.store.postal_code %><br>
+        <%= @receipt.information.place.parent.name %><%= @receipt.information.city %><%= @receipt.information.address %>
+      </div>
+    </div>
+  </div>
+  <div class= "receipt_from_confirmation">
     <%= form_with(model: @reseipt, url: users_receipt_path(@receipt.id), method: :patch, local: true) do |f| %>
-      <%= f.label "承認する" %>
-      <%= f.check_box :consent, {},:as => :boolean%>
-      <%= f.submit "決定する", class: :form__btn  %>
+      <%= f.check_box :consent, {},:as => :boolean, class: "confirmation_btn"%>
+      <%= f.submit "承認するってばよ", class: "confirmation_submit"  %>
     <% end %>
   </div>
 </div>
+    
+

@@ -1,0 +1,454 @@
+.index_header {
+  height: 70vh;
+  width: 100%;
+  max-width: 100%;
+  background-image: url("top1.jpg");
+  background-size:contain;
+  display: flex;
+}
+
+.nav_left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top_text {
+  font-size: large;
+  font-size: 50px;
+  color:orange;
+  margin-bottom: 100px;
+  margin-right: 100px;
+}
+
+.nav_right {
+  width: 50%;
+  justify-content: flex-end;
+  text-align: right;
+  color: aliceblue;
+}
+
+.nav_btns {
+  padding-top: 40px;
+}
+
+.nav_btn {
+  color: aliceblue;
+  margin: 20px 20px;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(27, 27, 27);
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-decoration:none;
+}
+
+/* 検索欄のCSS */
+.search_main {
+  width: 100%;
+}
+
+.search_boxes {
+  height: 100px;
+  width: 100%;
+  padding: auto;
+}
+
+.search_text {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 3em;
+  margin: 2em 0;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px #5d627b;
+}
+
+
+.search_text_secondary {
+  font-family: 'Courier New', Courier, monospace;
+  color: coral;
+  font-size: 40px;
+  margin-left: 60px;
+  
+}
+
+.root_url {
+  color: coral;
+  letter-spacing: 7px;
+  text-decoration: none;
+}
+
+.search_text_boxes {
+  width: 60%;
+  display: flex;
+}
+
+.search_text_keyword {
+  height: 90%;
+  font-size: 30px;
+  margin-right: 15px;
+}
+
+.search_text_genre {
+  font-size: 30px;
+  margin-right: 25px;
+}
+
+.search_submit {
+  font-size: 24px;
+}
+
+.search_submit_word {
+  background-color: coral;
+  padding: 5px 5px;
+  color: white;
+}
+
+/* ジャンル検索 */
+.search_btns_main {
+  width: 100%;
+}
+
+.genre_place_search {
+  width: 80%;
+  margin: auto;
+}
+
+.genre {
+  width: 100%;
+}
+
+.search_genre {
+  font-family: 'Courier New', Courier, monospace;
+  color: coral;
+  font-size: 30px;
+  margin-left: 70px;
+  margin-top: 25px;
+}
+
+.genre_btn {
+  margin-left: 70px;
+  margin-right: 20px;
+  margin-top: 25px;
+}
+
+
+.sample_radio {
+  display: inline-block;
+  font-size: 18px;
+  color       : #ffffff;
+  text-shadow:  2px  2px 10px #777 ,
+               -2px  2px 10px #777 ,
+                2px -2px 10px #777 ,
+               -2px -2px 10px #777;
+  vertical-align: top;
+  text-align: center;
+  padding: 0.5em 1em;
+    margin: 2em 5px;
+    font-weight: bold;
+    border: solid 3px #000000;
+  height: 150px;
+  width: 150px;
+}
+
+
+
+label[for="q_genre_ancestry_in_1"] {
+  background-image: url("和食.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_14"] {
+  background-image: url("西洋料理.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_23"] {
+  background-image: url("中華料理.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_28"] {
+  background-image: url("アジア料理.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_36"] {
+  background-image: url("焼肉.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_39"] {
+  background-image: url("nabe1.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_49"] {
+  background-image: url("居酒屋.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_53"] {
+  background-image: url("無国籍料理.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_57"] {
+  background-image: url("レストラン料理.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_60"] {
+  background-image: url("カフェ.png");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_63"] {
+  background-image: url("スイーツ.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_68"] {
+  background-image: url("bar.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_74"] {
+  background-image: url("pab.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_76"] {
+  background-image: url("lounge.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_78"] {
+  background-image: url("旅館.jpeg");
+  background-size:cover;
+}
+
+label[for="q_genre_ancestry_in_80"] {
+  background-image: url("auberge.jpeg");
+  background-size:cover;
+}
+
+.search_submit_place_genre {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.search_submit_detail {
+  margin: auto;
+  height: 60px;
+  width: 180px;
+  color:white;
+  font-size: 35px;
+  background-color:coral;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration:none;
+}
+
+
+.place {
+  width: 100%;
+}
+
+.search_place {
+  font-family: 'Courier New', Courier, monospace;
+  color: coral;
+  font-size: 30px;
+  margin-left: 70px;
+  margin-top: 25px;
+}
+
+.place_btn {
+  margin-left: 70px;
+  margin-top: 25px;
+  margin-right: 70px;
+}
+
+.sample_radio1 {
+  display: inline-block;
+  font-size: 15px;
+  vertical-align: top;
+  text-align: center;
+  padding: 9px;
+  margin: 8px 9px;
+  font-weight: bold;
+  border: solid 3px #6091d3;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  height: 45px;
+  width: 110px;
+}
+
+/* 予算検索 */
+.budget {
+  width: 80%;
+  margin: auto;
+
+}
+
+.search_budget_tag {
+  font-family: 'Courier New', Courier, monospace;
+  color: coral;
+  font-size: 30px;
+  margin-left: 70px;
+  margin-top: 25px;
+}
+
+.search_budget {
+  width: 90%;
+  margin: auto;
+}
+
+.max_btn {
+  height: 50px;
+  width: 400px;
+  margin-left: 90px;
+  margin-right: 10px;
+}
+
+.min_btn {
+  height: 50px;
+  width: 400px;
+  margin-right: 10px;
+}
+
+.budget_submit {
+  height: 50px;
+  width: 120px;
+  background-color:coral;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  text-decoration:none;
+}
+
+
+
+/* こだわり検索 */
+.detail {
+width: 80%;
+margin: auto;
+}
+
+.detail_tag_top {
+  font-family: 'Courier New', Courier, monospace;
+  color: coral;
+  font-size: 30px;
+  
+}
+
+.detail_btn {
+  margin-left: 70px;
+  margin-top: 25px;
+  margin-right: 70px;
+}
+
+.detail_tag {
+  font-family: 'Courier New', Courier, monospace;
+  color: orange;
+  font-size: 20px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #474747;
+  background: whitesmoke;/*背景色*/
+  border-left: double 7px #4ec4d3;/*左線*/
+  border-right: double 7px #4ec4d3;/*右線*/
+}
+
+.sample_radio2 {
+  display: inline-block;
+  font-size: 15px;
+  vertical-align: top;
+  text-align: center;
+  padding: 9px;
+  margin: 8px 9px;
+  border: solid 1px #6091d3;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  height: 45px;
+}
+
+
+.submit_detail_btn {
+  text-align: center;
+}
+
+
+.tweet_post_btn {
+  margin: auto;
+  background-color: rgb(167, 208, 255);
+  margin: 5px auto;
+  border-radius: 10px;
+}
+
+.tweet_post_btn_url {
+  color: white;
+  margin: auto;
+  font-size: 36px;
+  text-decoration: none;
+}
+
+.has-events.simple {
+  height: 300px;
+}
+
+
+.for_shop_tag {
+  width: 100%;
+}
+
+.shop_tag_text {
+  font-size: 40px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.store_log_btns {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.store_log_btn {
+  font-size: 20px;
+  border: 1px solid blue;
+  background-color: rgb(89, 160, 252);
+  color: white;
+  margin: 10px 10px;
+  padding: 8px 8px;
+  border-radius: 10px;
+  text-decoration:none;
+}
+
+.for_shop_details {
+  width: 100%;
+  background-color: rgb(250, 224, 191);
+  padding-top: 10px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.for_shop_detail {
+  margin: 30px 20px;
+}
+
+.for_store_languages {
+  width: 100%;
+  background-color: rgb(250, 224, 191);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.language {
+  margin: 30px 20px;
+}

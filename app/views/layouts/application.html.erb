@@ -7,44 +7,13 @@
     <%= csp_meta_tag %>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
   </head>
 
   <body>
     <header>
-      <div class= "inner">
-        <div class= "nav">
-          <div class= "nav_left">
-            ビジネス版食べログ
-          </div>
-          <% unless user_signed_in? || store_signed_in? %>
-            <div class= "nav_right">
-              <%= link_to "お店ログイン", new_store_session_path, class: :nav_btn %>
-              <%= link_to "お店新規登録", new_store_registration_path, class: :nav_btn %>
-            </div>
-            <div class= "nav_right">
-              <%= link_to "ログイン", new_user_session_path, class: :nav_btn %>
-              <%= link_to "新規登録", new_user_registration_path, class: :nav_btn %>
-            </div>
-          <% end %>
-          <% if store_signed_in? %>
-            <div class= "nav_right">
-              <%= link_to "お店ログアウト", destroy_store_session_path, method: :delete, class: :nav_logout %>
-              <%= link_to "お店マイページ", store_path(current_store.id), method: :get, class: :nav_btn %>
-            </div>
-          <% end %>
-
-          <% if user_signed_in? %>
-            <div class= "nav_right">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav_logout %>
-              <%= link_to "マイページ", user_path(current_user.id), method: :get, class: :nav_btn %>
-            </div>
-          <% end %>
-        </div>
-        
-      </div>
     </header>
     <%= yield %>
   </body>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
+    @user = User.find(params[:id])
     @information = User.find(params[:id])
-    @tweets = current_user.tweets
+    @tweets = Tweet.where(user_id: params[:id])
   end
 end
