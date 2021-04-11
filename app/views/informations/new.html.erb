@@ -10,7 +10,7 @@
       <%#店内画像%>
       <div class= "img-upload">
         <div class="weight-bold-text">
-          店内画像
+          トップ画像
           <span class="indispensable">必須</span>
         </div>
         <div class="click-upload">
@@ -19,11 +19,19 @@
           </p>
           <%= f.file_field :image, id:"store-image" %>
         </div>
+        <div class="weight-bold-text">
+          料理画像
+          <span class="indispensable">３枚以上必須</span>
+        </div>
         <div class="click-upload">
           <p>
             クリックして料理ファイルをアップロード
           </p>
           <%= f.file_field :image_foods, direct_upload: true, multiple: true, id:"store-image" %>
+        </div>
+        <div class="weight-bold-text">
+          お店の外観画像
+          <span class="indispensable">３枚以上必須</span>
         </div>
         <div class="click-upload">
           <p>
@@ -31,11 +39,19 @@
           </p>
           <%= f.file_field :image_appearances, direct_upload: true, multiple: true, id:"store-image" %>
         </div>
+        <div class="weight-bold-text">
+          お店の内観画像
+          <span class="indispensable">３枚以上必須</span>
+        </div>
         <div class="click-upload">
           <p>
-            クリックしてお店の外観ファイルをアップロード
+            クリックしてお店の内観ファイルをアップロード
           </p>
           <%= f.file_field :image_introspections, direct_upload: true, multiple: true, id:"store-image" %>
+        </div>
+        <div class="weight-bold-text">
+          お店の入り口からの画像
+          <span class="indispensable">３枚以上必須</span>
         </div>
         <div class="click-upload">
           <p>
@@ -43,17 +59,29 @@
           </p>
           <%= f.file_field :image_entrances, direct_upload: true, multiple: true, id:"store-image" %>
         </div>
+        <div class="weight-bold-text">
+          席画像
+          <span class="indispensable">３枚以上必須</span>
+        </div>
         <div class="click-upload">
           <p>
             クリックしてお店の席の画像ファイルをアップロード
           </p>
           <%= f.file_field :image_seats, direct_upload: true, multiple: true, id:"store-image" %>
         </div>
+        <div class="weight-bold-text">
+          お店の景色の画像
+          <span class="indispensable">任意</span>
+        </div>
         <div class="click-upload">
           <p>
             クリックしてお店の景色の画像ファイルをアップロード
           </p>
           <%= f.file_field :image_views, direct_upload: true, multiple: true, id:"store-image" %>
+        </div>
+        <div class="weight-bold-text">
+          トイレの画像
+          <span class="indispensable">必須</span>
         </div>
         <div class="click-upload">
           <p>
@@ -70,18 +98,27 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :store_name, class:"stores-text", id:"store-name", placeholder:"店名（必須 40文字まで)", maxlength:"40" %>
+        <div class="weight-bold-text">
+          商品の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :explanation, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで" ,rows:"7" ,maxlength:"1000" %>
+        <div class="weight-bold-text">
+          こだわりの食材
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :food, class:"stores-text", id:"store-name", placeholder:"鹿肉、野菜にこだわる", maxlength:"40" %>
       </div>
       <%# 店名 %>
 
       <%# お店基本情報 %>
       <div class= "store_detail">
-        <div class="weight-bold-text">お店の基本情報</div>
         <div class= "form">
           <div class= "weight-bold-text">
             メールアドレス
             <span class="indispensable">必須</span>
           </div>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, class:"input-default", autocomplete: "email" %>
           <div class= "weight-bold-text">
             電話番号
             <span class="indispensable">必須</span>
@@ -91,13 +128,13 @@
             郵便番号
             <span class="indispensable">必須</span>
           </div>
-          <%= f.text_field :postal_code, class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
+          <%= f.text_field :postal_code, class:"input-default1", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
           <div class="listing-product-detail__place">
           <%= f.label 'エリア', class: 'listing-default__label' %>
             <span class="listing-default--require">必須</span>
             <div class="listing-select-wrapper">
               <div class="listing-select-wrapper__box">
-                <%= f.select :place, @place_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: "parent_place"} %>
+                <%= f.select :place, @place_parent_array, {}, {class: 'input-default', id: "parent_place"} %>
                 <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
               </div>
             </div>
@@ -137,13 +174,13 @@
             定休日
             <span class="indispensable">必須</span>
           </div>
-          <%= f.text_field :holiday, class:"input-default", id:"holiday", placeholder:"例）水曜日"%>
+          <%= f.text_field :holiday, class:"input-default1", id:"holiday", placeholder:"例）水曜日"%>
           <div class="listing-product-detail__genre">
           <%= f.label '食べ物のジャンル', class: 'listing-default__label' %>
             <span class="listing-default--require">必須</span>
             <div class="listing-select-wrapper">
               <div class="listing-select-wrapper__box">
-                <%= f.select :genre, @genre_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_genre'} %>
+                <%= f.select :genre, @genre_parent_array, {}, {class: 'input-default', id: 'parent_genre'} %>
                 <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
               </div>
             </div>
@@ -179,49 +216,71 @@
           </div>
           <%= f.collection_select(:tobacco_id, Tobacco.all, :id, :name, {}, {class:"select-box", id:"tobacco"}) %>
           <div class= "weight-bold-text">
+            利用シーン
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:reception_id, Reception.all, :id, :name, {}, {class:"select-box", id:"light"}) %>
+          <div class= "weight-bold-text">
             支払い方法について
             <span class="indispensable">必須（複数選択可）</span>
           </div>
-          <%= f.collection_check_boxes :payment_ids, Payment.all, :id, :name, include_hidden: false %>
+          <%= f.collection_check_boxes :payment_ids, Payment.all, :id, :name, include_hidden: false do |b| %>
+            <% b.check_box(class: 'form_sample_btn') + b.label(class: 'form_sample_radio') %>
+          <% end %>
+          
           <div class= "weight-bold-text">
             飲み物について
             <span class="indispensable">必須（複数選択可）</span>
           </div>
-          <%= f.collection_check_boxes :drink_ids, Drink.all, :id, :name, include_hidden: false %>
+          <%= f.collection_check_boxes :drink_ids, Drink.all, :id, :name, include_hidden: false do |b| %>
+            <% b.check_box(class: 'form_sample_btn') + b.label(class: 'form_sample_radio') %>
+          <% end %>
           <div class= "weight-bold-text">
             ロケーションについて
             <span class="indispensable">必須（複数選択可）</span>
           </div>
-          <%= f.collection_check_boxes :location_ids, Location.all, :id, :name, include_hidden: false %>
+          <%= f.collection_check_boxes :location_ids, Location.all, :id, :name, include_hidden: false do |b| %>
+            <% b.check_box(class: 'form_sample_btn') + b.label(class: 'form_sample_radio') %>
+          <% end %>
           <div class= "weight-bold-text">
             部屋について
             <span class="indispensable">必須（複数選択可）</span>
           </div>
-          <%= f.collection_check_boxes :room_ids, Room.all, :id, :name, include_hidden: false %>
+          <%= f.collection_check_boxes :room_ids, Room.all, :id, :name, include_hidden: false do |b| %>
+            <% b.check_box(class: 'form_sample_btn') + b.label(class: 'form_sample_radio') %>
+          <% end %>
           <div class= "weight-bold-text">
             BGMについて
             <span class="indispensable">必須（複数選択可）</span>
           </div>
-          <%= f.collection_check_boxes :music_ids, Music.all, :id, :name, include_hidden: false %>
+          <%= f.collection_check_boxes :music_ids, Music.all, :id, :name, include_hidden: false do |b| %>
+            <% b.check_box(class: 'form_sample_btn') + b.label(class: 'form_sample_radio') %>
+          <% end %>
           <div class= "weight-bold-text">
             サービスについて
             <span class="indispensable">必須（複数選択可）</span>
           </div>
-          <%= f.collection_check_boxes :service_ids, Service.all, :id, :name, include_hidden: false %>
+          <%= f.collection_check_boxes :service_ids, Service.all, :id, :name, include_hidden: false do |b| %>
+            <% b.check_box(class: 'form_sample_btn') + b.label(class: 'form_sample_radio') %>
+          <% end %>
           <div class= "weight-bold-text">
             空間について
             <span class="indispensable">必須（複数選択可）</span>
           </div>
-          <%= f.collection_check_boxes :space_ids, Space.all, :id, :name, include_hidden: false %>
+          <%= f.collection_check_boxes :space_ids, Space.all, :id, :name, include_hidden: false do |b| %>
+            <% b.check_box(class: 'form_sample_btn') + b.label(class: 'form_sample_radio') %>
+          <% end %>
           <div class= "weight-bold-text">
             年齢層について
             <span class="indispensable">必須（複数選択可）</span>
           </div>
-          <%= f.collection_check_boxes :age_ids, Age.all, :id, :name, include_hidden: false %>
+          <%= f.collection_check_boxes :age_ids, Age.all, :id, :name, include_hidden: false do |b| %>
+            <% b.check_box(class: 'form_sample_btn') + b.label(class: 'form_sample_radio') %>
+          <% end %>
       </div>
 
       <div class='buy-btn'>
-        <%= f.submit "出店" ,class:"buy-red-btn" %>
+        <%= f.submit "出店する" ,class:"buy-red-btn" %>
       </div>
       <% end %>
       

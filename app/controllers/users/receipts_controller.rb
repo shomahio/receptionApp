@@ -20,10 +20,13 @@ class Users::ReceiptsController < ApplicationController
 
   def show
     @receipt = Receipt.find(params[:id])
+    @information = Information.find_by(id: @receipt.information.id)
+    #binding.pry
   end
 
   private
   def receipt_params
     params.permit(:name, :price, :consent, :reservation_id, :information_id, :user_id)
   end
+
 end

@@ -5,23 +5,19 @@
     </div>
     <div class= "nav_right">
       <% unless user_signed_in? || store_signed_in? %>
-        <div class= "nav_btn">
-          <%= link_to "お店ログイン", new_store_session_path, class: nav_btn %>
-          <%= link_to "お店新規登録", new_store_registration_path, class: nav_btn %>
-        </div>
-        <div class= "nav_btn">
+        <div class= "nav_btns">
           <%= link_to "ログイン", new_user_session_path, class: "nav_btn"%>
           <%= link_to "新規登録", new_user_registration_path , class: "nav_btn" %>
         </div>
       <% end %>
       <% if store_signed_in? %>
-        <div class= "nav_btn">
+        <div class= "nav_btns">
           <%= link_to "お店ログアウト", destroy_store_session_path, method: :delete, class: "nav_btn" %>
           <%= link_to "お店マイページ", store_path(current_store.id), method: :get, class: "nav_btn" %>
         </div>
       <% end %>
       <% if user_signed_in? %>
-        <div class= "nav_btn">
+        <div class= "nav_btns">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav_btn"  %>
           <%= link_to "マイページ", user_path(current_user.id), method: :get, class: "nav_btn"  %>
         </div>
@@ -29,60 +25,83 @@
     </div>
   </div>
   <%= render "shared/ransack_form" %>
-  <% if store_signed_in? %>
-    <div class = "btn">
-      <%= link_to new_information_path, data: {"turbolinks" => false}, class: 'purchase-btn' do %> 
-        <span class='purchase-btn-text'>出店する</span>
-      <% end %>
-    </div>
-  <% end %>
-  <% if user_signed_in? %>
-    <div class = "btn">
-      <%= link_to new_tweet_path, class: 'purchase-btn' do %> 
-        <span class='purchase-btn-text'>投稿する</span>
-      <% end %>
-    </div>
-  <% end %>
-  <div class= "information_contents">
-    <h2 class= "title">おすすめ店舗</h2>
-    <ul clas= "information_lists">
-      <% @information.each do |information| %>
-        <li class= "list">
-          <%= link_to information_path(information.id), data: {"turbolinks" => false} do %>
-            <div class = "information_img_content">
-            <%= image_tag information.image, class: "item-img" %>
-            </div>
-            <div class= "information_info">
-              <h3 class= "information_name">
-                <%= information.store_name %>
-              </h3>
-              <div class= "information_genre">
-                <span><br><%= information.genre.name %></span>
-              </div>
-            </div>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  
   <div class= "information_tweets_main">
     <h2 class= "tweet_title">ツイート欄</h2>
+    <div class = "user_tweet_post_btn">
+      <% if user_signed_in? %>
+        <div class = "tweet_post_btn">
+          <%= link_to "投稿する", new_tweet_path, class: 'tweet_post_btn_url' %> 
+        </div>
+      <% end %>
+    </div>
     <div class= "information_tweet_lists">
       <% @tweets.each do |tweet| %>
-        <%= link_to tweet_path(tweet.id) do %>
-          <div class= "tweet_info">
+        <div class= "tweet_info">
+          <%= link_to tweet_path(tweet.id), class: "tweet_path_url" do %>
             <h3 class= "tweet_name">
-              <%= tweet.name %>
+              <%= tweet.user.last_name %>さんの投稿
             </h3>
-            <div class= "tweet_text">
-              <span><%= tweet.text %></span>
-            </div>
             <div class= "tweet_img">
-              <%= image_tag tweet.image, class: "item-img" %>
+              <%= image_tag tweet.image, class: "item_tweet_img" %>
             </div>
-          </div>
-        <% end %>
+            <div class= "tweet_text">
+              <%= tweet.text %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
+  <div class = "for_shop_contents">
+    <div class = "for_shop_tag">
+      <h1 class = "shop_tag_text"> 飲食店・食関連企業の方</h1>
+    </div>
+    <% unless user_signed_in? || store_signed_in? %>
+    <div class ="store_log_btns">
+      <%= link_to "店舗ログイン", new_store_session_path, class: "store_log_btn" %>
+      <%= link_to "店舗新規登録", new_store_registration_path, class: "store_log_btn" %>
+    </div>
+    <% end %>
+    <% if store_signed_in? %>
+    <div class = "information_post_btn">
+      <div class = "btn">
+          <%= link_to "出店する", new_information_path, data: {"turbolinks" => false}, class: 'information_post_btn_url' %> 
+      </div>
+    </div>
+    <% end %>
+    <div class = "for_shop_details">
+      <div class = "for_shop_detail">
+        
+        <%= link_to "ヘルプ・お問い合わせ", "#" %>
+      </div>
+      <div class = "for_shop_detail">
+        <%= link_to "ビジログの便利な使い方", "#" %>
+      </div>
+      <div class = "for_shop_detail">
+        <%= link_to "資料請求", "#" %>
+      </div>
+      <div class = "for_shop_detail">
+        <%= link_to "広告（メーカー・団体様等向け）について", "#" %>
+      </div>
+      <div class = "for_shop_detail">
+        <%= link_to "機能改善要望", "#" %>
+      </div>
+    </div>
+    <div class ="for_store_languages">
+      <div class ="language">
+        言語:
+      </div>
+      <div class = "language">
+        <%= link_to "English", "#" %>
+      </div>
+      <div class = "language">
+        <%= link_to "繁體中文", "#" %>
+      </div>
+      <div class = "language">
+        <%= link_to "한국어", "#" %>
+      </div>
+    </div>
+  </div>
+  
 </div>

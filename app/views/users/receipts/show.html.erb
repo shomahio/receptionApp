@@ -1,2 +1,31 @@
-<h1>領収書詳細ページ</h1>
-  <%= @receipt.name %>
+<div class= "receipt_show">
+  <div class= "receipt_show_main">
+    <div class= "receipt_main_tag">
+    領収書
+    </div>
+    <div class= "receipt_number">
+    No.○○○○○○○○○○
+    </div>
+    <div class= "receipt_name_date">
+      <div class= "receipt_name">
+        <%= @receipt.name %>様
+      </div>
+      <div class= "receipt_date">
+        <%= @receipt.created_at.strftime("%Y") %>年<%= @receipt.created_at.strftime("%m") %>月<%= @receipt.created_at.strftime("%d") %>日
+      </div>
+    </div>
+    <div class= "receipt_price">
+      ￥<%= @receipt.price %>-
+    </div>
+    <div class= "receipt_priviso">
+    但<%= @receipt.proviso %>として頂きました。
+    </div>
+    <div class= "receipt_address">
+      <%= @information.postal_code %><br>
+      <%= @information.place.parent.name %><%= @information.city %><%= @information.address %>
+    </div>
+  </div>
+  <div class ="pdf_btn">
+    PDFをダウンロード
+  </div>
+</div>

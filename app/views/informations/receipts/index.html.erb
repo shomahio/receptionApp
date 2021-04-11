@@ -1,0 +1,50 @@
+<div class="tabs">
+  <input type='radio' id='company-page' name='tab-item'>
+  <%= link_to '店舗情報',store_path(current_store.id), class: 'tab-item'%>
+  <input type='radio' id='staff-page' name='tab-item'>
+  <%= link_to '予約一覧', informations_reservations_path(@information.id), method: :get, class: 'tab-item' %>
+  <input type='radio' id='index-page' name='tab-item'checked>
+  <%= link_to '領収書一覧', informations_reservation_receipts_path(@information.id), method: :get, class: 'tab-item' %>
+  <div class = "receipt">
+    <div class= "recipts">
+      <div class= "recipt_unapproved">
+        <h1 class ="recipt_unapproved_tag">未承認の領収書</h1>
+        <div class = "recipt_reservation_table">
+          <table>
+            <tr >
+              <th>お名前</th>
+              <th>料金</th>
+              <th>日付</th>
+            </tr>
+            <% @receipts.each do |reseipt| %>
+              <tr>
+                <td><%= reseipt.name %></td>
+                <td><%= reseipt.price %></td>
+                <td><%= reseipt.created_at.strftime("%Y/%m/%d") %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+      <div class= "recipt_approved">
+        <h1 class ="recipt_approved_tag"> 過去の確定領収書</h1>
+        <div class = "recipt_reservation_table">
+          <table>
+            <tr >
+              <th>お名前</th>
+              <th>料金</th>
+              <th>日付</th>
+            </tr>
+            <% @receipts1.each do |reseipt| %>
+                <tr>
+                  <td><%= link_to reseipt.name, users_receipt_path(reseipt.id), class: "recipt_reservation_table_url" %></td>
+                  <td>￥<%= reseipt.price %></td>
+                  <td><%= reseipt.created_at.strftime("%Y/%m/%d") %></td>
+                </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

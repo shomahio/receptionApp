@@ -1,0 +1,88 @@
+.store_information_main {
+  width: 70%;
+  margin: 30px auto;
+  border: 2px solid #d8d8d8;
+  padding: 30px 100px;
+  border-radius: 10px;/*角の丸み*/
+}
+
+.store_information_title {
+  text-align: center;
+  font-size: 50px;
+  color: coral;
+  margin-bottom: 30px;
+}
+
+.click-upload {
+  text-align: end;
+}
+
+.weight-bold-text {
+  margin-top: 25px;
+}
+
+
+.stores-text {
+  width: 100%;
+}
+
+.items-text {
+  width: 100%;
+}
+
+.input-default1 {
+  width: 100%;
+  margin-top: 5px;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 25px;
+}
+
+.listing-default__label {
+  font-weight: bold;
+  min-width: 170px;
+  margin-bottom: 10px;
+}
+
+.listing-default--require {
+  background: #ea352d;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.weight-bold-text label {
+  color: #ea352d;
+}
+
+.form_sample_radio {
+  margin-left: 3px;
+  margin-right: 30px;
+}
+
+.form_sample_btn {
+  display: inline-block;
+}
+
+.buy-btn {
+  width: 100%;
+}
+
+.buy-red-btn {
+  width: 100%;
+  height: 50px;
+  margin-top: 30px;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  border-radius: 10px;/*角の丸み*/
+  background-color: #72c5f8;
+}

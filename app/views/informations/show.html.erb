@@ -1,175 +1,243 @@
 <div class= "information_show">
-  <div class= "information_box">
-    <h2 class= "name">
-      <%= @information.store_name %>
-    </h2>
-    <div class= "information_img_content">
-      <%= image_tag @information.image, class: "information-box-img" %>
+  <%= search_form_for(@q, url: search_informations_path) do |f| %>
+    <div class= "search_boxes">
+      <div class= "search_text">
+        <div class= "search_text_secondary">
+          <%= link_to "ビジログ" ,root_path , class: "root_url"%>
+        </div>
+        <div class= "search_text_boxes">
+          <div class= "search_text_keyword">
+            <%= f.search_field :store_name_or_genre_name, placeholder: "キーワード（例 焼肉"%>
+          </div>
+          <div class ="search_text_genre">
+            <%= f.search_field :city_or_address_or_place_name, placeholder: "エリア（例 東京" %>
+          </div>
+          <div class = "search_submit1">
+            <%= f.submit "検索" , class: "search_submit_word"%>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class= "information_img_content">
-      <h2>料理画像</h2>
-      <% @information.image_foods.each do |image_food| %>
-        <%= image_tag image_food %>
-      <% end %>
-    </div>
-    <div class= "information_img_content">
-      <h2>お店の外観画像</h2>
-      <% @information.image_appearances.each do |image_appearance| %>
-        <%= image_tag image_appearance %>
-      <% end %>
-    </div>
-    <div class= "information_img_content">
-      <h2>お店の内観画像</h2>
-      <% @information.image_introspections.each do |image_introspection| %>
-        <%= image_tag image_introspection %>
-      <% end %>
-    </div>
-    <div class= "information_img_content">
-      <h2>お店の入り口からの画像</h2>
-      <% @information.image_entrances.each do |image_entrance| %>
-        <%= image_tag image_entrance %>
-      <% end %>
-    </div>
-    <div class= "information_img_content">
-      <h2>お店の席の画像</h2>
-      <% @information.image_seats.each do |image_seat| %>
-        <%= image_tag image_seat %>
-      <% end %>
-    </div>
-    <div class= "information_img_content">
-      <h2>お店の景色の画像</h2>
-      <% @information.image_views.each do |image_view| %>
-        <%= image_tag image_view %>
-      <% end %>
-    </div>
-    <div class= "information_img_content">
-      <h2>お店のトイレの画像</h2>
-      <% @information.image_toilets.each do |image_toilet| %>
-        <%= image_tag image_toilet %>
-      <% end %>
+  <% end %>
+  <div class= "informaton_show_content">
+    <div class= "information_img_calender_contents">
+      <div class= "top_img_box">
+        <%= image_tag @information.image, class: "information-show-box-img" %>
+      </div>
+      <div class = "informaton_show_content_calender">
+        <%= month_calendar events: @reservations do |date, reservations| %>
+          <%= date.day %>
+          <% if reservations.length >= 2 %>
+            <div class= "yoyakukanou">
+              ◎
+            </div>
+          <% elsif reservations.length == 1%>
+            <div class= "yoyakugiri">
+              △
+            </div>
+          <% else %>
+            <div class= "yoyakuhuka">
+            ✖︎
+            </div>
+          <% end %>
+          <div class= "hidden" style="display:none;" >
+            <% reservations.each do |reservation| %>
+              <% if reservation.name == nil && user_signed_in? %>
+                <%= link_to edit_users_reservation_path(reservation.id) do %>
+                  <%= reservation.start_time.strftime("%H:%M") %>
+                  <div class= "yoyakukanou1">
+                  ◎
+                  </div>
+                <% end %>
+              <% end %>
+              <% if reservation.name == nil && store_signed_in? && reservation.information.store_id == current_store.id %>
+                <%= link_to edit_informations_reservation_path(reservation.id) do %>
+                  <%= reservation.start_time.strftime("%H:%M") %>
+                  <div class= "delete">
+                  ◎ 編集
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+        <h2 class= "goyoyaku">
+          ご予約はこちら📞
+          <%= @information.tel %>
+        </h2>
+      </div>
     </div>
     <div class= "information_kihon">
-      <div class = "name">
-        店名
-        <%= @information.store_name %>
+      <table>
+        <tr >
+          <th>店名</th>
+          <td><%= @information.store_name %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @information.genre.parent.name %>/<%= @information.genre.name %></td>
+        </tr>
+        <tr>
+          <th>お問い合わせ</th>
+          <td><%= @information.tel %></td>
+        </tr>
+        <tr>
+          <th>予約可否</th>
+          <td><%= @information.booking.name %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @store.postal_code %> <%= @information.place.parent.name %><%= @information.city %><%= @information.address %></td>
+        </tr>
+        <tr>
+          <th>交通手段</th>
+          <td><%= @information.transportation %></td>
+        </tr>
+        <tr>
+          <th>営業時間</th>
+          <td><%= @information.opening_time.strftime("%H:%M") %>~<%= @information.closing_time.strftime("%H:%M") %></td>
+        </tr>
+        <tr>
+          <th>定休日</th>
+          <td><%= @information.holiday %></td>
+        </tr>
+        <tr>
+          <th>予算</th>
+          <td><%= @information.budget.name %></td>
+        </tr>
+        <tr>
+          <th>支払い方法</th>
+          <td><% @information.payments.each do |payment| %>
+                <%= payment.name %>
+              /<% end %></td>
+        </tr>
+        <tr>
+          <th>喫煙・禁煙</th>
+          <td><%= @information.tobacco.name %></td>
+        </tr>
+        <tr>
+          <th>駐車場の有無</th>
+          <td><%= @information.parking.name %>/</td>
+        </tr>
+        <tr>
+          <th>サービス</th>
+          <td><% @information.services.each do |service| %>
+                <%= service.name %>
+              /<% end %></td>
+        </tr>
+        <tr>
+          <th>空間</th>
+          <td><% @information.spaces.each do |space| %>
+                <%= space.name %>
+              /<% end %></td>
+        </tr>
+        <tr>
+          <th>設備</th>
+          <td><% @information.rooms.each do |room| %>
+                <%= room.name %>
+              <% end %></td>
+        </tr>
+        <tr>
+          <th>ロケーション</th>
+          <td><% @information.locations.each do |location| %>
+                <%= location.name %>
+              <% end %></td>
+        </tr>
+        <tr>
+          <th>店内音量</th>
+          <td><%= @information.volume.name %></td>
+        </tr>
+        <tr>
+          <th>店内BGM</th>
+          <td><% @information.musics.each do |music| %>
+                <%= music.name %>
+              <% end %></td>
+        </tr>
+        <tr>
+          <th>店内照明</th>
+          <td><%= @information.light.name %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class ="information_show_imges">
+    <div class= "information_show_contents_img_box">
+      <div class= "imags_tags">
+        料理の画像
       </div>
-      <div class= "genre">
-        ジャンル
-        <%= @information.genre.parent.name %>
-        <%= @information.genre.name %>
-      </div>
-      <div class= "prefecture">
-        <%= @information.place.parent.name %>
-      </div>
-      <div class= "prefecture">
-        <%= @information.place.name %>
-      </div>
-      <div class= "light">
-        <%= @information.light.name %>
-      </div>
-      <div class= "drink">
-        <% @information.drinks.each do |drink| %>
-          <%= drink.name %>
-        <% end %>
-      </div>
-      <div class= "otoiawase">
-        予約・お問い合わせ
-        <%= @information.tel %>
-      </div>
-      <div class= "yoyaku">
-        予約の可否
-        <%= @information.booking.name %>
-      </div>
-      <div class= "zyuusyo">
-        住所
-        <%= @information.place.parent.name %><%= @information.city %><%= @information.address %>
-      </div>
-      <div class= "transportation">
-        交通手段
-        <%= @information.transportation %>
-      </div>
-      <div class= "business_hours">
-        営業時間・定休日
-        <%= @information.holiday %>
-      </div>
-      <div class= "budget">
-        予算
-        <%= @information.budget.name %>
-      </div>
-      <div class= "payment">
-        支払い方法
-        <% @information.payments.each do |payment| %>
-          <%= payment.name %>
+      <div class= "information_show_detail_img">
+        <% @information.image_foods.each do |image_food| %>
+          <%= image_tag image_food, class: "information-box-img2"%></li>
         <% end %>
       </div>
     </div>
-    <div class= "information_setubi">
-      <div class= "tobacco">
-        喫煙・禁煙
-        <%= @information.tobacco.name %>
+    <div class= "information_show_contents_img_box">
+      <div class= "imags_tags">
+        内観の画像
       </div>
-      <div class= "parking">
-        <%= @information.parking.name %>
-      </div>
-      <div class= "space">
-        <% @information.spaces.each do |space| %>
-          <%= space.name %>
+      <div class= "information_show_detail_img">
+        <% @information.image_introspections.each do |image_introspection| %>
+          <%= image_tag image_introspection, class: "information-box-img2" %>
         <% end %>
       </div>
     </div>
-    <div class= "information_tokutyou">
-      <div class= "location">
-        <% @information.locations.each do |location| %>
-          <%= location.name %>
+    <div class= "information_show_contents_img_box">
+      <div class= "imags_tags">
+        席の画像
+      </div>
+      <div class= "information_show_detail_img">
+        <% @information.image_seats.each do |image_seat| %>
+          <%= image_tag image_seat, class: "information-box-img2" %>
         <% end %>
       </div>
-      <div class= "service">
-        <% @information.services.each do |service| %>
-          <%= service.name %>
+    </div>
+    <div class= "information_show_contents_img_box">
+      <div class= "imags_tags">
+        入り口の画像
+      </div>
+      <div class= "information_show_detail_img">
+        <% @information.image_entrances.each do |image_entrance| %>
+          <%= image_tag image_entrance, class: "information-box-img2" %>
+        <% end %>
+      </div>
+    </div>
+    <div class= "information_show_contents_img_box">
+      <div class= "imags_tags">
+        外観の画像
+      </div>
+      <div class= "information_show_detail_img">
+        <% @information.image_appearances.each do |image_appearance| %>
+          <%= image_tag image_appearance, class: "information-box-img2" %>
+        <% end %>
+      </div>
+    </div>
+    <div class= "information_show_contents_img_box">
+      <div class= "imags_tags">
+        トイレの画像
+      </div>
+      <div class= "information_show_detail_img">
+        <% @information.image_toilets.each do |image_toilet| %>
+          <%= image_tag image_toilet, class: "information-box-img2" %>
+        <% end %>
+      </div>
+    </div>
+    <div class= "information_show_contents_img_box">
+      <div class= "imags_tags">
+        風景の画像
+      </div>
+      <div class= "information_show_detail_img">
+        <% @information.image_views.each do |image_view| %>
+          <%= image_tag image_view, class: "information-box-img2" %>
         <% end %>
       </div>
     </div>
   </div>
-  <%= month_calendar events: @reservations do |date, reservations| %>
-      <%= date.day %>
-      <% if reservations.length >= 2 %>
-        <div class= "yoyakukanou">
-          ◎
-        </div>
-      <% elsif reservations.length == 1%>
-        <div class= "yoyakugiri">
-          △
-        </div>
-      <% else %>
-        <div class= "yoyakuhuka">
-        ✖︎
-        </div>
-      <% end %>
-      <div class= "hidden" style="display:none;" >
-        <% reservations.each do |reservation| %>
-          <% if reservation.name == nil && user_signed_in? %>
-            <%= link_to edit_users_reservation_path(reservation.id) do %>
-              <%= reservation.start_time.strftime("%H:%M") %>
-              <div class= "yoyakukanou1">
-              ◎
-              </div>
-            <% end %>
-          <% end %>
-          <% if reservation.name == nil && store_signed_in? && reservation.information.store_id == current_store.id %>
-            <%= link_to edit_informations_reservation_path(reservation.id) do %>
-              <%= reservation.start_time.strftime("%H:%M") %>
-              <div class= "delete">
-              ◎ 編集
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-  <% end %>
   <% if store_signed_in? && current_store.id == @information.store_id %>
     <div class ="btn">
       <%= link_to "情報を編集する", edit_information_path(@information.id), data: {"turbolinks" => false} %>
       <%= link_to "情報を削除する", information_path(@information.id), method: :delete %>
     </div>
   <% end %>
+
 </div>
+

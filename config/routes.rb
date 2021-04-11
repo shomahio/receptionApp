@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   #インフォメーション関連のルーティング
   namespace :informations do
     resources :reservations do
-      resources :receipts, only: [:new, :create, :edit, :update, :destroy]
+      resources :receipts, only: [:index, :new, :create, :edit, :update, :destroy]
     end
   end
   resources :informations  do

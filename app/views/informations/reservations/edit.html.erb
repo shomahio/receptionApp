@@ -1,28 +1,47 @@
-<div class= "main">
-  <div class= "_edit_header">
-    <div class= "information_edit_contents">
-      <div class= "information_edit_day">
-        <%= @reservation.start_time.strftime("%m/%d %H:%M") %>
-      </div>
-      <div class= "information_edit_detail">
-        <h2 class= "user_reservation_title">代表者名と人数を入力してください</h2>
-        <%= form_with(model: [@information, @reservation],url: informations_reservation_path(@reservation.id), local: true) do |f| %>
-          <div class= "name">
-            <%= f.label :name, "代表者名" %><br />
-            <%= f.text_field :name, class:"reservation_input", id:"reservation_name" %>
-          </div>
-          <div class= "number_of_people">
-            <%= f.label :number_of_people, "予約人数" %><br />
-            <%= f.number_field :number_of_people, class:"input-default", min:0, max:6 %>
-          </div>
-          <div class="tel">
-            <%= f.label :tel, "電話番号" %><br />
-            <%= f.text_field :tel %>
-          </div>
-          <div class= "action">
-            <%= f.submit "予約する", class: :form__btn  %>
-          </div>
-        <% end %>
+<div class= "user_edit_main">
+  <div class = "reservation_detail">
+    <div class = "reservation_store_name">
+      <%= @reservation.information.store_name %>
+    </div>
+    <div class ="reservation_date">
+      <%= @reservation.start_time.strftime('%Y/%m/%d %H:%M') %>
     </div>
   </div>
-<div>
+  <div class ="reservation_content">
+    <h1 class ="input_name_tag">お客様情報の登録</h1>
+    <p class = "input_name_tag_second">(予約を消す時はお好きな名前、人数、電話番号を入力してください。)</p>
+    <%= form_with(model: [@information, @reservation],url: informations_reservation_path(@reservation.id), local: true) do |f| %>
+      <div class = "input_detail">
+        <div class= "weight-bold-text">
+          お名前
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :name, class:"reservation_input", class:"input-default" %>
+        <div class= "weight-bold-text">
+          人数
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.number_field :number_of_people, class:"input-default", min:0, max:30 %>
+        <div class= "weight-bold-text">
+          電話番号
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :tel, class:"reservation_input", class:"input-default" %>
+      </div>
+      <div class ="precautions">
+        <p class= "precautions_text">
+          ※注意事項
+        </p>
+        <p class= "precautions_text">
+          予約成立後にお店へ連絡なくキャンセルされると、サービスのご利用を制限させていただく場合があります。
+        </p>
+        <p class= "precautions_text">
+          また、予約時にご登録いただいた連絡先が無効な場合、お店の判断により予約がキャンセルとなることがあります。
+        </p>
+      </div>
+      <div class= "action">
+        <%= f.submit "予約する", class: "reservation_form_btn"  %>
+      </div>
+    <% end %>
+  </div>
+</div>

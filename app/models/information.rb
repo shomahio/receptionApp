@@ -12,6 +12,7 @@ class Information < ApplicationRecord
   belongs_to :genre
   belongs_to_active_hash :booking
   belongs_to :light
+  belongs_to :reception
   belongs_to_active_hash :tobacco
   belongs_to_active_hash :budget
   belongs_to_active_hash :volume

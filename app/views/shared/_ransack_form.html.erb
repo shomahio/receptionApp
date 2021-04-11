@@ -3,7 +3,7 @@
     <div class= "search_boxes">
       <div class= "search_text">
         <div class= "search_text_secondary">
-          エリア、店名から探す
+          <%= link_to "ビジログ" ,root_path , class: "root_url"%>
         </div>
         <div class= "search_text_boxes">
           <div class= "search_text_keyword">
@@ -12,8 +12,8 @@
           <div class ="search_text_genre">
             <%= f.search_field :city_or_address_or_place_name, placeholder: "エリア（例 東京" %>
           </div>
-          <div class = "search_submit1">
-            <%= f.submit "検索" %>
+          <div class = "search_submit">
+            <%= f.submit "絞り込む", class: "search_submit_word" %>
           </div>
         </div>
       </div>
@@ -23,23 +23,23 @@
         <div class = "genre">
           <div class= "search_genre" id="search_genre1">ジャンルから探す</div>
           <div class= "genre_btn" id="genre_btn1">
-            <%= f.collection_radio_buttons :genre_ancestry_eq, Genre.where(ancestry: nil), :id, :name do |b| %>
-              <% b.radio_button(class: 'sample_btn') + b.label(class: 'sample_radio') %>
+            <%= f.collection_check_boxes :genre_ancestry_in, Genre.where(ancestry: nil), :id, :name do |b| %>
+              <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio') %>
             <% end %>
           </div>
-          <div class = "search_submit2">
-            <%= f.submit "検索" ,class: "search_submit3"%>
+          <div class = "search_submit_place_genre">
+            <%= f.submit "絞り込む" ,class: "search_submit_detail"%>
           </div>
         </div>
         <div class = "place">
           <div class="search_place" id="search_place1">エリアから探す</div>
           <div class= "place_btn" id="place_btn1">
-            <%= f.collection_radio_buttons :place_ancestry_eq, Place.where(ancestry: nil), :id, :name do |b| %>
-              <% b.radio_button(class: 'sample_btn') + b.label(class: 'sample_radio1') %>
+            <%= f.collection_check_boxes :place_ancestry_in, Place.where(ancestry: nil), :id, :name do |b| %>
+              <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio1') %>
             <% end %>
           </div>
-          <div class = "search_submit2">
-            <%= f.submit "検索" ,class: "search_submit3"%>
+          <div class = "search_submit_place_genre">
+            <%= f.submit "絞り込む" ,class: "search_submit_detail"%>
           </div>
         </div>
       </div>
@@ -48,11 +48,11 @@
         <div class= "search_budget">
           <%= f.collection_select :budget_id_gt, Budget.where.not(id: 1), :id, :min, {include_blank:"下限なし"}, class: "max_btn" %>
           <%= f.collection_select :budget_id_lt, Budget.where.not(id: 1), :id, :max, {include_blank:"上限なし"}, class: "min_btn" %>
-          <%= f.submit "検索" ,class: "search_submit4"%>
+          <%= f.submit "検索" ,class: "budget_submit"%>
         </div>
       </div>
-        <div class= "detail_tag_top">こだわり検索</div>
         <div class= "detail_btn">
+          <div class= "detail_tag_top">お店の雰囲気から検索</div>
           <div class= "light_btn">
             <div class ="detail_tag">明るさを選択</div>
             <div class ="radio_btns" style="display:none;">
@@ -65,22 +65,6 @@
             <div class ="detail_tag">店内音量を選択</div>
             <div class ="radio_btns" style="display:none;">
               <%= f.collection_check_boxes :volume_id_in, Volume.where.not(id: 1), :id, :name do |b| %>
-                <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio2') %>
-              <% end %>
-            </div>
-          </div>
-          <div class= "tobacco_btn">
-            <div class ="detail_tag">喫煙・禁煙を選択</div>
-            <div class ="radio_btns" style="display:none;">
-              <%= f.collection_check_boxes :tobacco_id_in, Tobacco.where.not(id: 1), :id, :name do |b| %>
-                <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio2') %>
-              <% end %>
-            </div>
-          </div>
-          <div class= "drink_btn">
-            <div class ="detail_tag">飲み物を選択</div>
-            <div class ="radio_btns" style="display:none;">
-              <%= f.collection_check_boxes :drinks_id_in, Drink.all, :id, :name do |b| %>
                 <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio2') %>
               <% end %>
             </div>
@@ -101,6 +85,39 @@
               <% end %>
             </div>
           </div>
+          <div class= "room_btn">
+            <div class ="detail_tag">席を選択</div>
+            <div class ="radio_btns" style="display:none;">
+              <%= f.collection_check_boxes :rooms_id_in, Room.all, :id, :name do |b| %>
+                <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio2') %>
+              <% end %>
+            </div>
+          </div>
+          <div class= "space_btn">
+            <div class ="detail_tag">利用シーンを選択</div>
+            <div class ="radio_btns" style="display:none;">
+              <%= f.collection_check_boxes :reception_id_in, Reception.where.not(id: 1), :id, :name do |b| %>
+                <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio2') %>
+              <% end %>
+            </div>
+          </div>
+          <div class= "detail_tag_top">こだわりから検索</div>
+          <div class= "tobacco_btn">
+            <div class ="detail_tag">喫煙・禁煙を選択</div>
+            <div class ="radio_btns" style="display:none;">
+              <%= f.collection_check_boxes :tobacco_id_in, Tobacco.where.not(id: 1), :id, :name do |b| %>
+                <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio2') %>
+              <% end %>
+            </div>
+          </div>
+          <div class= "drink_btn">
+            <div class ="detail_tag">飲み物を選択</div>
+            <div class ="radio_btns" style="display:none;">
+              <%= f.collection_check_boxes :drinks_id_in, Drink.all, :id, :name do |b| %>
+                <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio2') %>
+              <% end %>
+            </div>
+          </div>
           <div class= "location_btn">
             <div class ="detail_tag">ロケーションを選択</div>
             <div class ="radio_btns" style="display:none;">
@@ -113,14 +130,6 @@
             <div class ="detail_tag">支払い方法を選択</div>
             <div class ="radio_btns" style="display:none;">
               <%= f.collection_check_boxes :payments_id_in, Payment.all, :id, :name do |b| %>
-                <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio2') %>
-              <% end %>
-            </div>
-          </div>
-          <div class= "room_btn">
-            <div class ="detail_tag">席を選択</div>
-            <div class ="radio_btns" style="display:none;">
-              <%= f.collection_check_boxes :rooms_id_in, Room.all, :id, :name do |b| %>
                 <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio2') %>
               <% end %>
             </div>
@@ -140,6 +149,9 @@
                 <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio2') %>
               <% end %>
             </div>
+          </div>
+          <div class = "submit_detail_btn">
+            <%= f.submit "絞り込む" ,class: "search_submit_detail"%>
           </div>
         </div>
       </div>
