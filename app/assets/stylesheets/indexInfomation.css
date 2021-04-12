@@ -2,7 +2,7 @@
   height: 70vh;
   width: 100%;
   max-width: 100%;
-  background-image: url("top1.jpg");
+  background-image: image-url ("top1.jpg");
   background-size:contain;
   display: flex;
 }
