@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: receptionApp_production
-  username: receptionApp
-  password: <%= ENV['RECEPTIONAPP_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
