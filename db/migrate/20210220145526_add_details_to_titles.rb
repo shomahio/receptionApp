@@ -4,3 +4,4 @@ class AddDetailsToTitles < ActiveRecord::Migration[6.0]
     add_column :information, :mail, :string
   end
 end
+
