@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_193410) do
     t.time "closing_time", null: false
     t.integer "reception_id"
     t.text "explanation"
+    t.string "photo"
     t.index ["store_id"], name: "index_information_on_store_id"
   end
 
