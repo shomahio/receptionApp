@@ -118,15 +118,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_193410) do
     t.index ["music_id"], name: "index_information_musics_on_music_id"
   end
 
-  create_table "information_payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "information_id"
-    t.bigint "payment_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["information_id"], name: "index_information_payments_on_information_id"
-    t.index ["payment_id"], name: "index_information_payments_on_payment_id"
-  end
-
   create_table "information_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "information_id"
     t.bigint "room_id"
@@ -283,8 +274,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_193410) do
   add_foreign_key "information_locations", "locations"
   add_foreign_key "information_musics", "information"
   add_foreign_key "information_musics", "musics"
-  add_foreign_key "information_payments", "information"
-  add_foreign_key "information_payments", "payments"
   add_foreign_key "information_rooms", "information"
   add_foreign_key "information_rooms", "rooms"
   add_foreign_key "information_services", "information"
