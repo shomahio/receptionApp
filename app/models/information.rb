@@ -39,31 +39,31 @@ class Information < ApplicationRecord
   
   
   #バリデーション
-  with_options presence: true do
-    validates :store_name
-    validates :email
-    validates :city
-    validates :image
-    validates :image_foods
-    validates :image_appearances
-    validates :image_introspections
-    validates :image_entrances
-    validates :image_seats
-    validates :image_toilets
-    validates :age_ids
-    validates :payment_ids
-    validates :music_ids
-    validates :postal_code,       format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "にハイフンを含めてください" }
-    validates :tel,               format: { with: /\A\d{10,11}\z/}
-    with_options numericality: { other_than: 1, message:'を選択してください'} do
-      validates :genre_id
-      validates :place_id
-      validates :light_id
-      validates :volume_id
-      validates :budget_id
-      validates :tobacco_id
-    end
-  end
+  # with_options presence: true do
+  #   validates :store_name
+  #   validates :email
+  #   validates :city
+  #   validates :image
+  #   validates :image_foods
+  #   validates :image_appearances
+  #   validates :image_introspections
+  #   validates :image_entrances
+  #   validates :image_seats
+  #   validates :image_toilets
+  #   validates :age_ids
+  #   validates :payment_ids
+  #   validates :music_ids
+  #   validates :postal_code,       format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "にハイフンを含めてください" }
+  #   validates :tel,               format: { with: /\A\d{10,11}\z/}
+  #   with_options numericality: { other_than: 1, message:'を選択してください'} do
+  #     validates :genre_id
+  #     validates :place_id
+  #     validates :light_id
+  #     validates :volume_id
+  #     validates :budget_id
+  #     validates :tobacco_id
+  #   end
+  # end
 
 
 end

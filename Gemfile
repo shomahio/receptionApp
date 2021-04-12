@@ -63,3 +63,4 @@ gem 'simple_calendar', '~> 2.0'
 gem 'rails-i18n'
 gem 'activerecord-import'
 gem 'ransack'
+gem "aws-sdk-s3", require: false

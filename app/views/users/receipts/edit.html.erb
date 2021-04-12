@@ -30,7 +30,7 @@
   <div class= "receipt_from_confirmation">
     <%= form_with(model: @reseipt, url: users_receipt_path(@receipt.id), method: :patch, local: true) do |f| %>
       <%= f.check_box :consent, {},:as => :boolean, class: "confirmation_btn"%>
-      <%= f.submit "承認するってばよ", class: "confirmation_submit"  %>
+      <%= f.submit "承認する", class: "confirmation_submit"  %>
     <% end %>
   </div>
 </div>
