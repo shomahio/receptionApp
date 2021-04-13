@@ -1,6 +1,6 @@
 class Information < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :store
+  belongs_to :store, optional: true
   has_one_attached :image, dependent: :destroy
   has_many_attached :image_foods, dependent: :destroy
   has_many_attached :image_appearances, dependent: :destroy
@@ -9,15 +9,16 @@ class Information < ApplicationRecord
   has_many_attached :image_seats, dependent: :destroy
   has_many_attached :image_views, dependent: :destroy
   has_many_attached :image_toilets, dependent: :destroy
-  belongs_to :genre
-  belongs_to_active_hash :booking
-  belongs_to :light
-  belongs_to :reception
-  belongs_to_active_hash :tobacco
-  belongs_to_active_hash :budget
-  belongs_to_active_hash :volume
-  belongs_to_active_hash :parking
-  belongs_to :place
+  belongs_to :genre, optional: true
+  belongs_to :booking, optional: true
+  belongs_to :light, optional: true
+  belongs_to :reception, optional: true
+  belongs_to :tobacco, optional: true
+  belongs_to :budget, optional: true
+  belongs_to :volume, optional: true
+  belongs_to :parking, optional: true
+  belongs_to :place, optional: true
+  belongs_to :holiday, optional: true
   has_many :reservations, dependent: :destroy
   has_many :information_musics, dependent: :destroy
   has_many :musics, through: :information_musics, dependent: :destroy

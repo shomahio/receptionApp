@@ -92,13 +92,16 @@
 }
 
 .search_submit {
-  font-size: 24px;
+  font-size: 29px;
 }
 
 .search_submit_word {
   background-color: coral;
+  height: 100%;
+  width: 90px;
   padding: 5px 5px;
   color: white;
+  font-size: 20px;
 }
 
 /* ジャンル検索 */
@@ -251,24 +254,26 @@ label[for="q_genre_ancestry_in_39"] {
 .search_budget {
   width: 90%;
   margin: auto;
+  display: flex;
+  justify-content: center;
+
 }
 
 .max_btn {
   height: 50px;
-  width: 400px;
-  margin-left: 90px;
-  margin-right: 10px;
+  width: 28%;
+  margin-right: 15px;
 }
 
 .min_btn {
   height: 50px;
-  width: 400px;
-  margin-right: 10px;
+  width: 28%;
+  margin-right: 15px;
 }
 
 .budget_submit {
   height: 50px;
-  width: 120px;
+  width: 22%;
   background-color:coral;
   font-size: 24px;
   color: white;

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_13_115800) do
+ActiveRecord::Schema.define(version: 2021_03_20_123033) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -34,15 +34,15 @@ ActiveRecord::Schema.define(version: 2021_04_13_115800) do
   end
 
   create_table "ages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
   create_table "drinks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -59,26 +59,26 @@ ActiveRecord::Schema.define(version: 2021_04_13_115800) do
     t.string "address", null: false
     t.string "building"
     t.string "tel", null: false
+    t.string "email", null: false
     t.integer "genre_id", null: false
     t.integer "light_id", null: false
     t.integer "volume_id", null: false
     t.integer "budget_id", null: false
     t.integer "tobacco_id", null: false
+    t.integer "place_id", null: false
+    t.integer "holiday_id", null: false
+    t.integer "booking_id", null: false
+    t.integer "parking_id", null: false
+    t.integer "reception_id", null: false
+    t.integer "seet", null: false
+    t.string "food"
+    t.text "explanation", null: false
+    t.string "transportation", null: false
+    t.time "opening_time", null: false
+    t.time "closing_time", null: false
     t.bigint "store_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "email"
-    t.integer "place_id"
-    t.string "transportation"
-    t.string "holiday"
-    t.integer "booking_id"
-    t.integer "parking_id"
-    t.string "food"
-    t.time "opening_time", null: false
-    t.time "closing_time", null: false
-    t.integer "reception_id"
-    t.text "explanation"
-    t.string "photo"
     t.index ["store_id"], name: "index_information_on_store_id"
   end
 
@@ -155,21 +155,21 @@ ActiveRecord::Schema.define(version: 2021_04_13_115800) do
   end
 
   create_table "locations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
   create_table "musics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
   create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
   create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -184,6 +184,7 @@ ActiveRecord::Schema.define(version: 2021_04_13_115800) do
     t.string "name", null: false
     t.string "proviso", null: false
     t.boolean "consent"
+    t.string "number"
     t.bigint "reservation_id"
     t.bigint "user_id"
     t.bigint "information_id"
@@ -195,36 +196,34 @@ ActiveRecord::Schema.define(version: 2021_04_13_115800) do
   end
 
   create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "information_id"
-    t.bigint "user_id"
     t.string "name"
     t.integer "number_of_people"
+    t.string "tel"
+    t.datetime "start_time", null: false
+    t.bigint "user_id"
+    t.bigint "information_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "start_time"
-    t.string "tel"
-    t.bigint "store_id"
     t.index ["information_id"], name: "index_reservations_on_information_id"
-    t.index ["store_id"], name: "index_reservations_on_store_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
   create_table "services", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
   create_table "spaces", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
   create_table "stores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -248,8 +247,8 @@ ActiveRecord::Schema.define(version: 2021_04_13_115800) do
   end
 
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "text"
+    t.string "title"
+    t.string "text", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -263,14 +262,17 @@ ActiveRecord::Schema.define(version: 2021_04_13_115800) do
     t.string "first_name", null: false
     t.date "birthday", null: false
     t.string "tel", null: false
+    t.string "postal_code", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "nickname", null: false
+    t.string "building"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "nickname"
-    t.string "postal_code"
-    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

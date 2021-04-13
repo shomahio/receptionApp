@@ -22,6 +22,6 @@ class Informations::ReceiptsController < ApplicationController
   private
   def receipt_params
     @reservation = Reservation.find(params[:reservation_id])
-    params.permit(:name, :price, :proviso, :reservation_id).merge(information_id: @reservation.information_id, user_id: @reservation.user_id)
+    params.permit(:name, :price, :proviso, :number, :reservation_id).merge(information_id: @reservation.information_id, user_id: @reservation.user_id)
   end
 end

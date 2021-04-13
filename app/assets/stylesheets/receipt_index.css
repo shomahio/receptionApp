@@ -156,19 +156,45 @@
 }
 
 /* 領収書確認ページ */
-.receipt_from_confirmation {
+.receipt_show {
+  padding-bottom: 15px;
+}
+
+.receipt_from_confirmation form {
   width: 60%;
   margin: auto;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.receipt_from_confirmation_content {
+  position: relative;
 }
 
 .confirmation_btn {
-  color: red;
+  display: block;
 }
+
 
 .confirmation_submit {
   width: 500px;
   height: 50px;
   font-size: 25px;
+  display: block;
+  margin-left: 50px;
+  margin-bottom: 50px;
 }
+
+.receipt_from_confirmation input[type=checkbox] {
+  transform: scale(3.2);
+  position: absolute ;
+  top: 19px;
+  left: 30%;
+  
+  
+}
+
 

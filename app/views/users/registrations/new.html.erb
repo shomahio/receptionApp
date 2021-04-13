@@ -65,11 +65,39 @@
       <%= f.text_area :tel, class:"input-tel", id:"last-tel", placeholder:"例) 090-1234-5678" %>
     </div>
     <div class='form-text-wrap'>
-      <label class="form-text">住所</label>
+      <label class="form-text">郵便番号</label>
       <span class="indispensable">必須</span>
     </div>
     <div class='input-name-wrap'>
-      <%= f.text_area :city, class:"input-default", id:"last-tel", placeholder:"例) 東京都○○区△△１丁目１−１" %>
+      <%= f.text_area :postal_code, class:"input-default", id:"last-tel", placeholder:"例) 123-4567" %>
+    </div>
+    <div class='form-text-wrap'>
+      <label class="form-text">都道府県</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <div class='input-name-wrap'>
+      <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"input-default", id:"prefecture"}) %>
+    </div>
+    <div class='form-text-wrap'>
+      <label class="form-text">市町村</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <div class='input-name-wrap'>
+      <%= f.text_area :city, class:"input-default", id:"last-tel", placeholder:"例) " %>
+    </div>
+    <div class='form-text-wrap'>
+      <label class="form-text">番地</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <div class='input-name-wrap'>
+      <%= f.text_area :address, class:"input-default", id:"last-tel", placeholder:"例) １２３−１" %>
+    </div>
+    <div class='form-text-wrap'>
+      <label class="form-text">建物</label>
+      <span class="indispensable">任意</span>
+    </div>
+    <div class='input-name-wrap'>
+      <%= f.text_area :building, class:"input-default", id:"last-tel", placeholder:"例) ヒルスビル" %>
     </div>
   </div>
   <div class="form-group">

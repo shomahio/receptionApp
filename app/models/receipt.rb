@@ -1,7 +1,7 @@
 class Receipt < ApplicationRecord
-  belongs_to :reservation
-  belongs_to :user
-  belongs_to :information
+  belongs_to :reservation, optional: true
+  belongs_to :user, optional: true
+  belongs_to :information, optional: true
 
   validates :price,   presence: true
   validates :name,    presence: true
