@@ -99,7 +99,7 @@
         </div>
         <%= f.text_area :store_name, class:"stores-text", id:"store-name", placeholder:"店名（必須 40文字まで)", maxlength:"40" %>
         <div class="weight-bold-text">
-          商品の説明
+          お店の説明
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :explanation, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで" ,rows:"7" ,maxlength:"1000" %>
@@ -174,7 +174,7 @@
             定休日
             <span class="indispensable">必須</span>
           </div>
-          <%= f.text_field :holiday, class:"input-default1", id:"holiday", placeholder:"例）水曜日"%>
+          <%= f.collection_select(:holiday_id, Holiday.all, :id, :name, {}, {class:"select-box", id:"booking"}) %>
           <div class="listing-product-detail__genre">
           <%= f.label '食べ物のジャンル', class: 'listing-default__label' %>
             <span class="listing-default--require">必須</span>
@@ -210,6 +210,11 @@
             <span class="indispensable">必須</span>
           </div>
           <%= f.collection_select(:budget_id, Budget.all, :id, :name, {}, {class:"select-box", id:"budget"}) %>
+          <div class= "weight-bold-text">
+            席数
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :seet, class:"input-default" %>
           <div class= "weight-bold-text">
             喫煙について
             <span class="indispensable">必須</span>
