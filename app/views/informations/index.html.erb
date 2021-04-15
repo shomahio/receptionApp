@@ -46,7 +46,7 @@
         <div class= "tweet_info">
           <%= link_to tweet_path(tweet.id), class: "tweet_path_url" do %>
             <h3 class= "tweet_name">
-              <%= tweet.user.last_name %>さんの投稿
+              <%= tweet.user.nickname %>さんの投稿
             </h3>
             <div class= "tweet_img">
               <%= image_tag tweet.image, class: "item_tweet_img" %>

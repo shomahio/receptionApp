@@ -2,7 +2,7 @@ class Tweet < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :name, presence: true
+  validates :title, presence: true
   validates :text, presence: true
 
   def was_attached?
