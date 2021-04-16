@@ -17,7 +17,12 @@ class Users::ReservationsController < ApplicationController
     else
       render :edit
     end
-    
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to root_path
   end
 
   private

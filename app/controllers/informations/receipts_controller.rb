@@ -8,6 +8,7 @@ class Informations::ReceiptsController < ApplicationController
 
   def new
     @receipt = Receipt.new
+    @reservation = Reservation.find(params[:reservation_id])
   end
 
   def create
