@@ -83,7 +83,7 @@ class InformationsController < ApplicationController
   
     @q = Information.ransack(search_params.merge(
         g: {
-          '0' => { m: 'or', store_name_or_genre_name_cont: @keyword, genre_id_in: genre_array },
+          '0' => { m: 'or', food_or_store_name_or_genre_name_cont: @keyword, genre_id_in: genre_array },
           '1' => { m: 'or', city_or_address_or_place_name_cont: @area_word, place_id_in: place_array }
         }
       )

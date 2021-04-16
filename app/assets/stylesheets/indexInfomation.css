@@ -70,7 +70,7 @@
 }
 
 .root_url {
-  color: coral;
+  color:navy;
   letter-spacing: 7px;
   text-decoration: none;
 }
@@ -96,7 +96,7 @@
 }
 
 .search_submit_word {
-  background-color: coral;
+  background-color: navy;
   height: 100%;
   width: 90px;
   padding: 5px 5px;
@@ -123,13 +123,12 @@
   color: coral;
   font-size: 30px;
   margin-left: 70px;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .genre_btn {
   margin-left: 70px;
   margin-right: 20px;
-  margin-top: 25px;
 }
 
 
