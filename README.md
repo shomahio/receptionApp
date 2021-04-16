@@ -82,25 +82,28 @@ moduleにより作成したレコードをsimple_calenderにより表示して�
 | 3 | 店舗情報編集機能 | 登録した店舗情報を編集できるようにするため | 自身の店舗情報詳細ページの下記のボタンから編集することができる|
 | 3 | 店舗情報削除機能 | 登録した店舗情報を削除できるようにするため | 自身の店舗情報詳細ページの下記のボタンから削除することができる|
 | 3 | 店舗情報検索機能 | 店舗情報を検索できるようにするため | トップページまたは検索結果一覧ページからキーワード検索、予算の範囲検索、それ以外のラジオボタン検索で好みの店舗を検索することができる|
-| 3 | 店舗情報予約機能 | 店舗を予約できるようにするため | 店舗詳細ページのカレンダーから希望の日時を選択肢予約することができる。|
-
-
+| 3 | 店舗予約機能 | 店舗を予約できるようにするため | 店舗詳細ページのカレンダーから希望の日時を選択肢予約することができる。|
+| 3 | 店舗予約編集機能 | 店舗が予約を取り消すため | 自身の店舗詳細ページのカレンダーから希望の日時を選択肢予約することができる。|
+| 3 | 店舗予約削除機能 | ユーザーが予約を取り消すため | マイページの予約一覧から削除できる|
+| 3 | 電子領収書機能機能 | 電子領収書を作成するため | 店舗の予約一覧から領収書を発行でき、作成後ユーザーから承認があれば確定領収書を作成できる|
+| ２ | ユーザー投稿機能 | よかったお店の投稿ができる | ユーザーはトップページからよかったお店を投稿し簡単に共有することができる|
+| ２ | ユーザー投稿編集機能 | 投稿の編集ができる | 自身の投稿詳細ページから投稿を編集することができる。|
+| ２ | ユーザー投稿削除機能 | 投稿の削除ができる | 自身の投稿詳細ページから投稿を削除することができる。|
+<br>
 
 # 追加実装予定
+| 機能 | 目的 | 
+-|-|
+| レスポンシブデザイン対応 | メインの使用端末はスマホになると予想されるため |
+| タグ検索機能（ユーザーの投稿と店舗詳細ページの紐付け） | 店舗ではなく、一般のユーザーの声がお店を選ぶ上で信用度が高いため |
+| お店の評価機能（レーダーチャート） | 店舗の評価をより詳細にすることで、一般ユーザーの細かいニーズからお店を探せるようにするため |
+| クレジット決済機能 | 電子領収書は、よりセキュリティ面で現実的ではないために、クレジットカードのAPIを使用しセキュリティ面を担保するため。まだ実現ができればウォレットレスに対応できるため |
+| 既存の予約管理システムとの連結機能 | 複数の予約アプリを導入している店舗も多いと予想されるために実現性を上げるためには、他のサービスとの連結をしなければならないため |
 
+<br>
 
 # ER図
-
-# テーブル設計
-
-
-
-
-
-
-
-
-
+[![Image from Gyazo](https://i.gyazo.com/e0b3e003696029e76a5fff0947cbc148.png)](https://gyazo.com/e0b3e003696029e76a5fff0947cbc148)
 
 
 
@@ -113,21 +116,27 @@ moduleにより作成したレコードをsimple_calenderにより表示して�
 
 ## users テーブル
 
-| Column             | Type   | Options                            |
-| ------------------ | ------ | ---------------------------------- |
-| nickname           | string | null: false                        |
-| name               | string | null: false                        |
-| email              | string | null: false,unique:true            |
-| password           | string | null: false                        |
-| encrypted_password | string | null: false                        |
-| birthday           | date   | null: false                        |
-| tel                | string | null: false                        |
+| Column             | Type    | Options                            |
+| ------------------ | ------- | ---------------------------------- |
+| nickname           | string  | null: false                        |
+| last_name          | string  | null: false                        |
+| first_name         | string  | null: false                        |
+| email              | string  | null: false,unique:true            |
+| password           | string  | null: false                        |
+| encrypted_password | string  | null: false                        |
+| birthday           | date    | null: false                        |
+| tel                | string  | null: false                        |
+| postal_code        | string  | null: false                        |
+| prefecture_id      | integer | null: false                        |
+| city               | string  | null: false                        |
+| address            | string  | null: false                        |
+| building           | string  |                                    |
 
 ### Association
 
-- 
+- has_many :tweets
 - has_many :reservations
-- has_many :comments
+- has_many :receipts
 
 ## store テーブル
 
@@ -138,17 +147,15 @@ moduleにより作成したレコードをsimple_calenderにより表示して�
 | prefecture_id      | integer    | null: false                    |
 | city               | string     | null: false                    |
 | address            | string     | null: false                    |
-| building           | string     | null: false                    |
+| building           | string     |                                |
 | tel                | string     | null: false                    |
-| person             | string     | null: false                    |
+| director           | string     | null: false                    |
 | email              | string     | null: false,unique:true        |
 | password           | string     | null: false                    |
 
 ### Association
 
 - has_one  :information
-- has_many :comments
-- 
 
 ## informations テーブル
 
@@ -159,32 +166,272 @@ moduleにより作成したレコードをsimple_calenderにより表示して�
 | prefecture_id      | integer    | null: false                    |
 | city               | string     | null: false                    |
 | address            | string     | null: false                    |
-| building           | string     | null: false                    |
+| building           | string     |                                |
 | tel                | string     | null: false                    |
-| area_id            | integer    | null: false                    |
+| food               | string     | null: false                    |
+| seet               | integer    | null: false                    |
+| transportation     | string     | null: false                    |
+| explanation        | text       | null: false                    |
+| opening_time       | time       | null: false                    |
+| closing_time       | time       | null: false                    |
+| place_id           | integer    | null: false                    |
 | genre_id           | integer    | null: false                    |
-| budget_id          | integer    | null: false                    |
 | light_id           | integer    | null: false                    |
 | volume_id          | integer    | null: false                    |
-| age_id             | integer    | null: false                    |
-| room_id            | integer    | null: false                    |
+| budget_id          | integer    | null: false                    |
 | tobacco_id         | integer    | null: false                    |
-| location_id        | integer    | null: false                    |
-| service_id         | integer    | null: false                    |
-| drink_style_id     | integer    | null: false                    |
-| food_style_id      | integer    | null: false                    |
-| space_id           | integer    | null: false                    |
-| location_id        | integer    | null: false                    |
-| service_id         | integer    | null: false                    |
-| food_id            | integer    | null: false                    |
-| drink_id           | integer    | null: false                    |
+| holiday_id         | integer    | null: false                    |
+| booking_id         | integer    | null: false                    |
+| parking_id         | integer    | null: false                    |
+| reception_id       | integer    | null: false                    |
 | store              | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :store
-- has_many :comments
+- has_one_attached :image
+- has_many_attached :image_foods
+- has_many_attached :image_appearances
+- has_many_attached :image_introspections
+- has_many_attached :image_entrances
+- has_many_attached :image_seats
+- has_many_attached :image_views
+- has_many_attached :image_toilets
+- belongs_to :genre
+- belongs_to :booking
+- belongs_to :light
+- belongs_to :reception
+- belongs_to :tobacco
+- belongs_to :budget
+- belongs_to :volume
+- belongs_to :parking
+- belongs_to :place
+- belongs_to :holiday
 - has_many :reservations
+- has_many :information_musics
+- has_many :musics, through: :information_musics
+- has_many :information_payments
+- has_many :payments, through: :information_payments
+- has_many :information_locations
+- has_many :locations, through: :information_locations
+- has_many :information_drinks
+- has_many :drinks, through: :information_drinks
+- has_many :information_services
+- has_many :services, through: :information_services
+- has_many :information_ages
+- has_many :ages, through: :information_ages
+- has_many :information_rooms
+- has_many :rooms, through: :information_rooms
+- has_many :information_spaces
+- has_many :spaces, through: :information_spaces
+- has_many :receipts
+
+## genres テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+| ancestry    | integer    | null: false                    |
+
+### Association
+- has_many :informations
+- has_ancestry
+
+## genres テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+| ancestry    | integer    | null: false                    |
+
+### Association
+- has_many :informations
+- has_ancestry
+
+## ages テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+
+### Association
+- has_many :information_ages
+- has_many :informations, through: :information_ages
+
+## information_ages テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| information | references | null: false, foreign_key: true |
+| age         | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :information
+- belongs_to :age
+
+## drinks テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+
+### Association
+- has_many :information_drinks
+- has_many :informations, through: :information_drinks
+
+## information_drinks テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| information | references | null: false, foreign_key: true |
+| drink       | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :information
+- belongs_to :drink
+
+## locations テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+
+### Association
+- has_many :information_locations
+- has_many :informations, through: :information_locations
+
+## information_locations テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| information | references | null: false, foreign_key: true |
+| location    | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :information
+- belongs_to :location
+
+## musics テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+
+### Association
+- has_many :information_musics
+- has_many :informations, through: :information_musics
+
+## information_musics テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| information | references | null: false, foreign_key: true |
+| music       | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :information
+- belongs_to :music
+
+## payments テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+
+### Association
+- has_many :information_payments
+- has_many :informations, through: :information_payments
+
+## information_payments テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| information | references | null: false, foreign_key: true |
+| payment     | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :information
+- belongs_to :payment
+
+## rooms テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+
+### Association
+- has_many :information_rooms
+- has_many :informations, through: :information_rooms
+
+## information_rooms テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| information | references | null: false, foreign_key: true |
+| room        | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :information
+- belongs_to :room
+
+## services テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+
+### Association
+- has_many :information_services
+- has_many :informations, through: :information_services
+
+## information_services テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| information | references | null: false, foreign_key: true |
+| service     | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :information
+- belongs_to :service
+
+## spaces テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+
+### Association
+- has_many :information_spaces
+- has_many :informations, through: :information_spaces
+
+## information_spaces テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| information | references | null: false, foreign_key: true |
+| space       | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :information
+- belongs_to :space
+
+## reservations テーブル
+
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| name             | string     | null: false                    |
+| number_of_people | integer    | null: false                    |
+| tel              | string     | null: false                    |
+| start_time       | datetime   |                                |
+| user             | references | null: false, foreign_key: true |
+| information      | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :information
+- has_one :receipt
 
 
 ## receipts テーブル
@@ -193,42 +440,25 @@ moduleにより作成したレコードをsimple_calenderにより表示して�
 | ----------- | ---------- | ------------------------------ |
 | price       | string     | null: false                    |
 | name        | string     | null: false                    |
-| date        | date       | null: false                    |
-| time        | time       | null: false                    |
+| proviso     | string     | null: false                    |
+| consent     | boolean    |                                |
 | user        | references | null: false, foreign_key: true |
 | reservation | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :reservation
+- belongs_to :user
 
-## reservations テーブル
+## tweets テーブル
 
 | Column       | Type       | Options                        |
 | -------------| ---------- | ------------------------------ |
-| name         | string     | null: false                    |
-| date         | string     | null: false                    |
-| time         | string     | null: false                    |
+| title        | string     | null: false                    |
+| text         | string     | null: false                    |
 | user         | references | null: false, foreign_key: true |
-| informations | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :information
-- has_one    :receipt
-
-
-## comments テーブル
-
-| Column       | Type       | Options                        |
-| -------------| ---------- | ------------------------------ |
-| text         | text       | null: false                    |
-| user         | references | null: false, foreign_key: true |
-| informations | references | null: false, foreign_key: true |
-### Association
-
-- belongs_to :user
-- belongs_to :information
-
 
