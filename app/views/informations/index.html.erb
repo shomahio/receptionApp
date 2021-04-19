@@ -37,7 +37,7 @@
     <div class = "user_tweet_post_btn">
       <% if user_signed_in? %>
         <div class = "tweet_post_btn">
-          <%= link_to "投稿する", new_tweet_path, class: 'tweet_post_btn_url' %> 
+          <%= link_to "投稿する", new_tweet_path, data: {"turbolinks" => false}, class: 'tweet_post_btn_url' %> 
         </div>
       <% end %>
     </div>

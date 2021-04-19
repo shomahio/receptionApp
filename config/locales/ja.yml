@@ -130,4 +130,9 @@ ja:
         price: 料金
         proviso: 但し書き
         consent: 承認
+        name: 宛名
+
+      tweet:
+        title: 店名
+        text: 本文
 

@@ -36,6 +36,9 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -74,3 +77,4 @@ gem 'rails-i18n'
 gem 'activerecord-import'
 gem 'ransack'
 gem "aws-sdk-s3", require: false
+
