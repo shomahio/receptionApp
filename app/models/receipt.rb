@@ -4,7 +4,6 @@ class Receipt < ApplicationRecord
   belongs_to :information, optional: true
 
   validates :price,   presence: true
-  validates :name,    presence: true
   validates :proviso, presence: true
   validates :consent, presence: true, on: :update
 end

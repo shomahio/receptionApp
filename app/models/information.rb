@@ -39,32 +39,81 @@ class Information < ApplicationRecord
   has_many :receipts, dependent: :destroy
   
   
-  #バリデーション
-  # with_options presence: true do
-  #   validates :store_name
-  #   validates :email
-  #   validates :city
-  #   validates :image
-  #   validates :image_foods
-  #   validates :image_appearances
-  #   validates :image_introspections
-  #   validates :image_entrances
-  #   validates :image_seats
-  #   validates :image_toilets
-  #   validates :age_ids
-  #   validates :payment_ids
-  #   validates :music_ids
-  #   validates :postal_code,       format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "にハイフンを含めてください" }
-  #   validates :tel,               format: { with: /\A\d{10,11}\z/}
-  #   with_options numericality: { other_than: 1, message:'を選択してください'} do
-  #     validates :genre_id
-  #     validates :place_id
-  #     validates :light_id
-  #     validates :volume_id
-  #     validates :budget_id
-  #     validates :tobacco_id
-  #   end
-  # end
+  # バリデーション
+  with_options presence: true do
+    validates :store_name
+    validates :postal_code,       format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "にハイフンを含めてください" }
+    validates :city
+    validates :address
+    validates :tel,               format: { with: /\A\d{10,11}\z/}
+    validates :email
+    validates :genre_id
+    validates :place_id
+    validates :explanation
+    validates :transportation
+    validates :opening_time
+    validates :closing_time
+    validates :seet
+    validates :image
+    validates :image_toilets
+    with_options numericality: { other_than: 1, message:'を選択してください'} do
+      validates :light_id
+      validates :volume_id
+      validates :budget_id
+      validates :tobacco_id
+      validates :holiday_id
+      validates :booking_id
+      validates :parking_id
+      validates :reception_id
+    end
+  end
+  validate  :image_foods_length
+  validate  :image_appearances_length
+  validate  :image_introspections_length
+  validate  :image_entrances_length
+  validate  :image_seats_length
+
+  private
+
+  def image_foods_length
+    if image_foods.length != 3
+      errors.add(:image_foods, "は3枚にしてください")
+    end
+  end
+
+  def image_appearances_length
+    if image_appearances.length != 3
+      errors.add(:image_appearances, "は3枚にしてください")
+    end
+  end
+
+
+  def image_introspections_length
+    if image_introspections.length != 3
+      errors.add(:image_introspections, "は3枚にしてください")
+    end
+  end
+
+
+  def image_entrances_length
+    if image_entrances.length != 3
+      errors.add(:image_entrances, "は3枚にしてください")
+    end
+  end
+
+
+  def image_seats_length
+    if image_seats.length != 3
+      errors.add(:image_seats, "は3枚にしてください")
+    end
+  end
+
+
+  def image_foods_length
+    if image_foods.length != 3
+      errors.add(:image_foods, "は3枚にしてください")
+    end
+  end
 
 
 end

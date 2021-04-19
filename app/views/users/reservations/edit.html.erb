@@ -10,6 +10,9 @@
   <div class ="reservation_content">
     <h1 class ="input_name_tag">情報を入力</h1>
     <%= form_with(model: [@user, @reservation],url: users_reservation_path(@reservation.id), local: true) do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+    
       <div class = "input_detail">
         <div class= "weight-bold-text">
           お名前

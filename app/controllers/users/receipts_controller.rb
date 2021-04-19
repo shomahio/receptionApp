@@ -9,7 +9,6 @@ class Users::ReceiptsController < ApplicationController
   end
 
   def update
-    #@user = User.find(current_user.id)
     @receipt = Receipt.find(params[:id])
     if @receipt.update(receipt_params)
       redirect_to root_path

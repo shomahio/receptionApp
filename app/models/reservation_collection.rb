@@ -13,6 +13,11 @@ class ReservationCollection
     close_time = information.closing_time.strftime("%H").to_i
     open_time = information.opening_time.strftime("%H").to_i
     oneday = close_time - open_time
+    if close_time > open_time
+      oneday = close_time - open_time
+    else
+      oneday = close_time - open_time + 24
+    end
     require "date"
     year = Date.today.year
     month = Date.today.month
