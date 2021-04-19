@@ -7,7 +7,7 @@
       <% unless user_signed_in? || store_signed_in? %>
         <div class= "nav_btns">
           <%= link_to "ログイン", new_user_session_path, class: "nav_btn"%>
-          <%= link_to "新規登録", new_user_registration_path , class: "nav_btn" %>
+          <%= link_to "新規登録", new_user_registration_path , data: {"turbolinks" => false}, class: "nav_btn" %>
         </div>
       <% end %>
       <% if store_signed_in? && Information.find_by(store_id: current_store.id) != nil %>
@@ -37,7 +37,7 @@
     <div class = "user_tweet_post_btn">
       <% if user_signed_in? %>
         <div class = "tweet_post_btn">
-          <%= link_to "投稿する", new_tweet_path, class: 'tweet_post_btn_url' %> 
+          <%= link_to "投稿する", new_tweet_path, data: {"turbolinks" => false}, class: 'tweet_post_btn_url' %> 
         </div>
       <% end %>
     </div>

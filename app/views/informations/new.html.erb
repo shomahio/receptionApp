@@ -3,9 +3,9 @@
   <div class="inner4">
     <div class="store_information_main">
       <h2 class="store_information_title">お店情報を入力</h2>
-      <%= form_with(model: @information, url: informations_path,local: true) do |f| %>
+      <%= form_with(model: @information, url: informations_path, local: true) do |f| %>
 
-      <%# render 'shared/error_messages', model: f.object %>
+      <%= render 'shared/error_messages', model: f.object %>
 
       <%#店内画像%>
       <div class= "img-upload">

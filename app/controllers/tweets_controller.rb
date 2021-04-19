@@ -1,4 +1,7 @@
 class TweetsController < ApplicationController
+  def index
+  end
+
   def new
     @tweet = Tweet.new
   end
@@ -9,7 +12,7 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to controller: :informations, action: :index
     else 
-      render :new
+      render controller: :tweet, action: :new
     end
   end
 

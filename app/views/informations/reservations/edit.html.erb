@@ -11,6 +11,9 @@
     <h1 class ="input_name_tag">お客様情報の登録</h1>
     <p class = "input_name_tag_second">(予約を消す時はお好きな名前、人数、電話番号を入力してください。)</p>
     <%= form_with(model: [@information, @reservation],url: informations_reservation_path(@reservation.id), local: true) do |f| %>
+
+      <%= render 'shared/error_messages', model: f.object %>
+
       <div class = "input_detail">
         <div class= "weight-bold-text">
           お名前

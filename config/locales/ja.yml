@@ -57,4 +57,82 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
     
+  activerecord:
+    attributes:
+      # user:
+      #   nickname: ニックネーム
+      #   last_name: お名前(全角)
+      #   first_name: お名前(全角)
+      #   last_name_kana: お名前カナ(全角)
+      #   first_name_kana: お名前カナ(全角)
+      #   birthday: 生年月日
+       
+      information:
+        image: トップ画像
+        store_name: 店名
+        tel: 電話番号
+        postal_code: 郵便番号 
+        city: 市町村
+        address: 番地
+        email: メールアドレス
+        genre_id: 食べ物のジャンル
+        place_id: エリア
+        explanation: 商品の説明
+        transportation: 交通手段
+        opening_time: 営業開始時間
+        closing_time: 営業終了時間
+        seet: 席数
+        image: トップ画像
+        light_id: 店内照明
+        volume_id: 店内音量 
+        budget_id: 予算 
+        tobacco_id: 喫煙について
+        holiday_id: 定休日 
+        booking_id: 予約可能かどうか
+        parking_id: 駐車場の有無
+        reception_id: 利用シーン
+        image_foods: 料理画像
+        image_appearances: お店の外観画像
+        image_introspections: お店の内観画像
+        image_entrances: お店の入り口からの画像
+        image_seats: 席の画像
+        image toilets: お手洗いの画像
+        
+      store:
+        email: メールアドレス 
+        password: パスワード
+        store_name: 店名
+        tel: 電話番号
+        postal_code: 郵便番号 
+        city: 市町村
+        address: 番地
+        director: 責任者のお名前
+        prefecture_id: 都道府県
+
+      user:
+        email: メールアドレス
+        nickname: ニックネーム
+        last_name: 苗字
+        first_name: 名前
+        birthday: 生年月日
+        tel: 電話番号
+        postal_code: 郵便番号 
+        city: 市町村
+        address: 番地
+        prefecture_id: 都道府県
+
+      reservation:
+        name: お名前
+        number_of_people: 人数
+        tel: 電話番号
+      
+      receipt:
+        price: 料金
+        proviso: 但し書き
+        consent: 承認
+        name: 宛名
+
+      tweet:
+        title: 店名
+        text: 本文
 

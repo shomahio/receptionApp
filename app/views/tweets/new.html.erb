@@ -2,6 +2,7 @@
   <div class="tweet_form_grp">
     <h1 class = "tweet_form_grp_tag">投稿する</h1>
     <%= form_with(model: @tweet, local: true) do |form| %>
+    <%= render 'shared/error_messages', model: form.object %>
       <div class="tweet_form_grp_name">
         <div class= "tweet_form_grp_name_tag">
           店名
@@ -20,14 +21,14 @@
       </div>
       <div class= "tweet_form_grp_name">
         <div class="tweet_form_grp_name_tag">
-          店内画像　クリックしてファイルをアップロード
+          店内画像 クリックしてファイルをアップロード
         </div>
         <div class="tweet_form_grp_img_tag">
           <%= form.file_field :image, id:"tweet-image", class: "tweet_form_grp_text_form_field" %>
         </div>
       </div>
       <div class = "send_btn">
-        <%= form.submit "投稿", class: "tweet_form_btn" %>
+        <%= form.submit "投稿", data: {"turbolinks" => false},class: "tweet_form_btn" %>
       </div>
     <% end %>
   </div>

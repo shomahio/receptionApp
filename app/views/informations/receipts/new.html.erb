@@ -6,7 +6,10 @@
   </div>
   <div class= "receipt_content">
     <h1 class ="input_name_tag">お客様情報の登録</h1>
-    <%= form_with(url: informations_reservation_receipts_path, method: :post, local: true) do |f| %>
+    <%= form_with(model: @receipt ,url: informations_reservation_receipts_path, method: :post, local: true) do |f| %>
+
+      <%= render 'shared/error_messages', model: f.object %>
+
       <div class = "input_detail">
         <div class= "weight-bold-text">
           宛名

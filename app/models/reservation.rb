@@ -3,9 +3,11 @@ class Reservation < ApplicationRecord
   belongs_to :user, optional: true
   has_one :receipt, dependent: :destroy
 
-  # def self_records_destroy
-  #   @records = scope :start_time, -> {where('start_time <= ?', Time.now)}
-  #   @records.destroy
-  # end
-
+  #バリデーション
+  with_options presence: true , on: :update do
+    validates :name
+    validates :number_of_people
+    validates :tel
+    validates :start_time
+  end
 end
