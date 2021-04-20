@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :receipts, dependent: :destroy
   
   #バリデーション
-  with_options presence: true do
+  with_options presence: {message: "を登録してください"} do
     validates :last_name
     validates :first_name
     validates :nickname

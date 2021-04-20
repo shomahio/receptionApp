@@ -7,7 +7,7 @@ class Store < ApplicationRecord
   has_one :informations, dependent: :destroy
 
   #バリデーション
-  with_options presence: true do
+  with_options presence: {message: "を登録してください"} do
     validates :store_name
     validates :email
     validates :city

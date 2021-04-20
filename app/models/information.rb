@@ -40,7 +40,7 @@ class Information < ApplicationRecord
   
   
   # バリデーション
-  with_options presence: true do
+  with_options presence: {message: "を登録してください"}  do
     validates :store_name
     validates :postal_code,       format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "にハイフンを含めてください" }
     validates :city
