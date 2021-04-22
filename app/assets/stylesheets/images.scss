@@ -1,9 +1,9 @@
 .index_header {
   height: 70vh;
   width: 100%;
-  max-width: 100%;
-  background-image:image-url('top1.jpg');
-  background-size:contain;
+  background-image:image-url('top3.jpeg');
+  // padding-top: calc(335 / 900 * 100%); /* calc(画像高さ ÷ 画像横幅 × 100%) */
+  background-size:100% auto;
   display: flex;
 }
 
@@ -85,4 +85,16 @@ label[for="q_genre_ancestry_in_78"] {
 label[for="q_genre_ancestry_in_80"] {
   background-image: image-url("auberge.jpeg");
   background-size:cover;
+}
+
+@media (max-width: 599px) {
+  .index_header {
+    height: 26vh;
+    width: 100%;
+    background-image:image-url('top3.jpeg');
+    // padding-top: calc(335 / 900 * 100%); /* calc(画像高さ ÷ 画像横幅 × 100%) */
+    background-size:100% auto;
+    display: flex;
+  }
+  
 }
