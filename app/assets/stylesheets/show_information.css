@@ -3,6 +3,10 @@
   display: flex;
 }
 
+.show_store_name {
+  display: none;
+}
+
 .information_img_calender_contents {
   width: 50%;
 }
@@ -20,7 +24,6 @@
 .informaton_show_content_calender {
   height: 50%;
   width: 95%;
-
 }
 
 .yoyakukanou1 {
@@ -130,6 +133,7 @@
   
 }
 
+/* 編集・削除ボタン */
 .btn {
   text-align: center;
 }
@@ -145,5 +149,94 @@
   border-radius: 10px;
 }
 
+@media (max-width: 599px) {
+  .informaton_show_content {
+    padding: 10px 30px;
+    display: block;
+  }
 
+  .show_store_name {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    height: 50px;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .information_img_calender_contents {
+    width: 100%;
+  }
+
+  .top_img_box {
+    height: 50%;
+    width: 95%;
+  }
+  
+  .information-show-box-img {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .informaton_show_content_calender {
+    height: 100%;
+    width: 95%;
+  }
+
+  .informaton_show_content_calender {
+    height: 100%;
+    width: 95%;
+  }
+
+  .calendar-heading {
+    width: 100;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px; 
+  }
+
+
+.information_kihon {
+  width: 100%;
+}
+
+.information_show_imges {
+  width: 90%;
+  margin: 25px auto;
+  
+}
+
+.information_show_contents_img_box {
+  height: 200px;
+  width: 100%;
+}
+
+.imags_tags {
+  height: 39px;
+  font-size: 20px;
+  color: coral;
+  padding-left: 100px;
+  
+}
+
+.information_show_detail_img {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  height: 80%;
+  padding-left: 30px;
+}
+
+.information-box-img2 {
+  width: calc(90%/3);
+  height: 100%;
+  padding-left: 40px;
+  
+}
+
+
+  }
 

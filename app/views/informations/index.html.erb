@@ -1,7 +1,7 @@
 <div class = "main">
   <div class= "index_header">
     <div class= "nav_left">
-      <div class= "top_text">ビジネス版食べログ</div>
+      <div class= "top_text">仕事で使うお店探しは<br>ビジグルアプリ</div>
     </div>
     <div class= "nav_right">
       <% unless user_signed_in? || store_signed_in? %>
@@ -21,7 +21,6 @@
           <%= link_to "出店する", new_information_path, data: {"turbolinks" => false}, class: 'nav_btn' %> 
         </div>
       <% end %>
-
       <% if user_signed_in? %>
         <div class= "nav_btns">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav_btn"  %>
@@ -45,7 +44,7 @@
       <% @tweets.each do |tweet| %>
         <div class= "tweet_info">
           <%= link_to tweet_path(tweet.id), class: "tweet_path_url" do %>
-            <h3 class= "tweet_name">
+            <h3 class= "information_tweet_name">
               <%= tweet.user.nickname %>さんの投稿
             </h3>
             <div class= "tweet_img">
@@ -75,7 +74,7 @@
         <%= link_to "ヘルプ・お問い合わせ", "#" %>
       </div>
       <div class = "for_shop_detail">
-        <%= link_to "ビジログの便利な使い方", "#" %>
+        <%= link_to "ビジグルの便利な使い方", "#" %>
       </div>
       <div class = "for_shop_detail">
         <%= link_to "資料請求", "#" %>

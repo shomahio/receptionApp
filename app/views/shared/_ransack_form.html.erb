@@ -3,7 +3,7 @@
     <div class= "search_boxes">
       <div class= "search_text">
         <div class= "search_text_secondary">
-          <%= link_to "ビジログ" ,root_path , class: "root_url"%>
+          <%= link_to "ビジグル" ,root_path , class: "root_url"%>
         </div>
         <div class= "search_text_boxes">
           <div class= "search_text_keyword">
@@ -21,7 +21,7 @@
     <div class = "search_btns_main">
       <div class= "genre_place_search">
         <div class = "genre">
-          <div class= "search_genre" id="search_genre1">ジャンルから探す</div>
+          <div class= "search_genre" id="search_genre1">〜ジャンルから探す〜</div>
           <div class= "genre_btn" id="genre_btn1">
             <%= f.collection_check_boxes :genre_ancestry_in, Genre.where(ancestry: nil), :id, :name do |b| %>
               <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio') %>
@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class = "place">
-          <div class="search_place" id="search_place1">エリアから探す</div>
+          <div class="search_place" id="search_place1">〜エリアから探す〜</div>
           <div class= "place_btn" id="place_btn1">
             <%= f.collection_check_boxes :place_ancestry_in, Place.where(ancestry: nil), :id, :name do |b| %>
               <% b.check_box(class: 'sample_btn') + b.label(class: 'sample_radio1') %>
@@ -52,7 +52,7 @@
         </div>
       </div>
         <div class= "detail_btn">
-          <div class= "detail_tag_top">お店の雰囲気から検索</div>
+          <div class= "detail_tag_top">〜お店の雰囲気から検索〜</div>
           <div class= "light_btn">
             <div class ="detail_tag">明るさを選択</div>
             <div class ="radio_btns" style="display:none;">

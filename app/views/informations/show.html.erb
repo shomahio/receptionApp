@@ -3,7 +3,7 @@
     <div class= "search_boxes">
       <div class= "search_text">
         <div class= "search_text_secondary">
-          <%= link_to "ビジログ" ,root_path , class: "root_url"%>
+          <%= link_to "ビジグル" ,root_path , class: "root_url"%>
         </div>
         <div class= "search_text_boxes">
           <div class= "search_text_keyword">
@@ -20,6 +20,9 @@
     </div>
   <% end %>
   <div class= "informaton_show_content">
+    <div class = "show_store_name">
+      <%= @information.store_name %>
+    </div>
     <div class= "information_img_calender_contents">
       <div class= "top_img_box">
         <%= image_tag @information.image, class: "information-show-box-img" %>
