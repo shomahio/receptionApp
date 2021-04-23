@@ -328,3 +328,75 @@
   text-align: right;
   cursor: pointer;
 }
+.pc {
+  display: block !important;
+}
+.sp {
+  display: none !important;
+}
+@media (max-width: 599px) {
+  .pc {
+    display: none !important;
+  }
+  .sp {
+    display: block !important;
+  }
+}
+@media (max-width: 599px) {
+  
+  .account-page {
+    width: 90vw;
+    padding: 50px;
+    margin: 30px auto;
+    display: block;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .account-page__inner--left {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .account-page__inner--right {
+    width: 90%;
+    margin: 0 auto;
+  }
+  /* --- タイトル --- */
+  .account-page__inner--left h2 {
+    text-align: center;
+  }
+  .account-page__inner--left h2:after {
+    width: 150px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .account-page__inner--left h5 {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  /* --- 入力フォーム --- */
+  .account-page .field .actions {
+    text-align: center;
+  }
+  .account-page .field .btn {
+    width: 150px;
+    margin-bottom: 15px;
+  }
+
+  .account-page input[type=submit]{
+    clear: left;
+  }
+  /* --- リンク --- */
+  .account-page .sp {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .account-page .sp .account-link {
+    display: inline;
+  }
+  .account-page .sp a {
+    display: inline-block;
+    margin: 5px 10px;
+  }
+}

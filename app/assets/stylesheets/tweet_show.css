@@ -223,4 +223,12 @@
   .tweet_content_time {
     margin-right: 30px;
   }
+
+  /* ツイート詳細 */
+  .tweet_show_img {
+
+    height: 33vh;
+    width: 38vw;
+    margin: auto;
+  }
 }
