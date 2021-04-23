@@ -155,6 +155,11 @@
     display: block;
   }
 
+  .information-show-box-img {
+    height: 100%;
+    width: 100%;
+  }
+
   .show_store_name {
     display: block;
     width: 80%;
@@ -169,14 +174,10 @@
   }
 
   .top_img_box {
-    height: 50%;
+    height: 40vh;
     width: 95%;
   }
   
-  .information-show-box-img {
-    height: 100%;
-    width: 100%;
-  }
   
   .informaton_show_content_calender {
     height: 100%;
