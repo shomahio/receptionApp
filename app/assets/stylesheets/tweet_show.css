@@ -65,8 +65,9 @@
 /* ツイート詳細 */
 .tweet_show {
   width: 50%;
+  height: 60%;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 20px;
   border: 1px solid #d8d8d8;
   border-radius: 5px;/*角の丸み*/
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -94,9 +95,8 @@
 }
 
 .tweet_show_img {
-
-  height: 550px;
-  width: 600px;
+  height: 40%;
+  width: 50%;
   margin: auto;
 }
 
@@ -107,6 +107,8 @@
 
 .tweet_text {
   text-align: center;
+  
+  width: 50%;
 }
 
 .more {
