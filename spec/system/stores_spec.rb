@@ -1,41 +1,36 @@
 require 'rails_helper'
 
-RSpec.describe 'ユーザー新規登録', type: :system do
+RSpec.describe '店舗新規登録', type: :system do
   before do
-    @user = FactoryBot.build(:user)
+    @store = FactoryBot.build(:store)
   end
-  context 'ユーザー新規登録ができるとき' do 
+  context '店舗新規登録ができるとき' do 
     it '正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
       # トップページに移動する
       visit root_path
       # トップページにサインアップページへ遷移するボタンがあることを確認する
-      expect(page).to have_content('新規登録')
+      expect(page).to have_content('店舗新規登録')
       # 新規登録ページへ移動する
-      visit new_user_registration_path
+      visit new_store_registration_path
       # ユーザー情報を入力する
-      fill_in 'nickname', with: @user.nickname
-      fill_in 'email', with: @user.email
-      fill_in 'password', with: @user.password
-      fill_in 'password-confirmation', with: @user.password_confirmation
-      fill_in 'last-name', with: @user.last_name
-      fill_in 'first-name', with: @user.first_name
-      fill_in 'tel', with: @user.tel
-      fill_in 'postal-code', with: @user.postal_code
-      # select @user.prefecture_id, from: @user.prefecture_id
+      fill_in 'email', with: @store.email
+      fill_in 'password', with: @store.password
+      fill_in 'password-confirmation', with: @store.password_confirmation
+      fill_in 'store-name', with: @store.store_name
+      fill_in 'tel', with: @store.tel
+      fill_in 'postal-code', with: @store.postal_code
       find("#prefecture").find("option[value='2']").select_option
-      fill_in 'city', with: @user.city
-      fill_in 'address', with: @user.address
-      select '1930', from: 'user_birthday_1i'
-      select '1', from: 'user_birthday_2i'
-      select '2', from: 'user_birthday_3i'
+      fill_in 'city', with: @store.city
+      fill_in 'address', with: @store.address
+      fill_in 'director', with: @store.director
       # サインアップボタンを押すとユーザーモデルのカウントが1上がることを確認する
       expect{
         find('input[name="commit"]').click
-      }.to change { User.count }.by(1)
+      }.to change { Store.count }.by(1)
       # トップページへ遷移したことを確認する]
       expect(current_path).to eq(root_path)
       # サインアップページへ遷移するボタンや、ログインページへ遷移するボタンが表示されていないことを確認する
-      expect(page).to have_link 'ログアウト', href: destroy_user_session_path(@user)
+      expect(page).to have_link 'ログアウト', href: destroy_store_session_path(@store)
     end
   end
   context 'ユーザー新規登録ができないとき' do
@@ -43,25 +38,24 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       # トップページに移動する
       visit root_path
       # トップページにサインアップページへ遷移するボタンがあることを確認する
-      expect(page).to have_content('新規登録')
+      expect(page).to have_content('店舗新規登録')
       # 新規登録ページへ移動する
-      visit new_user_registration_path
+      visit new_store_registration_path
       # ユーザー情報を入力する
-      fill_in 'nickname', with: ''
       fill_in 'email', with: ''
       fill_in 'password', with: ''
       # サインアップボタンを押してもユーザーモデルのカウントは上がらないことを確認する
       expect{
         find('input[name="commit"]').click
-      }.to change { User.count }.by(0)
+      }.to change { Store.count }.by(0)
       # 新規登録ページへ戻されることを確認する
-      expect(current_path).to eq user_registration_path
+      expect(current_path).to eq store_registration_path
     end
   end
 end
 RSpec.describe 'ログイン', type: :system do
   before do
-    @user = FactoryBot.create(:user)
+    @store = FactoryBot.create(:store)
   end
   context 'ログインができるとき' do
     it '保存されているユーザーの情報と合致すればログインができる' do
@@ -70,10 +64,10 @@ RSpec.describe 'ログイン', type: :system do
       # トップページにログインページへ遷移するボタンがあることを確認する
       expect(page).to have_content('ログイン')
       # ログインページへ遷移する
-      visit new_user_session_path
+      visit new_store_session_path
       # 正しいユーザー情報を入力する
-      fill_in 'email', with: @user.email
-      fill_in 'password', with: @user.password
+      fill_in 'email', with: @store.email
+      fill_in 'password', with: @store.password
       # ログインボタンを押す
       find('input[name="commit"]').click
       # トップページへ遷移することを確認する
@@ -90,14 +84,14 @@ RSpec.describe 'ログイン', type: :system do
       # トップページにログインページへ遷移するボタンがあることを確認する
       expect(page).to have_content('ログイン')
       # ログインページへ遷移する
-      visit new_user_session_path
+      visit new_store_session_path
       # ユーザー情報を入力する
       fill_in 'email', with: ''
       fill_in 'password', with: ''
       # ログインボタンを押す
       find('input[name="commit"]').click
       # ログインページへ戻されることを確認する
-      expect(current_path).to eq(new_user_session_path)
+      expect(current_path).to eq(new_store_session_path)
     end
   end
 end

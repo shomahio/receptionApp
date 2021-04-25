@@ -14,7 +14,7 @@
             <%= f.label :email%>
           </div>
           <div class='field-input'>
-            <%= f.email_field :email, autofocus: true%>
+            <%= f.email_field :email, id: "email", autofocus: true%>
           </div>
           <div class='field'>
             <div class='field-label'>
@@ -22,11 +22,11 @@
               <i>(英数字6文字以上)</i>
             </div>
             <div class='field-input'>
-              <%= f.password_field :password, autocomplete: "off"%>
+              <%= f.password_field :password, id: "password", autocomplete: "off"%>
             </div>
           </div>
           <div class='actions'>
-            <%= f.submit "Log in", class: 'btn'%>
+            <%= f.submit "Log in", id: "log-in", class: 'btn'%>
           </div>
         </div>
       <% end %>
