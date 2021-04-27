@@ -17,11 +17,11 @@
             <th>料金</th>
             <th>日付</th>
           </tr>
-          <% @receipts.each do |reseipt| %>
+          <% @receipts.each do |receipt| %>
             <tr>
-              <td><%= reseipt.name %></td>
-              <td><%= reseipt.price %></td>
-              <td><%= reseipt.created_at.strftime("%Y/%m/%d") %></td>
+              <td><%= receipt.name %></td>
+              <td><%= receipt.price %></td>
+              <td><%= receipt.created_at.strftime("%Y/%m/%d") %></td>
             </tr>
           <% end %>
         </table>
@@ -36,11 +36,11 @@
             <th>料金</th>
             <th>日付</th>
           </tr>
-          <% @receipts1.each do |reseipt| %>
+          <% @receipts1.each do |receipt| %>
               <tr>
-                <td><%= link_to reseipt.name, users_receipt_path(reseipt.id), class: "recipt_reservation_table_url" %></td>
-                <td>￥<%= reseipt.price %></td>
-                <td><%= reseipt.created_at.strftime("%Y/%m/%d") %></td>
+                <td><%= link_to receipt.name, users_receipt_path(receipt.id), class: "recipt_reservation_table_url" %></td>
+                <td>￥<%= receipt.price %></td>
+                <td><%= receipt.created_at.strftime("%Y/%m/%d") %></td>
               </tr>
           <% end %>
         </table>

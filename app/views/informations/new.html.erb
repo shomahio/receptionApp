@@ -17,7 +17,7 @@
           <p>
             クリックしてトップ画像ファイルをアップロード
           </p>
-          <%= f.file_field :image, id:"store-image" %>
+          <%= f.file_field :image, class:"store-top-image" %>
         </div>
         <div class="weight-bold-text">
           料理画像
@@ -27,7 +27,7 @@
           <p>
             クリックして料理ファイルをアップロード
           </p>
-          <%= f.file_field :image_foods, multiple: true, id:"store-image" %>
+          <%= f.file_field :image_foods, multiple: true, id:"store-food-image" %>
         </div>
         <div class="weight-bold-text">
           お店の外観画像
@@ -37,7 +37,7 @@
           <p>
             クリックしてお店の外観ファイルをアップロード
           </p>
-          <%= f.file_field :image_appearances, multiple: true, id:"store-image" %>
+          <%= f.file_field :image_appearances, multiple: true, id:"store-image-appearances" %>
         </div>
         <div class="weight-bold-text">
           お店の内観画像
@@ -47,7 +47,7 @@
           <p>
             クリックしてお店の内観ファイルをアップロード
           </p>
-          <%= f.file_field :image_introspections, multiple: true, id:"store-image" %>
+          <%= f.file_field :image_introspections, multiple: true, id:"store-image-introspections" %>
         </div>
         <div class="weight-bold-text">
           お店の入り口からの画像
@@ -57,7 +57,7 @@
           <p>
             クリックしてお店の入り口からの画像ファイルをアップロード
           </p>
-          <%= f.file_field :image_entrances, multiple: true, id:"store-image" %>
+          <%= f.file_field :image_entrances, multiple: true, id:"store-image-entrances" %>
         </div>
         <div class="weight-bold-text">
           席画像
@@ -67,7 +67,7 @@
           <p>
             クリックしてお店の席の画像ファイルをアップロード
           </p>
-          <%= f.file_field :image_seats, multiple: true, id:"store-image" %>
+          <%= f.file_field :image_seats, multiple: true, id:"store-image-seats" %>
         </div>
         <div class="weight-bold-text">
           お店の景色の画像
@@ -77,7 +77,7 @@
           <p>
             クリックしてお店の景色の画像ファイルをアップロード
           </p>
-          <%= f.file_field :image_views, multiple: true, id:"store-image" %>
+          <%= f.file_field :image_views, multiple: true, id:"store-image-views" %>
         </div>
         <div class="weight-bold-text">
           お手洗いの画像
@@ -87,7 +87,7 @@
           <p>
             クリックしてお店のあ手洗いの画像ファイルをアップロード
           </p>
-          <%= f.file_field :image_toilets, multiple: true, id:"store-image" %>
+          <%= f.file_field :image_toilets, multiple: true, id:"store-image-toilets" %>
         </div>
       </div>
       <%# /店内画像 %>
@@ -102,12 +102,12 @@
           お店の説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :explanation, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :explanation, class:"items-text", id:"store-info", placeholder:"商品の説明（必須 1,000文字まで" ,rows:"7" ,maxlength:"1000" %>
         <div class="weight-bold-text">
           こだわりの食材
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :food, class:"stores-text", id:"store-name", placeholder:"鹿肉、野菜にこだわる", maxlength:"40" %>
+        <%= f.text_area :food, class:"stores-text", id:"store-food", placeholder:"鹿肉、野菜にこだわる", maxlength:"40" %>
       </div>
       <%# 店名 %>
 
@@ -118,7 +118,7 @@
             メールアドレス
             <span class="indispensable">必須</span>
           </div>
-          <%= f.email_field :email, class:"input-default", autocomplete: "email" %>
+          <%= f.email_field :email, class:"input-default", id:"store-email", autocomplete: "email" %>
           <div class= "weight-bold-text">
             電話番号
             <span class="indispensable">必須</span>
@@ -163,17 +163,17 @@
             営業開始時間
             <span class="indispensable">必須</span>
           </div>
-          <%= f.time_field :opening_time, class:"input-default", id:"business_hours", placeholder:"例）16時"%>
+          <%= f.time_field :opening_time, class:"input-default", id:"open_hours", placeholder:"例）16時"%>
           <div class= "weight-bold-text">
             営業終了時間
             <span class="indispensable">必須</span>
           </div>
-          <%= f.time_field :closing_time, class:"input-default", id:"business_hours", placeholder:"例）16時"%>
+          <%= f.time_field :closing_time, class:"input-default", id:"close_hours", placeholder:"例）16時"%>
           <div class= "weight-bold-text">
             定休日
             <span class="indispensable">必須</span>
           </div>
-          <%= f.collection_select(:holiday_id, Holiday.all, :id, :name, {}, {class:"select-box", id:"booking"}) %>
+          <%= f.collection_select(:holiday_id, Holiday.all, :id, :name, {}, {class:"select-box", id:"holiday"}) %>
           <div class="listing-product-detail__genre">
           <%= f.label '食べ物のジャンル', class: 'listing-default__label' %>
             <span class="listing-default--require">必須</span>
@@ -213,7 +213,7 @@
             席数
             <span class="indispensable">必須</span>
           </div>
-          <%= f.text_field :seet, class:"input-default" %>
+          <%= f.text_field :seet, class:"input-default",id:"seat"  %>
           <div class= "weight-bold-text">
             喫煙について
             <span class="indispensable">必須</span>
@@ -223,7 +223,7 @@
             利用シーン
             <span class="indispensable">必須</span>
           </div>
-          <%= f.collection_select(:reception_id, Reception.all, :id, :name, {}, {class:"select-box", id:"light"}) %>
+          <%= f.collection_select(:reception_id, Reception.all, :id, :name, {}, {class:"select-box", id:"reception"}) %>
           <div class= "weight-bold-text">
             支払い方法について
             <span class="indispensable">必須（複数選択可）</span>
