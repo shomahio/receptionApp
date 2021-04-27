@@ -26,6 +26,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       fill_in 'city', with: @user.city
       fill_in 'address', with: @user.address
       select '1930', from: 'user_birthday_1i'
+      binding.pry
       select '1', from: 'user_birthday_2i'
       select '2', from: 'user_birthday_3i'
       # サインアップボタンを押すとユーザーモデルのカウントが1上がることを確認する

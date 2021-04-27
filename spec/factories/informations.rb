@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :genre do
-    name              {"gnere"}
+    name              {"genre"}
     ancestry          {nil}
   end
 end
@@ -11,7 +11,6 @@ FactoryBot.define do
     ancestry          {nil}
   end
 end
-# ||<<
 
 FactoryBot.define do
   factory :information do
@@ -22,8 +21,6 @@ FactoryBot.define do
     building           { '東京ハイツ' }
     tel                { '09012345678' }
     email              {Faker::Internet.free_email}
-    # genre_id           {2}
-    # place_id           {2}
     light_id           {2}
     volume_id          {2}
     budget_id          {2}
