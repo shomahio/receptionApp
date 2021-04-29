@@ -1,13 +1,12 @@
 class TweetsController < ApplicationController
-  def index
-  end
-
+  before_action :set_tweet, only: [:show, :edit, :destroy, :update]
+  before_action :authenticate_user!, except: [:show]
+  before_action :move_to_root_path, only: [:edit, :update, :destroy]
   def new
     @tweet = Tweet.new
   end
 
   def create
-    #binding.pry
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
       redirect_to controller: :informations, action: :index
@@ -17,18 +16,15 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    tweet = Tweet.find(params[:id])
-    tweet.destroy
+    @tweet.destroy
     redirect_to root_path
   end
 
   def edit
-    @tweet = Tweet.find(params[:id])
   end
 
   def update
-    tweet = Tweet.find(params[:id])
-    if tweet.update(tweet_params)
+    if @tweet.update(tweet_params)
       redirect_to controller: :informations, action: :index
     else 
       render :new
@@ -36,11 +32,19 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweet = Tweet.find(params[:id])
   end
 
   private
   def tweet_params
     params.require(:tweet).permit(:title, :text, :image).merge(user_id: current_user.id)
   end
+
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
+  end
+
+  def move_to_root_path
+    redirect_to root_path if current_user.id != @tweet.user.id
+  end
+
 end

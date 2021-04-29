@@ -1,15 +1,17 @@
 class Users::ReceiptsController < ApplicationController
+  before_action :set_receipt, only: [:show, :edit, :update]
+  before_action :authenticate_user!
+  before_action :move_to_root_path, except: [:index]
   def index
     @receipts = Receipt.where(user_id: params[:id], consent: nil).order("created_at ASC")
     @receipts1 = Receipt.where(user_id: params[:id], consent: 1).order("created_at ASC")
+    # move_to_root_path
   end
 
   def edit
-    @receipt = Receipt.find(params[:id])
   end
 
   def update
-    @receipt = Receipt.find(params[:id])
     if @receipt.update(receipt_params)
       redirect_to root_path
     else
@@ -18,14 +20,20 @@ class Users::ReceiptsController < ApplicationController
   end
 
   def show
-    @receipt = Receipt.find(params[:id])
     @information = Information.find_by(id: @receipt.information.id)
-    #binding.pry
   end
 
   private
   def receipt_params
-    params.permit(:name, :price, :consent, :reservation_id, :information_id, :user_id)
+    params.require(:receipt).permit(:name, :price, :consent, :reservation_id, :information_id, :user_id)
+  end
+
+  def set_receipt
+    @receipt = Receipt.find(params[:id])
+  end
+
+  def move_to_root_path
+    redirect_to root_path if current_user.id != @receipt.user.id
   end
 
 end
