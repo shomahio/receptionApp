@@ -6,15 +6,15 @@ RSpec.describe "仮領収書が発行できる時", type: :system do
     @information = @reservation.information
     @store = @information.store
     @user = @reservation.user
-    @receipt = FactoryBot.build(:receipt)
+    @receipt = FactoryBot.build(:receipt, information_id: @information.id)
   end
 
   context '仮の領収書が発行できる時' do
     it 'ログインした店舗ユーザーは仮領収書を発行できる' do
       # ログインする
       visit new_store_session_path
-      fill_in 'メールアドレス', with: @store.email
-      fill_in 'パスワード', with: @store.password
+      fill_in 'email', with: @store.email
+      fill_in 'password', with: @store.password
       find('input[name="commit"]').click
       expect(current_path).to eq(root_path)
       # マイページへのリンクがあることを確認する
@@ -46,7 +46,7 @@ RSpec.describe "仮領収書が発行できる時", type: :system do
       # マイページへ遷移する
       visit store_path(@store)
       # 領収書一覧ページへ遷移する
-      visit informations_reservation_receipts_path(@reservation)
+      visit informations_reservation_receipts_path(@information)
       # マイページの領収書一覧ページに先ほど投稿した領収書が存在することを確認する
       expect(page).to have_content(@receipt.name)
       expect(page).to have_content(@receipt.price)
@@ -57,8 +57,8 @@ RSpec.describe "仮領収書が発行できる時", type: :system do
     it '一般ユーザーは領収書発行ができない' do
       # ユーザーでログインする
       visit new_user_session_path
-      fill_in 'メールアドレス', with: @user.email
-      fill_in 'パスワード', with: @user.password
+      fill_in 'email', with: @user.email
+      fill_in 'password', with: @user.password
       find('input[name="commit"]').click
       expect(current_path).to eq(root_path)
       # マイページへ遷移する
@@ -82,8 +82,8 @@ RSpec.describe "確定領収書が発行できる時", type: :system do
     it 'ログインした店舗ユーザーは仮領収書を発行できる' do
       # ログインする
       visit new_user_session_path
-      fill_in 'メールアドレス', with: @user.email
-      fill_in 'パスワード', with: @user.password
+      fill_in 'email', with: @user.email
+      fill_in 'password', with: @user.password
       find('input[name="commit"]').click
       expect(current_path).to eq(root_path)
       # マイページへのリンクがあることを確認する
@@ -128,8 +128,8 @@ RSpec.describe "確定領収書が発行できる時", type: :system do
     it '店舗ユーザーは領収書発行ができない' do
       # 店舗ユーザーでログインする
       visit new_store_session_path
-      fill_in 'メールアドレス', with: @store.email
-      fill_in 'パスワード', with: @store.password
+      fill_in 'email', with: @store.email
+      fill_in 'password', with: @store.password
       find('input[name="commit"]').click
       expect(current_path).to eq(root_path)
       # マイページへ遷移する

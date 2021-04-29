@@ -1,8 +1,10 @@
 class InformationsController < ApplicationController
   before_action :set_information, only: [:show, :edit, :destroy, :update]
+  before_action :authenticate_store!, except: [:index, :show, :search]
+  before_action :delete_record
+
   def index
-    @information = Information.all
-    @tweets = Tweet.last(3)
+    @tweets = Tweet.last(3)  #最新のツイートを３件表示
     @q = Information.includes(:genre).ransack(params[:q])
     @place_parent_array = Place.place_parent_array_create
     @genre_parent_array = Genre.genre_parent_array_create
@@ -57,9 +59,6 @@ class InformationsController < ApplicationController
     @reservations = Reservation.where(information_id: @information.id, name: nil)
     #レコードの自動作成
     ReservationCollection.new(@information,@records)
-    #過去のレコードの自動削除
-    @records = Reservation.where("start_time < ?", Time.now).where(user_id: nil)
-    @records.destroy_all
   end
 
   def destroy
@@ -74,13 +73,10 @@ class InformationsController < ApplicationController
   def search
     @keyword = params[:q][:store_name_or_genre_name]
     @area_word = params[:q][:city_or_address_or_place_name]
-  
     genre_parent = Genre.where(ancestry: nil).where("name LIKE (?)", "%#{@keyword}%").ids
     genre_array = Genre.where(ancestry: genre_parent).ids
-  
     place_parent = Place.where(ancestry: nil).where("name LIKE (?)", "%#{@area_word}%").ids
     place_array = Place.where(ancestry: place_parent).ids
-  
     @q = Information.ransack(search_params.merge(
         g: {
           '0' => { m: 'or', food_or_store_name_or_genre_name_cont: @keyword, genre_id_in: genre_array },
@@ -104,6 +100,12 @@ class InformationsController < ApplicationController
 
   def set_information
     @information = Information.find(params[:id])
+  end
+
+  def delete_record
+    #現在より過去のレコードの自動削除
+    @records = Reservation.where("start_time < ?", Time.now).where(user_id: nil)
+    @records.destroy_all
   end
 
 end

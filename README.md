@@ -1,12 +1,18 @@
 # アプリケーション概要
 **ビジネスシーンに特化した飲食店予約アプリです。**<br>
 従来の飲食店予約アプリ同様、飲食店の検索、予約、マイページ機能に加えて**店舗の雰囲気検索機能**、**予約可能時間の自動作成機能**、**電子領収書作成機能**を実装し、ビジネスマンの接待や簡単な食事の際に重要なお店選びに使えるアプリです。
-[![Image from Gyazo](https://i.gyazo.com/3740fc5847af8c630451930deb72b5ee.jpg)](https://gyazo.com/3740fc5847af8c630451930deb72b5ee)
-
+[![Image from Gyazo](https://i.gyazo.com/5c845fa8d952856fb6415696ae57d33e.jpg)](https://gyazo.com/5c845fa8d952856fb6415696ae57d33e)
 # 本番環境のURL
 http://3.114.114.184/
 
 # テスト用アカウント
+### 「店舗ユーザー」<br>
+メールアドレス:test@test<br>
+パスワード:12345a<br>
+### 「一般ユーザー」<br>
+メールアドレス:test1@test<br>
+パスワード:12345b
+
 
 # 制作背景
 私は学生時代に2年半、前職でも営業職についていました。その時にお客様や上司と食事に行くことがあり、その都度お店探しにとても苦労しました。
@@ -35,22 +41,21 @@ http://3.114.114.184/
 ## 飲食店ユーザー、一般ユーザー登録機能(device)
 飲食店、ユーザーがアプリを使用するために登録することができます。（検索機能は登録しなくても可能です。）<br>
 飲食店はアプリ登録後、店舗情報を登録しなければマイページに遷移できない為登録前はマイページに飛べずに店舗情報登録ページに遷移します。
-[![Image from Gyazo](https://i.gyazo.com/805f40f63df3380a85e406c7a77b449c.gif)](https://gyazo.com/805f40f63df3380a85e406c7a77b449c)
-[![Image from Gyazo](https://i.gyazo.com/5a384e1033994e9f88006d0a46972fb6.gif)](https://gyazo.com/5a384e1033994e9f88006d0a46972fb6)
+[![Image from Gyazo](https://i.gyazo.com/a0638a6c7479e489a2be28b16516eca0.gif)](https://gyazo.com/a0638a6c7479e489a2be28b16516eca0)
+[![Image from Gyazo](https://i.gyazo.com/ab9a90f7e61dcf77cba4cbc9df63b594.gif)](https://gyazo.com/ab9a90f7e61dcf77cba4cbc9df63b594)
 
 * * *  
 ## 店舗情報登録機能（ancestry,Ajax）
 飲食店は店舗の情報を登録することができます。<br>
 店舗は登録に付き１つの店舗情報しか登録できないために店舗情報登録後、マイページに遷移します。<br>
-<a href="https://gyazo.com/f8129dd04d74664a72bc3a23eaf33786"><img src="https://i.gyazo.com/f8129dd04d74664a72bc3a23eaf33786.gif" alt="Image from Gyazo" width="1000"/></a>
+[![Image from Gyazo](https://i.gyazo.com/b32a93b6078609dde9f8ed28deaaf449.gif)](https://gyazo.com/b32a93b6078609dde9f8ed28deaaf449)
 * * * 
 
 ## 予約可能時間自動作成機能(module)
 自作のmoduleにより予約可能時間自動作成機能。<br>
 店舗詳細ページを誰かが開く度に、店舗情報の営業開始時間、終了時間から自動的に１時間ごとの予約可能時間を作成することができる。また前日以降のレコードの自動削除機能、一般ユーザー、店舗ユーザーどちらも編集可能です。
 予約があれば、マイページの予約一覧から確認可能です。
-[![Image from Gyazo](https://i.gyazo.com/7f1b860c11d12e6d20d00723103eeef2.gif)](https://gyazo.com/7f1b860c11d12e6d20d00723103eeef2)
-
+[![Image from Gyazo](https://i.gyazo.com/576b51f8abb6ec31b451b856be956533.gif)](https://gyazo.com/576b51f8abb6ec31b451b856be956533)
 * * * 
 
 ## 店舗検索機能(ransack)
@@ -58,19 +63,19 @@ ransackを用いた検索機能。<br>
 ジャンル、エリアはancestryを用いて階層構造にすることで親と子を紐付けている為、キーワード検索のキーワードは店名、食材、親ジャンル、子ジャンルが検索可能です。エリアは交通手段、都道府県、子エリアから検索可能です。<br>
 予算は上限、下限の範囲検索が可能です。<br>
 上記以外はラジオボタン検索が可能です。
-[![Image from Gyazo](https://i.gyazo.com/0a4adf20a436bc08b23662a226c10a8f.gif)](https://gyazo.com/0a4adf20a436bc08b23662a226c10a8f)
+[![Image from Gyazo](https://i.gyazo.com/e2005ce13b24198fe22cd3fdb15235a2.gif)](https://gyazo.com/e2005ce13b24198fe22cd3fdb15235a2)
 * * * 
 
 ## 飲食店予約機能(simple_calender)
 moduleにより作成したレコードをsimple_calenderにより表示しています。<br>
 予約可能時間があればカレンダーに◎、△を表示しそこから予約ページに遷移でき、情報を送信すれば、飲食店、一般ユーザーの予約一覧に追加され確認することができます。飲食店、一般ユーザーともに削除編集可能です。
 また予約が残り一席になればカレンダーには△、埋まれば×になり予約できなくなります。
-[![Image from Gyazo](https://i.gyazo.com/4a08bb03b48ddaf40d82a6c4eb92d41a.gif)](https://gyazo.com/4a08bb03b48ddaf40d82a6c4eb92d41a)
+[![Image from Gyazo](https://i.gyazo.com/277ab203f22a49b609ea34bbaca939d3.gif)](https://gyazo.com/277ab203f22a49b609ea34bbaca939d3)
 * * * 
 
 ## 領収書作成機能
 一般ユーザーが電子領収書を希望された場合、店舗ユーザーは予約一覧から領収書作成ページに飛び、情報を入力することで作成できます。作成された領収書が正しかったら、ユーザーが承認します。承認された領収書が確定領収書として店舗、一般ユーザーのマイページの領収書一覧に追加されます。領収書がアプリで一元管理できることで、一般ユーザーの領収書管理の負担を軽減できます。
-[![Image from Gyazo](https://i.gyazo.com/70c745bc36e757b96d19b10ed0a8be71.gif)](https://gyazo.com/70c745bc36e757b96d19b10ed0a8be71)
+[![Image from Gyazo](https://i.gyazo.com/d1ffe7729dd5a417345147b85a86b431.gif)](https://gyazo.com/d1ffe7729dd5a417345147b85a86b431)
 * * * 
 
 # 洗い出した要件定義
@@ -103,11 +108,7 @@ moduleにより作成したレコードをsimple_calenderにより表示して�
 <br>
 
 # ER図
-[![Image from Gyazo](https://i.gyazo.com/e0b3e003696029e76a5fff0947cbc148.png)](https://gyazo.com/e0b3e003696029e76a5fff0947cbc148)
-
-
-
-
+[![Image from Gyazo](https://i.gyazo.com/299afa806c44ceb757176d9af1920436.jpg)](https://gyazo.com/299afa806c44ceb757176d9af1920436)
 
 
 
