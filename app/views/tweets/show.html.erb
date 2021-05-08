@@ -1,12 +1,17 @@
 <div class="contents row">
   <div class = "tweet_show">
     <div class= "tweet_show_user">
-      <%= link_to "#{@tweet.user.nickname}さんの投稿", user_path(@tweet.user.id), class: :card__user %>
+      <div class= "user_icon"><i class="fa fa-user"></i></div>
+      <%= link_to "#{@tweet.user.nickname}さん", user_path(@tweet.user.id), class: :card__user  %>
+      <div class= "show_tweet_title"><%= @tweet.title %></div>
     </div>
     <div class= "tweet_show_img">
       <%= image_tag @tweet.image, class: "item-img-show" %>
     </div>
-    <div class= "tweet_name"><%= @tweet.title %></div>
+    <div class = "tweet_good">
+      <i class="fa fa-thumbs-o-up"></i>
+      <i class="fa fa-commenting-o"></i>
+    </div>
     <div class= "tweet_text">
       <%= @tweet.text %>
     </div>

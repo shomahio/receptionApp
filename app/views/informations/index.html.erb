@@ -6,54 +6,55 @@
     <div class= "nav_right">
       <% unless user_signed_in? || store_signed_in? %>
         <div class= "nav_btns">
-          <%= link_to "ログイン", new_user_session_path, class: "nav_btn"%>
-          <%= link_to "新規登録", new_user_registration_path , data: {"turbolinks" => false}, class: "nav_btn" %>
+          <%= link_to "ログイン", new_user_session_path, class: "nav_btn fa fa-sign-in"%>
+          <%= link_to "新規登録", new_user_registration_path , data: {"turbolinks" => false}, class: "fa fa-user-plus nav_btn" %>
         </div>
       <% end %>
       <% if store_signed_in? && Information.find_by(store_id: current_store.id) != nil %>
         <div class= "nav_btns">
-          <%= link_to "お店ログアウト", destroy_store_session_path, method: :delete, class: "nav_btn" %>
-          <%= link_to "お店マイページ", store_path(current_store.id), method: :get, class: "nav_btn" %>
+          <%= link_to "お店ログアウト", destroy_store_session_path, method: :delete, class: "nav_btn fa fa-sign-out" %>
+          <%= link_to "お店マイページ", store_path(current_store.id), method: :get, class: "nav_btn fas fa-store-alt" %>
         </div>
       <% elsif store_signed_in? %>
         <div class= "nav_btns">
-          <%= link_to "お店ログアウト", destroy_store_session_path, method: :delete, class: "nav_btn" %>
-          <%= link_to "出店する", new_information_path, data: {"turbolinks" => false}, class: 'nav_btn' %> 
+          <%= link_to "お店ログアウト", destroy_store_session_path, method: :delete, class: "nav_btn fa fa-sign-out" %>
+          <%= link_to "出店する", new_information_path, data: {"turbolinks" => false}, class: 'nav_btn fa fa-user' %> 
         </div>
       <% end %>
       <% if user_signed_in? %>
         <div class= "nav_btns">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav_btn"  %>
-          <%= link_to "マイページ", user_path(current_user.id), method: :get, class: "nav_btn"  %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav_btn fa fa-sign-out"  %>
+          <%= link_to "マイページ", user_path(current_user.id), method: :get, class: "nav_btn fa fa-user"  %>
         </div>
       <% end %>
     </div>
   </div>
   <%= render "shared/ransack_form" %>
-  
+
   <div class= "information_tweets_main">
-    <h2 class= "tweet_title">ツイート欄</h2>
-    <div class = "user_tweet_post_btn">
-      <% if user_signed_in? %>
-        <div class = "tweet_post_btn">
-          <%= link_to "投稿する", new_tweet_path, data: {"turbolinks" => false}, class: 'tweet_post_btn_url' %> 
-        </div>
-      <% end %>
-    </div>
+    <h2 class= "tweet_title">オススメの店舗<i class="fa fa-comments-o"></i></h2>
     <div class= "information_tweet_lists">
       <% @tweets.each do |tweet| %>
         <div class= "tweet_info">
           <%= link_to tweet_path(tweet.id), class: "tweet_path_url" do %>
-            <h3 class= "information_tweet_name">
-              <%= tweet.user.nickname %>さんの投稿
-            </h3>
             <div class= "tweet_img">
               <%= image_tag tweet.image, class: "item_tweet_img" %>
             </div>
             <div class= "tweet_text">
               <%= tweet.text %>
             </div>
+            <h3 class= "information_tweet_name fa fa-user">
+              <%= tweet.user.nickname %>さん
+            </h3>
+            <span class = "info-child"></span>
           <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class = "user_tweet_post_btn">
+      <% if user_signed_in? %>
+        <div class = "tweet_post_btn">
+          <%= link_to "投稿する", new_tweet_path, data: {"turbolinks" => false}, class: 'tweet_post_btn_url' %> 
         </div>
       <% end %>
     </div>

@@ -65,39 +65,44 @@
 /* ツイート詳細 */
 .tweet_show {
   width: 50%;
-  height: 60%;
+  height: 100vh;
   margin: auto;
   margin-top: 20px;
   border: 1px solid #d8d8d8;
   border-radius: 5px;/*角の丸み*/
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background: #e6f4ff;
+  background: rgb(167, 208, 255)#e6f4ff;
+}
+
+.tweet_show_user {
+  font-size: 25px;
+  height: 10%;
+  margin-left: 30px;
 }
 
 .card__user {
   text-decoration: none;
-  color: orange;
+  color: #B68602;
+  height: 5%;
 }
 
-.tweet_show_user {
-  text-align: center;
-  font-size: 30px;
-  color: coral;
-  margin-top: 30px;
-  margin-bottom: 20px;
-
+.user_icon {
+  color: #B68602;
+  display: inline-block;
+  height: 5%;
 }
 
-.tweet_name {
-  text-align: center;
-  font-size: 30px;
-  color: coral;
+.show_tweet_title {
+  color: black;
+  height: 5%;
+  margin-left: 28px;
 }
 
 .tweet_show_img {
-  height: 40%;
-  width: 50%;
-  margin: auto;
+  height: 50%;
+  width: 100%;
+  border-top: 2px solid rgb(167, 167, 167);
+  padding-top: 20px;
 }
 
 .item-img-show {
@@ -105,10 +110,26 @@
   height: 100%;
 }
 
+.tweet_good {
+  display: flex;
+  width: 100%;
+  height: 6%;
+  font-size: 40px;
+  padding-left: 50px;
+}
+
+.fa-commenting-o {
+  padding-left: 40px;
+}
+
 .tweet_text {
   text-align: center;
+  height: 30%;
+  width: 90%;
+  margin: auto;
+  background-color: rgb(238, 237, 237);
+  font-size: 30px;
   
-  width: 50%;
 }
 
 .more {
@@ -227,8 +248,12 @@
   }
 
   /* ツイート詳細 */
-  .tweet_show_img {
+  .tweet_show {
+    width: 100%;
+  }
 
+  .tweet_show_img {
+    width: 100%;
     height: 33vh;
     width: 38vw;
     margin: auto;

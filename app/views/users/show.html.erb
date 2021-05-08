@@ -1,4 +1,7 @@
 <div class="tabs">
+  <div class= "search_text_secondary">
+    <%= link_to "ビジグル" ,root_path , class: "root_url"%>
+  </div>
   <% if user_signed_in? &&  current_user.id == @user.id %>
     <input type='radio' id='company-page' name='tab-item'checked>
     <%= link_to 'ユーザー情報',user_path(@user.id), class: 'tab-item'%>
