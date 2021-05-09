@@ -1,140 +1,94 @@
+
 /* ユーザーのshow */
-.tweet {
-  width: 100vw;
-}
-
-.tweet_contents {
-  width: 100%;
-  margin: auto;
-}
-
-.tweet_content {
-  width: 90%;
-  margin: auto;
+.user_show_tweets .information_tweet_lists {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  
 }
 
-.tweet_user_tag {
-  width: 100%;
-  font-size: 25px;
-  text-align: center;
-  padding-top: 5px;
-  color: #fff;
+.user_show_tweets .tweet_info {
+  margin: 30px 20px;
 }
 
-.tweet_detail_content {
-  width: calc(90% / 3);
-  border: 1px solid;
-  margin: 10px 10px;
-  background-color:  rgb(250, 224, 191);
-}
-
-.tweet_content_img {
-  padding: 30px 30px 0 30px;
-}
-
-.item_img_top {
-  width: 100%;
-  height: 300px;
-}
-
-.tweet_content_text {
-  text-align: center;
-  height: 200px;
-  margin: 30px 30px 0 30px;
-  font-size: 20px;
-  background-color: #fff;
-}
-
-.tweet_content_date {
+.tweet_menu {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
-.more {
-  margin-left: 30px;
+.user_show_tweets .tweet_text {
+  width: 100%;
+  height: 38%;
+  background-color:  #ffffff;
+  font-size: 18px;
+  color: #000000;
+  margin-top: 3%;
+}
+
+.user_show_tweets .tweet_text:before{
+  width: 80%;
+  margin: 0 auto;
+  content: '';
+  border-top: 3px solid black;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.tweet_change {
+  margin: 0 10px;
+}
+
+.tweet_edit {
+  text-decoration: none;
+  color: #000000;
+}
+
+.tweet_delete {
+  text-decoration: none;
+  color: #000000;
 }
 
 .tweet_content_time {
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 /* ツイート詳細 */
-.tweet_show {
-  width: 50%;
-  height: 100vh;
+.contents_row .tweet_info {
+  height: 120vh;
+  width: 55vw;
   margin: auto;
-  margin-top: 20px;
-  border: 1px solid #d8d8d8;
-  border-radius: 5px;/*角の丸み*/
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background: rgb(167, 208, 255)#e6f4ff;
+  margin-top: 40px;
 }
 
-.tweet_show_user {
-  font-size: 25px;
-  height: 10%;
-  margin-left: 30px;
-}
-
-.card__user {
-  text-decoration: none;
-  color: #B68602;
-  height: 5%;
-}
-
-.user_icon {
-  color: #B68602;
-  display: inline-block;
-  height: 5%;
-}
-
-.show_tweet_title {
-  color: black;
-  height: 5%;
-  margin-left: 28px;
-}
-
-.tweet_show_img {
-  height: 50%;
-  width: 100%;
-  border-top: 2px solid rgb(167, 167, 167);
-  padding-top: 20px;
-}
-
-.item-img-show {
-  width: 100%;
-  height: 100%;
-}
-
-.tweet_good {
-  display: flex;
-  width: 100%;
-  height: 6%;
-  font-size: 40px;
-  padding-left: 50px;
-}
-
-.fa-commenting-o {
+.contents_row .info_tweet_title {
+  font-size: 30px;
   padding-left: 40px;
 }
 
-.tweet_text {
-  text-align: center;
-  height: 30%;
-  width: 90%;
-  margin: auto;
-  background-color: rgb(238, 237, 237);
-  font-size: 30px;
-  
+.contents_row .tweet_text {
+  width: 100%;
+  height: 38%;
+  background-color:  #ffffff;
+  font-size: 25px;
+  color: #000000;
+  margin-top: 3%;
 }
 
-.more {
-  text-align: end;
+.contents_row .info-child {/*三角形左下*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-right: 100px solid transparent;
+  border-bottom: 100px solid #da153f;
 }
+
+.contents_row .information_tweet_name {
+  width: 100%;
+  height: 5%;
+  font-size: 20px;
+  color: #B68602;
+  text-align: end;
+  padding-right: 30px;
+}
+
+
 
 /* ツイート投稿ページ */
 .tweet_form_grp {
@@ -237,10 +191,6 @@
   .tweet_content_date {
     display: flex;
     justify-content: space-between;
-  }
-  
-  .more {
-    margin-left: 30px;
   }
   
   .tweet_content_time {

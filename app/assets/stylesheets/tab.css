@@ -1,6 +1,6 @@
 /*タブ切り替え全体のスタイル*/
 .tabs {
-  height: 70px;
+  /* height: 70px; */
   background-color: #d8d8d8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -8,8 +8,6 @@
 
 .tabs .search_text_secondary{
   width: 30%;
-  padding-left: 7rem;
-  padding-top: 6px;
 }
 
 .tabs .root_url {

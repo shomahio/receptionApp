@@ -37,6 +37,7 @@
       <% @tweets.each do |tweet| %>
         <div class= "tweet_info">
           <%= link_to tweet_path(tweet.id), class: "tweet_path_url" do %>
+            <div class= "info_tweet_title"><%= tweet.title %></div>
             <div class= "tweet_img">
               <%= image_tag tweet.image, class: "item_tweet_img" %>
             </div>
@@ -54,7 +55,9 @@
     <div class = "user_tweet_post_btn">
       <% if user_signed_in? %>
         <div class = "tweet_post_btn">
-          <%= link_to "投稿する", new_tweet_path, data: {"turbolinks" => false}, class: 'tweet_post_btn_url' %> 
+          <%= link_to new_tweet_path, data: {"turbolinks" => false}, class: 'tweet_post_btn_url' do %>
+            <span>投稿する</span>
+          <% end %>
         </div>
       <% end %>
     </div>
@@ -71,7 +74,6 @@
     <% end %>
     <div class = "for_shop_details">
       <div class = "for_shop_detail">
-        
         <%= link_to "ヘルプ・お問い合わせ", "#" %>
       </div>
       <div class = "for_shop_detail">

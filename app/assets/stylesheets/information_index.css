@@ -43,80 +43,95 @@
 
 /* 検索欄のCSS */
 .search_main {
-  width: 100%;
+  width: 100vw;
 }
 
 .search_boxes {
   height: 100px;
-  width: 100%;
-  padding: auto;
+  width: 100vw;
+  margin-top: 20px;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px #5d627b;
 }
 
 .search_text {
   display: flex;
   height: 100px;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5em 3em;
-  margin: 2em 0;
-  color: #5d627b;
-  background: white;
-  border-top: solid 5px #5d627b;
-  box-shadow: 0 3px 5px #5d627b;
+  width: 85%;
+  margin: auto;
 }
 
 .search_text_secondary {
   font-family: 'Courier New', Courier, monospace;
-  color: coral;
-  width: 40%;
+  width: 30%;
   font-size: 40px;
-  padding-left: 60px;
+  margin-top: 19px;
 }
 
 .root_url {
-  color:navy;
+  color: #01177a;
   text-decoration: none;
 }
 
 .search_text_boxes {
-  width: 60%;
+  width: 70%;
   display: flex;
-  padding-left: 30px;
+  align-items: center;
 }
 
-.search_text_keyword {
-  height: 90%;
-  font-size: 30px;
-  margin-right: 15px;
+.text_keyword {
+  border: 1px solid #ddd;
+  width: 41.5%;
+  height: 50%;
+  margin-right: 2%;
+  padding: 0 15px;
+  box-shadow: 
+  inset 2px 2px 2px rgba(129, 133, 134, 0.7),
+  inset -2px -2px 2px rgba(254, 255, 255);
+  opacity: 80%;
+  outline: none;
+  border-radius: 3px;/*角の丸み*/
 }
 
-.search_text_genre {
-  font-size: 30px;
-  margin-right: 25px;
-}
 
-.search_submit {
-  font-size: 29px;
+.area_keyword {
+  border: 1px solid #ddd;
+  width: 41.5%;
+  height: 50%;
+  margin-right: 3%;
+  padding: 0 15px;
+  box-shadow: 
+  inset 2px 2px 2px rgba(129, 133, 134, 0.7),
+  inset -2px -2px 2px rgba(254, 255, 255);
+  opacity: 80%;
+  outline: none;
+  border-radius: 3px;
 }
 
 .search_submit_word {
-  background-color: navy;
-  height: 100%;
-  width: 90px;
-  padding: 5px 5px;
-  color: white;
+  border: 1px solid #ddd;
+  width: 12%;
+  height: 50%;
+  box-shadow: 
+  3px 3px 3px rgba(129, 133, 134, 0.7),
+  -5px -5px 10px #F2F5F6;
+  background-color: #01177a;
+  color: #ffffff;
+  border: none;
   font-size: 20px;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 
 /* ジャンル検索 */
 .search_btns_main {
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .genre_place_search {
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 
@@ -128,13 +143,8 @@
   font-family: 'Courier New', Courier, monospace;
   color: black;
   font-size: 30px;
-  margin-left: 70px;
-  margin-top: 15px;
-}
-
-.genre_btn {
-  margin-left: 70px;
-  margin-right: 20px;
+  margin-top: 50px;
+  font-weight: bold;
 }
 
 .sample_radio {
@@ -148,7 +158,7 @@
   vertical-align: top;
   text-align: center;
   padding: 0.5em 1em;
-    margin: 2em 5px;
+    margin: 2em 5px 8px;
     font-weight: bold;
     border: solid 3px #000000;
   height: 150px;
@@ -157,7 +167,7 @@
 
 .search_submit_place_genre {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 50px;
 }
 
 .search_submit_detail {
@@ -166,10 +176,15 @@
   width: 180px;
   color:white;
   font-size: 35px;
-  background-color:coral;
+  background-color: #01177a;
+  box-shadow: 
+  3px 3px 3px rgba(129, 133, 134, 0.7),
+  -5px -5px 10px #F2F5F6;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 3px;
   text-decoration:none;
+  margin-bottom: 70px;
+  margin-top: 30px;
 }
 
 .place {
@@ -180,75 +195,109 @@
   font-family: 'Courier New', Courier, monospace;
   color: black;
   font-size: 30px;
-  margin-left: 70px;
-  margin-top: 25px;
+  margin-top: 50px;
+  font-weight: bold;
 }
 
 .place_btn {
-  margin-left: 70px;
-  margin-top: 25px;
-  margin-right: 70px;
+  margin-top: 25px; 
 }
 
-.sample_radio1 {
+
+.sample_radio_place, .sample_btn {
   display: inline-block;
-  font-size: 15px;
-  vertical-align: top;
-  text-align: center;
-  padding: 9px;
-  margin: 8px 9px;
-  font-weight: bold;
-  border: solid 3px #6091d3;/*線*/
-  border-radius: 10px;/*角の丸み*/
   height: 45px;
   width: 110px;
+  font-size: 15px;
+  padding: 9px;
+  margin: 8px 9px;
+  border-radius: 23%/50%;
+  background-color: #f2f6f8;
+  color: #212529;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow:
+    3px 3px 3px #8e9597,
+    -3px -3px 3px #fbfdfd,
+    inset 1px 1px 1px #f2f5f6,
+    inset -1px -1px 1px #a7acad;
 }
+
+.sample_btn:checked + .sample_radio_place {
+  background-color: #9fa4a5;
+  box-shadow:
+    2px 2px 2px transparent,
+    -2px -2px 2px transparent,
+    inset 3px 3px 3px #535758,
+    inset -3px -3px 3px #c7c8ca;
+}
+
 
 /* 予算検索 */
 .budget {
-  width: 80%;
-  margin: auto;
-
+  width: 100%;
 }
 
 .search_budget_tag {
   font-family: 'Courier New', Courier, monospace;
   color: black;
   font-size: 30px;
-  margin-left: 70px;
-  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-top: 50px;
+  font-weight: bold;
 }
 
 .search_budget {
-  width: 90%;
+  width: 60%;
+  height: 8vh;
   margin: auto;
   display: flex;
   justify-content: center;
-
 }
 
 .max_btn {
-  height: 50px;
-  width: 28%;
-  margin-right: 15px;
+  border: 1px solid #ddd;
+  width: 41.5%;
+  height: 100%;
+  margin-right: 3%;
+  padding: 0 15px;
+  box-shadow: 
+  inset 2px 2px 2px rgba(129, 133, 134, 0.7),
+  inset -2px -2px 2px rgba(254, 255, 255);
+  opacity: 80%;
+  outline: none;
+  border-radius: 3px;
 }
 
 .min_btn {
-  height: 50px;
-  width: 28%;
-  margin-right: 15px;
+  border: 1px solid #ddd;
+  width: 41.5%;
+  height: 100%;
+  margin-right: 3%;
+  padding: 0 15px;
+  box-shadow: 
+  inset 2px 2px 2px rgba(129, 133, 134, 0.7),
+  inset -2px -2px 2px rgba(254, 255, 255);
+  opacity: 80%;
+  outline: none;
+  border-radius: 3px;
 }
 
 .budget_submit {
-  height: 50px;
-  width: 22%;
-  background-color:coral;
-  font-size: 24px;
-  color: white;
-  text-align: center;
-  text-decoration:none;
+  border: 1px solid #ddd;
+  width: 12%;
+  height: 100%;
+  box-shadow: 
+  3px 3px 3px rgba(129, 133, 134, 0.7),
+  -5px -5px 10px #F2F5F6;
+  background-color: #01177a;
+  color: #ffffff;
+  border: none;
+  font-size: 20px;
+  border-radius: 3px;
+  cursor: pointer;
 }
-
 
 
 /* こだわり検索 */
@@ -261,59 +310,127 @@ margin: auto;
   font-family: 'Courier New', Courier, monospace;
   color: black;
   font-size: 30px;
-  
+  font-weight: bold;
+  margin-top: 50px;
 }
 
 .detail_btn {
-  margin-left: 70px;
-  margin-top: 25px;
-  margin-right: 70px;
+  margin-top: 20px;
 }
+
+
 
 .detail_tag {
-  font-family: 'Courier New', Courier, monospace;
-  color: orange;
-  font-size: 20px;
+  height: 50px;
+  width: 100%;
   padding: 0.5em 1em;
-  margin: 2em 0;
-  color: #474747;
-  background: whitesmoke;/*背景色*/
-  border-left: double 7px #4ec4d3;/*左線*/
-  border-right: double 7px #4ec4d3;/*右線*/
+  margin: 1em 0;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  font-size: 19px;
 }
 
-.sample_radio2 {
-  display: inline-block;
-  font-size: 15px;
-  vertical-align: top;
+.fa-angle-down {
+  font-size: 27px;
   text-align: center;
+  padding-right: 12px;
+}
+
+
+.sample_radio2, .sample_btn {
+  display: inline-block;
+  height: 45px;
+  font-size: 15px;
   padding: 9px;
   margin: 8px 9px;
-  border: solid 1px #6091d3;/*線*/
-  border-radius: 10px;/*角の丸み*/
-  height: 45px;
+  border-radius: 10px;
+  background-color: #f2f6f8;
+  color: #212529;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow:
+    3px 3px 3px #8e9597,
+    -3px -3px 3px #fbfdfd,
+    inset 1px 1px 1px #f2f5f6,
+    inset -1px -1px 1px #a7acad;
 }
+
+.sample_btn:checked + .sample_radio2 {
+  background-color: #9fa4a5;
+  box-shadow:
+    2px 2px 2px transparent,
+    -2px -2px 2px transparent,
+    inset 3px 3px 3px #535758,
+    inset -3px -3px 3px #c7c8ca;
+}
+
 
 .submit_detail_btn {
   text-align: center;
 }
 
 /* ツイート欄 */
-.tweet_post_btn {
-  margin: auto;
-  background-color: rgb(167, 208, 255);
-  margin: 5px auto;
-  border-radius: 10px;
-  
+
+.tweet_post_btn_url {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+  margin-bottom: 20px;
 }
 
 .tweet_post_btn_url {
-  color: white;
-  margin: auto;
-  font-size: 36px;
-  text-decoration: none;
+  overflow: hidden;
+  color: #fff;
+  border-radius: 0;
+  background: #000;
+  border-radius: 5px;
+
 }
 
+.tweet_post_btn_url span {
+  position: relative;
+}
+
+.tweet_post_btn_url:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 150%;
+  height: 500%;
+
+  content: "";
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+
+  background: #da153f;
+}
+
+.tweet_post_btn_url:hover:before {
+  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
 
 .information_tweets_main {
   width: 90%;
@@ -321,6 +438,7 @@ margin: auto;
   margin-top: 50px;
   background-color: #f5f4f4;
   border-radius: 3px;/*角の丸み*/
+  padding-bottom: 20px;
 }
 
 .tweet_title {
@@ -333,11 +451,11 @@ margin: auto;
 }
 
 .tweet_title:first-letter {
-  font-size: 150%;
+  font-size: 170%;
   color: #da153f;
 }
 
-.information_tweet_lists {
+.information_tweets_main .information_tweet_lists {
   position: relative;
   /* padding: 1rem 2rem; */
   border-top: 5px solid black;
@@ -347,7 +465,7 @@ margin: auto;
   justify-content: space-around;
 }
 
-.information_tweet_lists:before {
+.information_tweets_main .information_tweet_lists:before {
   position: absolute;
   top: -6px;
   left: 0;
@@ -358,7 +476,7 @@ margin: auto;
 }
 
 .tweet_info {
-  height: 500px;
+  height: 520px;
   width: calc(90% / 3);
   margin: 2em 0;
   background: #ffffff;
@@ -374,8 +492,8 @@ margin: auto;
   position: absolute;
   bottom: 0;
   left: 0;
-  border-right: 50px solid transparent;
-  border-bottom: 50px solid #da153f;
+  border-right: 70px solid transparent;
+  border-bottom: 70px solid #da153f;
 }
 
 
@@ -412,14 +530,29 @@ margin: auto;
   height: 100%;
 }
 
+.info_tweet_title {
+  font-size: 20px;
+  color: #000000;
+  padding-left: 20px;
+}
+
 .tweet_img {
   width: 100%;
-  height: 55%;
+  height: 49%;
 }
 
 .item_tweet_img {
   width: 100%;
   height: 100%;
+}
+
+.tweet_text {
+  text-align: center;
+  height: 30%;
+  width: 90%;
+  margin: auto;
+  background-color: rgb(238, 237, 237);
+  font-size: 30px;
 }
 
 .tweet_path_url .tweet_text {
@@ -488,28 +621,28 @@ margin: auto;
 
 .for_shop_details {
   width: 100%;
-  background-color: rgb(250, 224, 191);
-  padding-top: 10px;
-  margin-top: 20px;
+  background-color: rgb(207, 206, 206);
+  margin-top: 70px;
+  padding-top: 20px;
   display: flex;
   justify-content: center;
   text-align: center;
 }
 
 .for_shop_detail {
-  margin: 30px 20px;
+  margin: 20px 20px;
 }
 
 .for_store_languages {
   width: 100%;
-  background-color: rgb(250, 224, 191);
+  background-color: rgb(207, 206, 206);
   display: flex;
   justify-content: center;
   text-align: center;
 }
 
 .language {
-  margin: 30px 20px;
+  margin: 0 20px 20px ;
 }
 
 @media (max-width: 599px) {
@@ -553,67 +686,86 @@ margin: auto;
   text-decoration:none;
 }
 
-
+/* 検索欄のCSS */
   .search_boxes {
-    height: 100px;
+    height: 70px;
     width: 100vw;
+    margin-top: 20px;
+    border-top: solid 3px #5d627b;
+    box-shadow: 0 1px 5px #5d627b;
   }
-
+  
   .search_text {
     display: flex;
     height: 70px;
-    width: 100vw;
-    align-items: center;
-    margin: 2em 0;
-    color: #5d627b;
-    background: white;
-    border-top: solid 5px #5d627b;
-    box-shadow: 0 3px 5px #5d627b;
+    width: 85%;
+    margin: auto;
   }
-
+  
   .search_text_secondary {
     font-family: 'Courier New', Courier, monospace;
-    color: coral;
+    width: 25%;
     font-size: 20px;
-    width: 20%;
-    padding: 0;
-    margin: 0;
+    margin-top: 20px;
   }
-
+/*   
   .root_url {
     color:navy;
     text-decoration: none;
   }
-
+  
   .search_text_boxes {
-    width: 80%;
+    width: 70%;
     display: flex;
-    padding-left: 10px;
+    align-items: center;
+  } */
+  
+  .text_keyword {
+    border: 1px solid #ddd;
+    width: 44%;
+    height: 40%;
+    margin-right: 2%;
+    padding: 0 15px;
+    box-shadow: 
+    inset 2px 2px 2px rgba(129, 133, 134, 0.7),
+    inset -2px -2px 2px rgba(254, 255, 255);
+    opacity: 80%;
+    outline: none;
+    border-radius: 3px;/*角の丸み*/
+    font-size: 6px;
   }
   
-  .search_text_keyword {
-    height: 90%;
-    font-size: 15px;
-    margin-right: 7px;
-    padding: 0;
+  
+  .area_keyword {
+    border: 1px solid #ddd;
+    width: 44%;
+    height: 40%;
+    margin-right: 3%;
+    padding: 0 15px;
+    box-shadow: 
+    inset 2px 2px 2px rgba(129, 133, 134, 0.7),
+    inset -2px -2px 2px rgba(254, 255, 255);
+    opacity: 80%;
+    outline: none;
+    border-radius: 3px;
+    font-size: 6px;
   }
   
-  .search_text_genre {
-    font-size: 15px;
-    margin-right: 5px;
-  }
-  
-  .search_submit {
-    font-size: 15px;
-  }
   .search_submit_word {
-    background-color: navy;
-    height: 100%;
-    width: 45px;
-    padding: 2px 2px;
-    color: white;
+    border: 1px solid #ddd;
+    width: 15%;
+    height: 40%;
+    box-shadow: 
+    3px 3px 3px rgba(129, 133, 134, 0.7),
+    -5px -5px 10px #F2F5F6;
+    background-color: #01177a;
+    color: #ffffff;
+    border: none;
     font-size: 10px;
+    border-radius: 3px;
+    cursor: pointer;
   }
+  
 /* ジャンル検索 */
   .genre_place_search {
     width: 100%;
@@ -645,7 +797,6 @@ margin: auto;
 
   .search_place {
     font-family: 'Courier New', Courier, monospace;
-    color: coral;
     font-size: 30px;
     margin-left: 70px;
     margin-top: 25px;
@@ -679,7 +830,6 @@ margin: auto;
   
   .search_budget_tag {
     font-family: 'Courier New', Courier, monospace;
-    color: coral;
     font-size: 30px;
     margin-left: 35px;
     margin-top: 25px;
@@ -724,7 +874,6 @@ margin: auto;
 
   .tweet_title {
     font-family: 'Courier New', Courier, monospace;
-    color: coral;
     font-size: 30px;
   }
   
@@ -819,7 +968,12 @@ margin: auto;
     text-align: center;
   }
 
-
+  .for_shop_details {
+    display: none;
+  }
   
+  .for_store_languages {
+    display: none;
+  }
   
 }
