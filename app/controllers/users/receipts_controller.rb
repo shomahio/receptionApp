@@ -1,11 +1,10 @@
 class Users::ReceiptsController < ApplicationController
   before_action :set_receipt, only: [:show, :edit, :update]
-  before_action :authenticate_user!
-  before_action :move_to_root_path, except: [:index]
+  before_action :authenticate_user!, except: [:show]
+  # before_action :move_to_root_path, except: [:index]
   def index
     @receipts = Receipt.where(user_id: params[:id], consent: nil).order("created_at ASC")
     @receipts1 = Receipt.where(user_id: params[:id], consent: 1).order("created_at ASC")
-    # move_to_root_path
   end
 
   def edit

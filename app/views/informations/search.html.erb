@@ -2,19 +2,14 @@
   <%= search_form_for(@q, url: search_informations_path) do |f| %>
     <div class= "search_boxes">
       <div class= "search_text">
+        <div class= "search_text">
         <div class= "search_text_secondary">
           <%= link_to "ビジグル" ,root_path , class: "root_url"%>
         </div>
         <div class= "search_text_boxes">
-          <div class= "search_text_keyword">
-            <%= f.search_field :store_name_or_genre_name, placeholder: "キーワード（例 焼肉"%>
-          </div>
-          <div class ="search_text_genre">
-            <%= f.search_field :city_or_address_or_place_name, placeholder: "エリア（例 東京" %>
-          </div>
-          <div class = "search_submit1">
-            <%= f.submit "検索", class: "search_submit_word" %>
-          </div>
+          <%= f.search_field :store_name_or_genre_name, placeholder: "キーワード     例：焼肉", class: "text_keyword"%>
+          <%= f.search_field :city_or_address_or_place_name, placeholder: "エリア     例：東京", class: "area_keyword" %>
+          <%= f.submit "検索", class: "search_submit_word" %>
         </div>
       </div>
     </div>

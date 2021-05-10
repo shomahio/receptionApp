@@ -1,4 +1,7 @@
 <div class="tabs">
+  <div class= "search_text_secondary">
+    <%= link_to "ビジグル" ,root_path , class: "root_url"%>
+  </div>
   <input type='radio' id='company-page' name='tab-item'>
   <%= link_to '店舗情報',store_path(current_store.id), class: 'tab-item'%>
   <input type='radio' id='staff-page' name='tab-item'checked>
@@ -24,7 +27,7 @@
               <td><%= reservation.number_of_people %>人</td>
               <td><%= reservation.start_time.strftime("%Y/%m/%d/%H:%M") %></td>
               <td>
-              <% if reservation.receipt == nil%>
+              <% if reservation.receipt == nil && reservation.user_id != nil%>
               <%=link_to "未作成", new_informations_reservation_receipt_path(reservation.id) %>
               <% else %>
               作成済

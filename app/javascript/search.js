@@ -25,10 +25,10 @@ window.addEventListener('pageshow', function(){
   const placeChild = placeBtns.childNodes
   placeChild.forEach(function (placeBtn) {
     placeBtn.addEventListener ("click", () => {
-      if (placeBtn.getAttribute("style") == "background-color:#FFBEDA;") {
-        placeBtn.removeAttribute("style", "background-color:#FFBEDA;")
+      if (placeBtn.getAttribute("style") == "font-weight: bold;") {
+        placeBtn.removeAttribute("style", "font-weight: bold;")
       }else {
-        placeBtn.setAttribute("style", "background-color:#FFBEDA;")
+        placeBtn.setAttribute("style", "font-weight: bold;")
       };
     });
   });
@@ -50,10 +50,10 @@ window.addEventListener('pageshow', function(){
     const detailRadioBtns = detailBtn.childNodes
     detailRadioBtns.forEach(function (detailRadioBtn) {
       detailRadioBtn.addEventListener ("click", () => {
-        if (detailRadioBtn.getAttribute("style") == "background-color:#FFBEDA;") {
-          detailRadioBtn.removeAttribute("style", "background-color:#FFBEDA;")
+        if (detailRadioBtn.getAttribute("style") == "font-weight: bold;") {
+          detailRadioBtn.removeAttribute("style", "font-weight: bold;")
         }else {
-          detailRadioBtn.setAttribute("style", "background-color:#FFBEDA;")
+          detailRadioBtn.setAttribute("style", "font-weight: bold;")
         }
       });
     });

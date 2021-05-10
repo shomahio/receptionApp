@@ -1,14 +1,18 @@
-<div class="contents row">
-  <div class = "tweet_show">
-    <div class= "tweet_show_user">
-      <%= link_to "#{@tweet.user.nickname}さんの投稿", user_path(@tweet.user.id), class: :card__user %>
-    </div>
-    <div class= "tweet_show_img">
-      <%= image_tag @tweet.image, class: "item-img-show" %>
-    </div>
-    <div class= "tweet_name"><%= @tweet.title %></div>
-    <div class= "tweet_text">
-      <%= @tweet.text %>
-    </div>
+<div class="contents_row">
+  <div class= "tweet_info">
+    <%= link_to  user_path(@tweet.user.id), class: "tweet_path_url" do %>
+      <div class= "info_tweet_title"><%= @tweet.title %></div>
+      <div class= "tweet_img">
+        <%= image_tag @tweet.image, class: "item_tweet_img" %>
+      </div>
+      <div class= "tweet_text">
+        <%= @tweet.text %>
+      </div>
+      <h3 class= "information_tweet_name fa fa-user">
+        <%= @tweet.user.nickname %>さん
+      </h3>
+      <span class = "info-child"></span>
+    <% end %>
   </div>
 </div>
+

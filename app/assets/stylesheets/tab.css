@@ -1,18 +1,30 @@
 /*タブ切り替え全体のスタイル*/
 .tabs {
-  height: 50px;
-  background-color: #5ab4bd;
+  /* height: 70px; */
+  background-color: #d8d8d8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+}
+
+.tabs .search_text_secondary{
+  width: 30%;
+}
+
+.tabs .root_url {
+  color: #043296;
+  font-size: 1em;
+  padding-top: 3px;
+  margin: 0 auto;
 }
 
 /*タブのスタイル*/
 .tab-item {
-  height: 50px;
-  width: calc(100%/3);
-  border-bottom: 3px solid #5ab4bd;
-  background-color: #d9d9d9;
+  padding-top: 8px;
+  width: calc(70%/3);
+  border-bottom: 3px solid  rgb(94, 94, 94);
+  background-color:  #d8d8d8;
   color: #565656;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
@@ -41,6 +53,6 @@ input[name="tab-item"] {
 
 /*選択されているタブのスタイルを変える*/
 .tabs input:checked + .tab-item {
-  background-color: #5ab4bd;
-  color: #fff;
+  background-color: rgb(94, 94, 94);
+  color:#fff;
 }

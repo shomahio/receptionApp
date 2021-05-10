@@ -1,4 +1,7 @@
 <div class="tabs">
+  <div class= "search_text_secondary">
+    <%= link_to "ビジグル" ,root_path , class: "root_url"%>
+  </div>
   <input type='radio' id='company-page' name='tab-item'checked>
   <%= link_to '店舗情報',store_path(current_store.id), class: 'tab-item'%>
   <input type='radio' id='staff-page' name='tab-item'>

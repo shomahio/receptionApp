@@ -2,7 +2,7 @@ class Users::ReservationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_reservation, only: [:edit, :destroy, :update]
   before_action :set_user, omly: [:edit, :update]
-  before_action :move_to_root_path, except: [:index]
+  # before_action :move_to_root_path, except: [:index]
   def index
     @reservations = Reservation.where(user_id: params[:id]).where("start_time > ?", Time.now - 1.days).order("start_time ASC")
   end
