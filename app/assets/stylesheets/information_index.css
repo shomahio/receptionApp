@@ -163,6 +163,7 @@
     border: solid 3px #000000;
   height: 150px;
   width: 150px;
+  cursor: pointer;
 }
 
 .search_submit_place_genre {
@@ -185,6 +186,7 @@
   text-decoration:none;
   margin-bottom: 70px;
   margin-top: 30px;
+  cursor: pointer;
 }
 
 .place {
