@@ -86,7 +86,7 @@
   margin-right: 2%;
   padding: 0 15px;
   box-shadow: 
-  inset 2px 2px 2px rgba(129, 133, 134, 0.7),
+  inset 2px 2px 2px rgba(129, 133, 134),
   inset -2px -2px 2px rgba(254, 255, 255);
   opacity: 80%;
   outline: none;
@@ -101,7 +101,7 @@
   margin-right: 3%;
   padding: 0 15px;
   box-shadow: 
-  inset 2px 2px 2px rgba(129, 133, 134, 0.7),
+  inset 2px 2px 2px rgba(129, 133, 134),
   inset -2px -2px 2px rgba(254, 255, 255);
   opacity: 80%;
   outline: none;
@@ -113,7 +113,7 @@
   width: 12%;
   height: 50%;
   box-shadow: 
-  3px 3px 3px rgba(129, 133, 134, 0.7),
+  3px 3px 3px rgba(129, 133, 134),
   -5px -5px 10px #F2F5F6;
   background-color: #01177a;
   color: #ffffff;
@@ -179,7 +179,7 @@
   font-size: 35px;
   background-color: #01177a;
   box-shadow: 
-  3px 3px 3px rgba(129, 133, 134, 0.7),
+  3px 3px 3px rgba(129, 133, 134),
   -5px -5px 10px #F2F5F6;
   text-align: center;
   border-radius: 3px;
@@ -265,7 +265,7 @@
   margin-right: 3%;
   padding: 0 15px;
   box-shadow: 
-  inset 2px 2px 2px rgba(129, 133, 134, 0.7),
+  inset 2px 2px 2px rgba(129, 133, 134),
   inset -2px -2px 2px rgba(254, 255, 255);
   opacity: 80%;
   outline: none;
@@ -279,7 +279,7 @@
   margin-right: 3%;
   padding: 0 15px;
   box-shadow: 
-  inset 2px 2px 2px rgba(129, 133, 134, 0.7),
+  inset 2px 2px 2px rgba(129, 133, 134),
   inset -2px -2px 2px rgba(254, 255, 255);
   opacity: 80%;
   outline: none;
@@ -291,7 +291,7 @@
   width: 12%;
   height: 100%;
   box-shadow: 
-  3px 3px 3px rgba(129, 133, 134, 0.7),
+  3px 3px 3px rgba(129, 133, 134),
   -5px -5px 10px #F2F5F6;
   background-color: #01177a;
   color: #ffffff;
@@ -729,7 +729,7 @@ margin: auto;
     margin-right: 2%;
     padding: 0 15px;
     box-shadow: 
-    inset 2px 2px 2px rgba(129, 133, 134, 0.7),
+    inset 2px 2px 2px rgba(129, 133, 134),
     inset -2px -2px 2px rgba(254, 255, 255);
     opacity: 80%;
     outline: none;
@@ -745,7 +745,7 @@ margin: auto;
     margin-right: 3%;
     padding: 0 15px;
     box-shadow: 
-    inset 2px 2px 2px rgba(129, 133, 134, 0.7),
+    inset 2px 2px 2px rgba(129, 133, 134),
     inset -2px -2px 2px rgba(254, 255, 255);
     opacity: 80%;
     outline: none;
@@ -758,7 +758,7 @@ margin: auto;
     width: 15%;
     height: 40%;
     box-shadow: 
-    3px 3px 3px rgba(129, 133, 134, 0.7),
+    3px 3px 3px rgba(129, 133, 134),
     -5px -5px 10px #F2F5F6;
     background-color: #01177a;
     color: #ffffff;
