@@ -65,4 +65,25 @@ input[name="tab-item"] {
   border-bottom: 3px solid rgb(85, 85, 85, 0.9);
 }
 
-
+@media (max-width: 599px) {
+  .tabs {
+    height: 75px;
+    border-top: 5px solid #000;
+    background-color: rgb(235, 235, 235);
+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+    display: flex;
+  }
+  
+  .tabs .search_text_secondary{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    padding-left: 70px;
+  }
+  
+  .tabs .root_url {
+    color: #043296;
+    font-size: 30px;
+  }
+}
