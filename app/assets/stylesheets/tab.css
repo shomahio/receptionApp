@@ -1,58 +1,68 @@
 /*タブ切り替え全体のスタイル*/
+/* --- ヘッダー --- */
+
 .tabs {
-  /* height: 70px; */
-  background-color: #d8d8d8;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  height: 75px;
+  border-top: 5px solid #000;
+  background-color: rgb(235, 235, 235);
+  box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   display: flex;
 }
 
 .tabs .search_text_secondary{
-  width: 30%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  padding-left: 140px;
 }
 
 .tabs .root_url {
   color: #043296;
-  font-size: 1em;
-  padding-top: 3px;
-  margin: 0 auto;
+  font-size: 40px;
 }
 
 /*タブのスタイル*/
 .tab-item {
-  padding-top: 8px;
-  width: calc(70%/3);
-  border-bottom: 3px solid  rgb(94, 94, 94);
-  background-color:  #d8d8d8;
-  color: #565656;
-  font-size: 20px;
+  width: calc(60%/3);
+  padding-top: 23px;
+  color: rgb(85, 85, 85);
+  font-size: 18px;
   font-weight: bold;
   text-align: center;
+  cursor: pointer;
+  position: relative;
   text-decoration: none;
-  line-height: 50px;
-  display: block;
-  float: left;
-  transition: all 0.2s ease;
+}
+.tab-item:hover {
+  opacity: 70%;
+}
+.tab-item:before {
+  content:"";
+  display:inline-block;
+  width: 2px;
+  height: 40px;
+  background-color: rgb(199, 199, 199);
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  box-shadow:
+    2px 2px 5px rgba(255, 255, 255, 0.5),
+    -2px -2px 5px rgba(255, 255, 255, 0.5),
+    inset 0.1px 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0.1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
-.tab-item:hover {
-  opacity: 0.75;
-}
 
 /*ラジオボタンを全て消す*/
 input[name="tab-item"] {
   display: none;
 }
 
-/*タブ切り替えの中身のスタイル*/
-.tab-content {
-  height: 580px;
-  padding: 0 40px;
-  clear: both;
-  overflow: scroll;
-}
-
 /*選択されているタブのスタイルを変える*/
 .tabs input:checked + .tab-item {
-  background-color: rgb(94, 94, 94);
-  color:#fff;
+  border-bottom: 3px solid rgb(85, 85, 85, 0.9);
 }
+
+
