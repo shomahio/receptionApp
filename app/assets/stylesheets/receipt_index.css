@@ -1,50 +1,77 @@
 /* 領収書一覧 */
-.recipts {
-  width: 60%;
-  text-align: center;
-  margin: auto;
+.reservation_informations {
+  width: 80%;
+  margin: 0 auto;
 }
 
-.recipt_unapproved {
+.reservation_informations .reservation_down_tag {
+  margin-top: 20px;
+  margin-bottom: -30px;
+}
+
+.reservation_deta {
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 5px;
+}
+
+.fa-clock-o {
+  font-size: 25px;
+}
+
+.delete_url {
+  color: #000000;
+}
+
+.recipt_information {
   width: 100%;
-  margin: 0,auto;
 }
 
-.recipt_unapproved_tag {
-  font-size: 30px;
-  color: chocolate;
-  text-align: left;
-}
-
-
-.recipt_reservation_table table{
+.reservation_deta {
   width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: 2px solid;
-  
 }
 
-.recipt_reservation_table table th,table td{
-  width: 300px;
-  padding: 10px 0;
+.search-page__inner-right {
+  width: 100%;
+}
+
+.recipt_information .calendar {
+  border: 2px solid rgb(207, 207, 207);
+  height: 135px;
+  padding: 0;
+}
+
+.information_food {
+  border-bottom: 1px solid rgb(207, 207, 207);
+  padding: 2px 0;
+  height: 20%;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.information_explanation1 {
+  height: 80%;
+  width: 99%;
+  padding: 3px 0;
+}
+
+.information_explanation {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reservation_informations h2 {
+  font-size: 25px;
+  margin-top: 60px;
+  border: 1px solid rgb(204, 203, 203);
   text-align: center;
-  border: 2px solid;
-}
-
-.recipt_reservation_table table tr:nth-child(odd){
-  background-color: #eee
-}
-
-.recipt_approved_tag {
-  font-size: 30px;
-  color: chocolate;
-  text-align: left;
-  margin-top: 50px;
-}
-
-.recipt_reservation_table_url {
-  color: rgb(59, 56, 247);
+  height: 150px;
+  padding-top: 55px;
+  border-radius: 4px;/*角の丸み*/
 }
 
 /* 領収書詳細ページ */

@@ -8,32 +8,92 @@
   <%= link_to '予約一覧', users_reservations_path(id: current_user.id), method: :get, class: 'tab-item' %>
   <input type='radio' id='index-page' name='tab-item'>
   <%= link_to '領収書一覧', users_receipts_path(id: current_user.id), method: :get, class: 'tab-item' %>  
-</div>  
-<div class= "reservations">
-  <div class= "reservation">
-    <div class = "reservation_down">
-      <h1 class= "reservation_down_tag"><%= current_user.nickname %>様の予約一覧</h1>
-      <div class = "recipt_reservation_table">
-        <table>
-          <tr >
-            <th>日付</th>
-            <th>店名</th>
-            <th>代表者名</th>
-            <th>人数</th>
-            <th>予約取り消し</th>
-          </tr>
-          <% @reservations.each do |reservation| %>
-            <tr>
-              <td><%= reservation.start_time.strftime('%Y/%m/%d %H:%M:%S') %></td>
-              <td><%= link_to reservation.information.store_name, information_path(reservation.information.id) %></td>
-              <td><%= reservation.name %>様</td>
-              <td><%= reservation.number_of_people %>人</td>
-              <td><%= link_to "予約を取り消す", users_reservation_path(reservation.id), method: :delete %></td>
-            </tr>
-          <% end %>
-        </table>
+</div> 
+<div class = "reservation_informations">
+  <h1 class= "reservation_down_tag"><%= current_user.nickname %>さんの予約一覧</h1>
+  <div class = "recipt_information">
+    <% if @reservations.length != 0 %>
+    <% @reservations.each do |reservation| %>
+      <div class = "reservation_deta">
+        <i class="fa fa-clock-o"></i>
+        <%= reservation.start_time.strftime('%Y/%m/%d %H:%M:%S') %>｜
+        <%= reservation.name %>様｜
+        <%= reservation.number_of_people %>人｜
+        <%= link_to "予約を取り消す", users_reservation_path(reservation.id), method: :delete, class: "delete_url" %>
       </div>
-    </div>
+      <div class='search-page__inner-right'>
+          <div class='information-content-back'>
+          <div class='information-content'>
+            <div class='information-content__inner-left'>
+              <%= image_tag reservation.information.image, class: "search_information-box-img" %>
+            </div>
+            <div class='information-content__inner-right'>
+              <div class='store-name'>
+                <%= link_to reservation.information.store_name, information_path(reservation.information.id)%>
+              </div>
+              <div class="address">
+                <%= reservation.information.store.postal_code %> <%= reservation.information.place.parent.name %><%= reservation.information.city %><%= reservation.information.address %>
+              </div>
+              <div class='store-desc'>
+                <div class='store-desc__inner-left'>
+                  <div class='desc'>
+                    <%= image_tag 'genre.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                    <div class='icon_text'><%= reservation.information.genre.parent.name %>/<%= reservation.information.genre.name %></div>
+                  </div>
+                  <div class='desc'>
+                    <%= image_tag 'budget.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                    <div class ="icon_text" ><%= reservation.information.budget.name %></div>
+                  </div>
+                  <div class='desc'>
+                    <%= image_tag 'location.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                    <div class='icon_text'>
+                      <% reservation.information.locations.each do |location| %>
+                        <%= location.name %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class='desc'>
+                    <%= image_tag 'time.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                    <div class='icon_text'><%= reservation.information.opening_time.strftime("%H:%M") %>~<%= reservation.information.closing_time.strftime("%H:%M") %></div>
+                  </div>
+                </div>
+                <div class='store-desc__inner-right'>
+                  <div class='desc'>
+                    <%= image_tag 'light.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                    <div class='icon_text'><%= reservation.information.light.name %></div>
+                  </div>
+                  <div class='desc'>
+                    <%= image_tag 'music.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                    <div class='icon_text'>
+                      <% reservation.information.musics.each do |music| %>
+                        <%= music.name %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class='desc'>
+                    <%= image_tag 'seat.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                    <div class='icon_text'><%= reservation.information.seet %>席</div>
+                  </div>
+                  <div class='desc'>
+                    <%= image_tag 'tobacco.jpeg', alt: 'テスト画像', class: "image-icon" %>
+                    <div class='icon_text'><%= reservation.information.tobacco.name %></div>
+                  </div>
+                </div>
+              </div>
+              <div class='calendar'>
+                <div class = "information_food">こだわりの食材：<%= reservation.information.food %></div>
+                <div class = "information_explanation1">
+                  <div class = "information_explanation">お店からの一言：<%= reservation.information.explanation %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% else %>
+      <h2 >現在予約はありません</h2>
+    <% end %>
   </div>
 </div>
 
