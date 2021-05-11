@@ -1,11 +1,20 @@
-
 /* ユーザーのshow */
+.tweet_user_tag {
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
 .user_show_tweets .information_tweet_lists {
-  display: flex;
+  padding-left: 0.5%;
 }
 
 .user_show_tweets .tweet_info {
-  margin: 30px 20px;
+  display: inline-block;
+  width: calc(90% / 4);
+  margin-right: 1%;
+  margin-left: 1%;
 }
 
 .tweet_menu {
@@ -138,74 +147,15 @@
 }
 
 @media (max-width: 599px) {
-  .tweet {
-    width: 100vw;
+  .user_show_tweets .information_tweet_lists {
+    padding-left: 0.5%;
   }
   
-  .tweet_contents {
-    width: 100%;
-    margin: auto;
+  .user_show_tweets .tweet_info {
+    display: inline-block;
+    width: calc(90% / 2);
+    margin-right: 1%;
+    margin-left: 1%;
   }
   
-  .tweet_content {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    
-  }
-  
-  .tweet_user_tag {
-    width: 100%;
-    font-size: 15px;
-    text-align: center;
-    padding-top: 5px;
-    color: #fff;
-  }
-  
-  .tweet_detail_content {
-    width: calc(90% / 3);
-    border: 1px solid;
-    margin: 10px 10px;
-    background-color:  rgb(250, 224, 191);
-  }
-  
-  .tweet_content_img {
-    padding: 15px 15px 0 15px;
-  }
-  
-  .item_img_top {
-    width: 100%;
-    height: 150px;
-  }
-  
-  .tweet_content_text {
-    text-align: center;
-    height: 100px;
-    margin: 15px 15px 0 15px;
-    font-size: 15px;
-    background-color: #fff;
-  }
-  
-  .tweet_content_date {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .tweet_content_time {
-    margin-right: 30px;
-  }
-
-  /* ツイート詳細 */
-  .tweet_show {
-    width: 100%;
-  }
-
-  .tweet_show_img {
-    width: 100%;
-    height: 33vh;
-    width: 38vw;
-    margin: auto;
-  }
 }
