@@ -124,6 +124,12 @@
 .information-content__inner-right {
   width: 65%;
 }
+
+.information-content__inner-right .store-name {
+  height: 10%;
+  margin-bottom: 1%;
+}
+
 .information-content__inner-right a {
   font-size: 30px;
   color: #874E4C;
@@ -131,6 +137,7 @@
   letter-spacing: 2px;
 }
 .information-content__inner-right .address {
+  height: 8%;
   width: 100%;
   margin-bottom: 5px;
   max-width: 100%;
@@ -140,6 +147,7 @@
   display: block;
 }
 .information-content__inner-right .store-desc {
+  height: 35%;
   margin-bottom: 5px;
   display: flex;
 }
@@ -158,7 +166,6 @@
   display: block;
 }
 
-
 .image-icon {
   height: 25px;
   width: 25px;
@@ -167,15 +174,16 @@
   border: 1px solid #565656;
   border-radius: 5px;
 }
+
 .calendar {
-  height: 65px;
+  height: 45%;
   padding-top: 15px;
-  
 }
 
 .calendar .simple-calendar {
   height: 10%;
   width: 100%;
+  
 }
 
 .calendar .calendar-heading {

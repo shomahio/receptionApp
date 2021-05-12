@@ -22,11 +22,11 @@
             ◎
           </div>
         <% elsif reservations.length == 1%>
-          <div class= "yoyakugiri">
+          <div class= "yoyakukanou">
             △
           </div>
         <% else %>
-          <div class= "yoyakuhuka">
+          <div class= "yoyakukanou">
           ✖︎
           </div>
         <% end %>
@@ -35,7 +35,7 @@
             <% if reservation.name == nil && user_signed_in? %>
               <%= link_to edit_users_reservation_path(reservation.id) do %>
                 <%= reservation.start_time.strftime("%H:%M") %>
-                <div class= "yoyakukanou1">
+                <div class= "yoyakukanou">
                 ◎
                 </div>
               <% end %>
@@ -43,7 +43,7 @@
             <% if reservation.name == nil && store_signed_in? && reservation.information.store_id == current_store.id %>
               <%= link_to edit_informations_reservation_path(reservation.id) do %>
                 <%= reservation.start_time.strftime("%H:%M") %>
-                <div class= "delete">
+                <div class= "yoyakukanou">
                 ◎ 編集
                 </div>
               <% end %>

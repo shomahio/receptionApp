@@ -27,7 +27,12 @@
 }
 
 .yoyakukanou1 {
-  display: inline;
+  /* display: inline; */
+  text-align: center;
+}
+
+.yoyakukanou {
+  text-align: center;
 }
 
 
@@ -192,7 +197,6 @@
   .calendar-heading {
     width: 100;
     font-size: 20px;
-    text-align: center;
     padding-top: 20px;
     padding-bottom: 10px; 
   }
