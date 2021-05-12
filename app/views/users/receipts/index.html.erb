@@ -9,6 +9,7 @@
   <input type='radio' id='index-page' name='tab-item'checked>
   <%= link_to '領収書一覧', users_receipts_path(id: current_user.id), method: :get, class: 'tab-item' %>
 </div>  
+
 <div class= "recipt_unapproved">
   <h1 class ="recipt_unapproved_tag">未承認の領収書</h1>
   <div class = "recipt_reservation_table">

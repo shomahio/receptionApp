@@ -1,3 +1,10 @@
+.search_main .search_boxes {
+  height: 100px;
+  width: 100vw;
+  margin-top: 20px;
+  border-bottom: solid 2px #5d627b;
+}
+
 .search-page {
   width: 100%;
   padding: 30px;
@@ -20,6 +27,21 @@
   border-radius: 5px;
   background-color: #565656;
 }
+
+.search_main .search_text {
+  display: flex;
+  height: 100px;
+  width: 90%;
+  margin: auto;
+}
+
+.search_main .search_text_secondary {
+  font-family: 'Courier New', Courier, monospace;
+  width: 30%;
+  font-size: 40px;
+  margin-top: 19px;
+}
+
 /* --- 雰囲気検索・こだわり検索 --- */
 .ambience-search, .commitment-search {
   padding: 5px 15px;

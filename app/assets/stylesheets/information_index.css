@@ -41,11 +41,6 @@
 }
 
 
-/* 検索欄のCSS */
-.search_main {
-  width: 100vw;
-}
-
 .search_boxes {
   height: 100px;
   width: 100vw;
@@ -57,7 +52,7 @@
 .search_text {
   display: flex;
   height: 100px;
-  width: 85%;
+  width: 90%;
   margin: auto;
 }
 
