@@ -1,11 +1,11 @@
 <div class="contents row">
   <div class="tweet_form_grp">
-    <h1 class = "tweet_form_grp_tag">投稿する</h1>
+    <h1 class = "tweet_form_grp_tag">ツイート新規</h1>
     <%= form_with(model: @tweet, local: true) do |form| %>
     <%= render 'shared/error_messages', model: form.object %>
       <div class="tweet_form_grp_name">
         <div class= "tweet_form_grp_name_tag">
-          店名
+          店名 <i class="fa fa-edit"></i>
         </div>
         <div class= "tweet_form_grp_name_form">
           <%= form.text_field :title, class: "tweet_form_grp_name_form_field" %>
@@ -13,14 +13,14 @@
       </div>
       <div class="tweet_form_grp_name">
         <div class= "tweet_form_grp_name_tag">
-          本文
+          本文 <i class="fa fa-edit"></i>
         </div>
         <div class= "tweet_form_grp_name_form">
           <%= form.text_area :text, class: "tweet_form_grp_text_form_field" %>
         </div>
       </div>
       <div class= "tweet_form_grp_name">
-        <div class="tweet_form_grp_name_tag">
+        <div class="tweet_form_grp_up_tag">
           店内画像 クリックしてファイルをアップロード
         </div>
         <div class="tweet_form_grp_img_tag">

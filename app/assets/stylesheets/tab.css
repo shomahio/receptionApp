@@ -68,7 +68,7 @@ input[name="tab-item"] {
 @media (max-width: 599px) {
   .tabs {
     height: 75px;
-    border-top: 5px solid #000;
+    border-top: 3px solid #000;
     background-color: rgb(235, 235, 235);
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
     display: flex;
@@ -79,11 +79,23 @@ input[name="tab-item"] {
     display: flex;
     align-items: center;
     margin-top: 0;
-    padding-left: 70px;
+    padding-left: 50px;
   }
   
   .tabs .root_url {
     color: #043296;
-    font-size: 30px;
+    font-size: 20px;
+  }
+
+  .tab-item {
+    width: calc(60%/3);
+    padding-top: 23px;
+    color: rgb(85, 85, 85);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
   }
 }

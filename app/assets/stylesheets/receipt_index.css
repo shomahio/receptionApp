@@ -75,6 +75,244 @@
 }
 
 /* 領収書詳細ページ */
+.receipt {
+  height: 95vh;
+  width: 85vw;
+  padding: 50px 80px;
+  margin: 15px auto 50px;
+  background-color: #F7F7F7;
+  border: 1px solid #CCC;
+  border-right-color: #999;
+  border-left-color: #999;
+  border-bottom-color: #999;
+  border-top-color: #DADADA;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 1px #999;
+  color: #666;
+}
+.receipt .title {
+  height: 10%;
+  margin-bottom: 5px;
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 5px;
+}
+.receipt .top_section {
+  height: 18%;
+  margin-bottom: 40px;
+  position: relative;
+}
+.receipt .top_section .number_content {
+  font-size: 17px;
+  display: flex;
+  position: absolute;
+  right: 0;
+}
+.receipt .top_section .number {
+  width: 300px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #000;
+  text-align: center;
+}
+.receipt .top_section .date_content {
+  font-size: 17px;
+  display: flex;
+  position: absolute;
+  top: 30px;
+  right: 0;
+}
+.receipt .top_section .date {
+  width: 300px;
+  border-bottom: 1px solid #000;
+  text-align: center;
+}
+.receipt .top_section .receiver {
+  font-size: 35px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-bottom: 1px solid #000;
+}
+.receipt .top_section .receiver:after {
+  content: '様';
+  margin-left: 30px;
+  font-size: 30px;
+}
+.receipt .middle_section {
+  height: 35%;
+  width: 70%;
+  margin: 0 auto;
+}
+.receipt .price_content {
+  height: 55%;
+  margin: 0 auto;
+  padding: 0 30px;
+  border-top: 2px solid #000;
+  display: flex;
+  align-items: center;
+}
+.receipt .price_content .price {
+  width: 60%;
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.receipt .price_content .price:before {
+  content: '¥';
+}
+.receipt .price_content .price:after {
+  content: '-';
+}
+.receipt .price_content .side {
+  width: 25%;
+  font-size: 35px;
+  text-align: center;
+}
+.receipt .proviso_content {
+  height: 23%;
+  padding: 8px 75px 3px;
+  border-top: 2px solid #000;
+  font-size: 17px;
+  display: flex;
+}
+.receipt .proviso_content .side {
+  width: 10%;
+}
+.receipt .proviso_content .proviso {
+  width: 90%;
+  text-align: start;
+}
+.receipt .detail {
+  width: 100%;
+  height: 15%;
+
+  padding: 8px 75px 3px;
+  border-top: 2px solid #000;
+  font-size: 17px;
+}
+.receipt .bottom_section {
+  height: 25%;
+  font-size: 17px;
+  position: relative;
+}
+.receipt .bottom_section .breakdown {
+  height: 100%;
+  width: 23%;
+  text-align: center;
+  position: absolute;
+  top: 30px;
+  left: 0;
+}
+.receipt .bottom_section .breakdown .desc {
+  height: 23%;
+  border-bottom: 1px solid #000;
+}
+.receipt .bottom_section .breakdown .excluding_tax_content {
+  height: 23%;
+  padding-top: 5px;
+  border-bottom: 1px solid #000;
+  display: flex;
+}
+.receipt .bottom_section .breakdown .excluding_tax_content .price {
+  width: 60%;
+}
+.receipt .bottom_section .breakdown .excluding_tax_content .price:before {
+  content: '¥';
+}
+.receipt .bottom_section .breakdown .excluding_tax_content .price:after {
+  content: '-';
+}
+.receipt .bottom_section .breakdown .tax_content {
+  height: 23%;
+  padding-top: 5px;
+  border-bottom: 1px solid #000;
+  display: flex;
+}
+.receipt .bottom_section .breakdown .tax_content .tax {
+  width: 60%;
+}
+.receipt .bottom_section .breakdown .tax_content .tax:before {
+  content: '¥';
+}
+.receipt .bottom_section .breakdown .tax_content .tax:after {
+  content: '-';
+}
+.receipt .bottom_section .breakdown .side {
+  width: 40%;
+}
+.receipt .bottom_section .company_info {
+  height: 100%;
+  width: 35%;
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+.name, .postal_code, .address, .building, .tel {
+  height: 20%;
+}
+.receipt .bottom_section .company_info .postal_code:before {
+  content: '〒';
+}
+.receipt .bottom_section .company_info .tel:before {
+  content: 'TEL：';
+}
+
+.stamp {
+  position: absolute;
+  right: 0;
+  border: 1px dashed;
+  height: 100%;
+  width: 10%;
+  padding: 10px 5px;
+
+}
+
+
+
+.approval_section {
+  height: 15vh;
+  margin-bottom: 70px;
+}
+.approval_section form {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+.approval {
+  margin: 0 20px 0 15px;
+  font-size: 30px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.approval input[type=checkbox] {
+  transform: scale(2.5);
+}
+.send {
+  height: 7vh;
+  width: 35%;
+  margin: 20px auto;
+  border-radius: 3px;
+  background-color: rgb(12, 12, 88);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: block;
+  box-shadow:
+    3px 3px 3px rgba(129, 133, 134, 0.7),
+    -3px -3px 3px rgb(254, 255, 255),
+    inset 1px 1px 3px rgba(222, 225, 226, 0.5);
+}
+
+.back_path {
+  margin-bottom: 20px;
+  text-align: center;
+  display: block;
+}
+
+
+
 .receipt_show_main {
   width: 70%;
   height: 600px;

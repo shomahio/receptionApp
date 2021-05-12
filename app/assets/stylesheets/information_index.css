@@ -41,6 +41,7 @@
 }
 
 
+
 .search_boxes {
   height: 100px;
   width: 100vw;
@@ -701,18 +702,7 @@ margin: auto;
     font-size: 20px;
     margin-top: 20px;
   }
-/*   
-  .root_url {
-    color:navy;
-    text-decoration: none;
-  }
-  
-  .search_text_boxes {
-    width: 70%;
-    display: flex;
-    align-items: center;
-  } */
-  
+
   .text_keyword {
     border: 1px solid #ddd;
     width: 44%;
@@ -1067,6 +1057,11 @@ margin: auto;
   
   .for_store_languages {
     display: none;
+  }
+
+  .root_url {
+    font-size: 20px;
+    text-align: center;
   }
   
 }

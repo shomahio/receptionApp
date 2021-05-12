@@ -52,8 +52,10 @@
 }
 .search-content h3 {
   color: #874E4C;
-  border-bottom: 1px solid #C09933;
+  border-bottom: 1px solid #B68602;
+  font-size: 18px;
 }
+
 .search-content .search {
   margin: 20px 0;
   border: 1px solid #ddd;
@@ -72,7 +74,7 @@
   margin-bottom: 10px;
   border: 1px solid #000;
   border-radius: 5px;
-  background-color: #849974;
+  background-color: #01177a;
   color: #fff;
 }
 
@@ -99,7 +101,7 @@
 .search-page__inner-right .information-content {
   height: 370px;
   padding: 15px;
-  border: 3px solid #C09933;
+  border: 3px solid #B68602;
   border-radius: 5px;
   background-color: #fff;
   display: flex;
@@ -222,7 +224,7 @@
   }
   .search-content h3 {
     color: #874E4C;
-    border-bottom: 1px solid #C09933;
+    border-bottom: 1px solid #B68602;
   }
   .search-content .search {
     margin: 20px 0;
@@ -242,7 +244,7 @@
     margin-bottom: 10px;
     border: 1px solid #000;
     border-radius: 5px;
-    background-color: #849974;
+    background-color: #01177a;
     color: #fff;
   }
   
@@ -269,7 +271,7 @@
   .search-page__inner-right .information-content {
     height: 250px;
     padding: 15px;
-    border: 3px solid #C09933;
+    border: 3px solid #B68602;
     border-radius: 5px;
     background-color: #fff;
     display: flex;

@@ -8,6 +8,7 @@ class Users::ReceiptsController < ApplicationController
   end
 
   def edit
+    @information = Information.find_by(id: @receipt.information.id)
   end
 
   def update
