@@ -156,6 +156,7 @@
   
   .user_show_tweets .tweet_info {
     display: inline-block;
+    height: 45vh;
     width: calc(90% / 2);
     margin-right: 1%;
     margin-left: 1%;
@@ -168,7 +169,7 @@
     margin-top: 40px;
   }
 
-  .contents_row .info-child {/*三角形左下*/
+  .contents_row .info-child {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -177,13 +178,22 @@
   }
 
 
-.user_show_tweets .info-child {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  border-right: 35px solid transparent;
-  border-bottom: 35px solid #da153f;
-}
+  .user_show_tweets .info-child {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-right: 35px solid transparent;
+    border-bottom: 35px solid #da153f;
+  }
+
+  .tweet_change {
+    font-size: 12px;
+  }
+
+  .tweet_content_time {
+    margin-right: 10px;
+    font-size: 12px;
+  } 
 
 /* ツイート投稿ページ */
 .tweet_form_grp {

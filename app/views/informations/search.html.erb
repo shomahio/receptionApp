@@ -132,10 +132,15 @@
         <div class='information-content'>
           <div class='information-content__inner-left'>
             <%= image_tag information.image, class: "search_information-box-img" %>
+            <div class ="image_none">
+              <% information.image_foods[0..1].each do |image_food| %>
+                <%= image_tag image_food, class: "search_information-box-imgs"%></li>
+              <% end %>
+            </div>
           </div>
           <div class='information-content__inner-right'>
             <div class='store-name'>
-              <%= link_to information.store_name, information_path(information.id)%>
+              <%= link_to information.store_name, information_path(information.id), class: "store-name-url"%>
             </div>
             <div class="address">
               <%= information.store.postal_code %> <%= information.place.parent.name %><%= information.city %><%= information.address %>
