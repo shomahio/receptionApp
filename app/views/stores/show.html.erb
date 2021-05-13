@@ -14,48 +14,6 @@
     <div class= "top_img_box">
       <%= image_tag @information.image, class: "information-show-box-img" %>
     </div>
-    <div class = "informaton_show_content_calender">
-      <%= month_calendar events: @reservations do |date, reservations| %>
-        <%= date.day %>
-        <% if reservations.length >= 2 %>
-          <div class= "yoyakukanou">
-            ◎
-          </div>
-        <% elsif reservations.length == 1%>
-          <div class= "yoyakukanou">
-            △
-          </div>
-        <% else %>
-          <div class= "yoyakukanou">
-          ✖︎
-          </div>
-        <% end %>
-        <div class= "hidden" style="display:none;" >
-          <% reservations.each do |reservation| %>
-            <% if reservation.name == nil && user_signed_in? %>
-              <%= link_to edit_users_reservation_path(reservation.id) do %>
-                <%= reservation.start_time.strftime("%H:%M") %>
-                <div class= "yoyakukanou">
-                ◎
-                </div>
-              <% end %>
-            <% end %>
-            <% if reservation.name == nil && store_signed_in? && reservation.information.store_id == current_store.id %>
-              <%= link_to edit_informations_reservation_path(reservation.id) do %>
-                <%= reservation.start_time.strftime("%H:%M") %>
-                <div class= "yoyakukanou">
-                ◎ 編集
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
-      <h2 class= "goyoyaku">
-        ご予約はこちら📞
-        <%= @information.tel %>
-      </h2>
-    </div>
   </div>
   <div class= "information_kihon">
     <table>
@@ -228,5 +186,49 @@
       <%= link_to "店舗情報を削除する", information_path(@information.id), method: :delete, class: "information_edit_btn" %>
     </div>
   <% end %>
+
+
+  <div class = "informaton_show_content_calender">
+      <%= month_calendar events: @reservations do |date, reservations| %>
+        <%= date.day %>
+        <% if reservations.length >= 2 %>
+          <div class= "yoyakukanou">
+            ◎
+          </div>
+        <% elsif reservations.length == 1%>
+          <div class= "yoyakukanou">
+            △
+          </div>
+        <% else %>
+          <div class= "yoyakukanou">
+          ✖︎
+          </div>
+        <% end %>
+        <div class= "hidden" style="display:none;" >
+          <% reservations.each do |reservation| %>
+            <% if reservation.name == nil && user_signed_in? %>
+              <%= link_to edit_users_reservation_path(reservation.id) do %>
+                <%= reservation.start_time.strftime("%H:%M") %>
+                <div class= "yoyakukanou">
+                ◎
+                </div>
+              <% end %>
+            <% end %>
+            <% if reservation.name == nil && store_signed_in? && reservation.information.store_id == current_store.id %>
+              <%= link_to edit_informations_reservation_path(reservation.id) do %>
+                <%= reservation.start_time.strftime("%H:%M") %>
+                <div class= "yoyakukanou">
+                ◎ 編集
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+      <h2 class= "goyoyaku">
+        ご予約はこちら📞
+        <%= @information.tel %>
+      </h2>
+    </div>
 
 

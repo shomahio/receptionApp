@@ -1,0 +1,176 @@
+.informaton_show_content11111 {
+  display: flex;
+  padding: 2% 6%;
+}
+
+.information_left_contents {
+  border: 1px solid ;
+  width: 65%;
+}
+
+.information_left_store_name {
+  border-bottom: 1px solid;
+  height: 60px;
+  font-size: 35px;
+  color: #874E4C;
+}
+
+.information_left_images {
+  border-bottom: 1px solid;
+  height: 500px;
+  margin-bottom: 30px;
+}
+
+.information_left_explanation {
+  border-bottom: 1px solid;
+  margin-bottom: 30px;
+}
+
+.information_left_chart {
+  border-bottom: 1px solid;
+  height: 400px;
+  margin-bottom: 30px;
+}
+
+.information_left_chart p {
+}
+
+.charts {
+  display: flex;
+  height: 85%;
+  position: relative;
+}
+
+.chart-image {
+  width: 50%;
+  height: 100%;
+  margin-bottom: 30px;
+}
+
+.coming_soon-image {
+  position: absolute;
+  
+  height: 100%;
+  width: 100%;
+  transform: skewY(-5deg);
+}
+
+.chart-date {
+  border: 1px solid;
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.information_left_details .information_kihon {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.information_left_details {
+}
+
+.information_right_contents {
+  width: 32%;
+  border: 1px solid;
+  margin-left: 3%;
+}
+
+.information_right_tel {
+  border-bottom: 1px solid;
+}
+
+.information_right_calender {
+  height: 70vh;
+}
+
+.information_right_calender .informaton_show_content_calender {
+  width: 100%;
+  height: 100%;
+}
+
+.information_right_calender .calendar-heading {
+  font-size: 20px;
+  margin: 0;
+  padding: 0 0;
+}
+
+.information_right_calender .simple-calendar td {
+  padding: 2px;
+  height: 70px;
+  font-size: 5px;
+  vertical-align: top;
+  width: 14%;
+  border: 1px solid #ddd;
+  border-top-color: #dddddd;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-color: #dddddd;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-bottom-color: #dddddd;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: #dddddd;
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+
+
+
+.information_kihon table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.information_kihon table tr{
+  border-bottom: solid 2px #fff;
+}
+
+.information_kihon table tr:last-child{
+  border-bottom: none;
+}
+
+.information_kihon table th{
+  position: relative;
+  text-align: left;
+  width: 30%;
+  background-color: #9ea7ac;
+  color: white;
+  text-align: center;
+  padding: 20px 3px;
+}
+
+.information_kihon table td{
+  text-align: center;
+  width: 70%;
+  text-align: center;
+  background-color: #eee;
+  padding: 10px 10px;
+  border: none;
+}
+
+.information_right_tel {
+  display: flex;
+  width: 50%;
+  height: 60px;
+  background-color: #da153f;
+  border-radius: 7px;/*角の丸み*/
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tel_link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.information_right_tel_icon {
+  font-size: 18px;
+}
+
+.information_right_tel_number {
+  font-size: 15px;
+  margin-left: 10px;
+}
