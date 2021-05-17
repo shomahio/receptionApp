@@ -13,16 +13,261 @@
       </div>
     </div>
   <% end %>
-  <div class= "informaton_show_content11111">
+  <div class= "informaton_show_content">
     <div class = "information_left_contents">
       <div class = "information_left_store_name">
         <%= @information.store_name %>
       </div>
       <div class = "information_left_images">
-        画像のスライド
+      <input type="radio" checked="checked" name="labels" id="top">
+      <input type="radio" name="labels" id="food">
+      <input type="radio" name="labels" id="introspection">
+      <input type="radio" name="labels" id="appearance">
+      <input type="radio" name="labels" id="entrance">
+      <input type="radio" name="labels" id="seat">
+      <input type="radio" name="labels" id="toilet">
+      <input type="radio" name="labels" id="view">
+
+        <div class = "gallery" id="gallery01">
+          <input type="radio" checked="checked" name="gallery" id="switch_top">
+          <div class="slideFrame">
+            <ul>
+              <li><%= image_tag @information.image, class: "img1" %></li>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch_top" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_top" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_top" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+
+        <div class = "gallery" id="gallery02">
+          <input type="radio" checked="checked" name="gallery" id="switch02_1">
+          <input type="radio" name="gallery" id="switch02_2">
+          <input type="radio" name="gallery" id="switch02_3">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_foods.each do |image_food| %>
+              <li class="switch1">
+                <%= image_tag image_food, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch02_1" ></label></li>
+            <li><label for="switch02_2" ></label></li>
+            <li><label for="switch02_3" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch02_1" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch02_2" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch02_3" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch02_1" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch02_2" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch02_3" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        
+        <div class = "gallery" id="gallery03">
+          <input type="radio" checked="checked" name="gallery" id="switch_introspection01">
+          <input type="radio" name="gallery" id="switch_introspection02">
+          <input type="radio" name="gallery" id="switch_introspection03">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_introspections.each do |image_introspection| %>
+              <li class="switch1">
+                <%= image_tag image_introspection, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch_introspection01" ></label></li>
+            <li><label for="switch_introspection02" ></label></li>
+            <li><label for="switch_introspection03" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_introspection01" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_introspection02" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_introspection03" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_introspection01" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_introspection02" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_introspection03" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        
+        <div class = "gallery" id="gallery04">
+          <input type="radio" checked="checked" name="gallery" id="switch_appearance01">
+          <input type="radio" name="gallery" id="switch_appearance02">
+          <input type="radio" name="gallery" id="switch_appearance03">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_appearances.each do |image_appearance| %>
+              <li class="switch1">
+                <%= image_tag image_appearance, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch_appearance01" ></label></li>
+            <li><label for="switch_appearance02" ></label></li>
+            <li><label for="switch_appearance03" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_appearance01" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_appearance02" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_appearance03" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_appearance01" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_appearance02" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_appearance03" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        
+        <div class = "gallery" id="gallery05">
+          <input type="radio" checked="checked" name="gallery" id="switch_entrance01">
+          <input type="radio" name="gallery" id="switch_entrance02">
+          <input type="radio" name="gallery" id="switch_entrance03">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_entrances.each do |image_entrance| %>
+              <li class="switch1">
+                <%= image_tag image_entrance, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch_entrance01" ></label></li>
+            <li><label for="switch_entrance02" ></label></li>
+            <li><label for="switch_entrance03" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_entrance01" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_entrance02" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_entrance03" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_entrance01" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_entrance02" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_entrance03" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        
+        <div class = "gallery" id="gallery06">
+          <input type="radio" checked="checked" name="gallery" id="switch_seat01">
+          <input type="radio" name="gallery" id="switch_seat02">
+          <input type="radio" name="gallery" id="switch_seat03">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_seats.each do |image_seat| %>
+              <li class="switch1">
+                <%= image_tag image_seat, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch_seat01" ></label></li>
+            <li><label for="switch_seat02" ></label></li>
+            <li><label for="switch_seat03" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_seat01" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_seat02" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_seat03" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_seat01" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_seat02" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_seat03" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        
+        <div class = "gallery" id="gallery07">
+          <input type="radio" checked="checked" name="gallery" id="switch_toilet01">
+          <input type="radio" name="gallery" id="switch_toilet02">
+          <input type="radio" name="gallery" id="switch_toilet03">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_toilets.each do |image_toilet| %>
+              <li class="switch1">
+                <%= image_tag image_toilet, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch_toilet01" ></label></li>
+            <li><label for="switch_toilet02" ></label></li>
+            <li><label for="switch_toilet03" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_toilet01" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_toilet02" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_toilet03" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_toilet01" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_toilet02" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_toilet03" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        <div class = "gallery" id="gallery08">
+          <input type="radio" checked="checked" name="gallery" id="switch_view01">
+          <input type="radio" name="gallery" id="switch_view02">
+          <input type="radio" name="gallery" id="switch_view03">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_views.each do |image_view| %>
+              <li class="switch1">
+                <%= image_tag image_view, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch_view01" ></label></li>
+            <li><label for="switch_view02" ></label></li>
+            <li><label for="switch_view03" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_view01" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_view02" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_view03" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_view01" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_view02" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_view03" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        
+        <label for ="top" class="label_btn">トップ画像</label>
+        <label for ="food" class="label_btn">料理</label>
+        <label for ="introspection" class="label_btn">内観</label>
+        <label for ="appearance" class="label_btn">外観</label>
+        <label for ="entrance" class="label_btn">エントランス</label>
+        <label for ="seat" class="label_btn">席</label>
+        <label for ="toilet" class="label_btn">お手洗い</label>
+        <% if @information.image_views.length != 0 %>
+        <label for ="view" class="label_btn">風景</label>
+        <% end %>
       </div>
       <div class = "information_left_explanation">
-        <p><i class="fas fa-feather-alt"></i>お店からの一言！</p>
+        <p class= "explanation"><i class="fas fa-feather-alt"></i>お店からの一言</p>
         <%= @information.explanation %>
       </div>
       <div class = "information_left_chart">
@@ -31,7 +276,7 @@
           <%= image_tag 'comingsoon.png', alt: 'テスト画像', class: "coming_soon-image" %>
           <%= image_tag 'chart.jpeg', alt: 'テスト画像', class: "chart-image" %>
           <div class ="chart-date">
-            データが入るよん
+            ①味②立地③雰囲気④値段⑤接客態度の５項目を評価する予定
           </div>
         </div>
       </div>
@@ -160,9 +405,7 @@
                 <% if reservation.name == nil && user_signed_in? %>
                   <%= link_to edit_users_reservation_path(reservation.id) do %>
                     <%= reservation.start_time.strftime("%H:%M") %>
-                    <div class= "yoyakukanou">
-                    ◎
-                    </div>
+                    
                   <% end %>
                 <% end %>
                 <% if reservation.name == nil && store_signed_in? && reservation.information.store_id == current_store.id %>

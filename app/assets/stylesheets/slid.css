@@ -1,0 +1,379 @@
+/*********** gallery02 ***********/
+.gallery {
+  display: none;
+}
+
+input[name="labels"] {
+  display: none;
+}
+
+input[name="gallery"] {
+  display: none;
+}
+
+#top:checked ~ #gallery01 {
+  display: block;
+}
+
+#food:checked ~ #gallery02 {
+  display: block;
+}
+
+#introspection:checked ~ #gallery03 {
+  display: block;
+}
+
+#appearance:checked ~ #gallery04 {
+  display: block;
+}
+
+#entrance:checked ~ #gallery05 {
+  display: block;
+}
+
+#seat:checked ~ #gallery06 {
+  display: block;
+}
+
+#toilet:checked ~ #gallery07 {
+  display: block;
+}
+
+#view:checked ~ #gallery08 {
+  display: block;
+}
+
+
+.gallery {
+	position: relative;
+	width: 100%;
+	height: 90%;
+	z-index:0;
+  overflow: hidden;
+}
+.gallery .slideFrame {
+	position: absolute;
+	height: 95%;
+  width: 300%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* slide images */
+.slideFrame ul {
+	/* position: absolute; */
+	/* top: 0;  */
+  height: 100%;
+	width: 100%;
+}
+.slideFrame ul li {
+	float: left;
+  height: 100%;
+	width: calc(100% / 3);
+}
+
+.img1 {
+  width: 100%;
+  height: 100%;
+}
+.slideFrame ul li:last-child {
+	margin-right: 0;
+}
+
+/* gallery list button */
+ul.nav {
+	width: 85px;
+	margin:auto;
+	padding: 0;
+  margin-top: 460px;
+}
+ul.nav li {
+	float: left;
+	margin-right: 20px;
+}
+ul.nav li:last-child {
+	margin-right: 0;
+}
+ul.nav li label {
+	display: block;
+	width: 14px;
+	height: 14px;
+	background:#ffffff;
+  border: 1px solid black;
+  box-shadow: 0.5px 0.5px 2px #fff,-0.5px -0.5px 2px #fff;
+}
+
+ul.nav li label:hover {
+	background:rgb(187, 186, 186);
+}
+
+/* slider arrow button */
+.information_left_images p,
+.information_left_images p label {
+	position: absolute;
+	top: 43%;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	background:rgba(218,218,218,0.5);
+}
+
+.information_left_images p label {
+  top: 0;
+  background: none;
+}
+
+.fa-caret-right {
+  font-size: 50px;
+  padding-left: 19px;
+}
+
+.fa-caret-left {
+  font-size: 50px;
+  padding-left: 12px;
+}
+
+.prev {
+	left: 0;
+}
+.next {
+	right: 0;
+}
+
+/* input{position:absolute;left:-9999px;z-index:-9999;} */
+
+/* CSS Programming */
+#switch02_1:checked ~ .slideFrame {
+	left: 0px;
+}
+#switch02_2:checked ~ .slideFrame {
+	left: -100%;
+}
+#switch02_3:checked ~ .slideFrame {
+	left: -200%;
+}
+#switch02_1:checked ~ .nav li label[for="switch02_1"],
+#switch02_2:checked ~ .nav li label[for="switch02_2"],
+#switch02_3:checked ~ .nav li label[for="switch02_3"] {
+	background:black;
+}
+#switch02_1:checked ~ .prev label[for="switch02_3"],
+#switch02_2:checked ~ .prev label[for="switch02_1"],
+#switch02_3:checked ~ .prev label[for="switch02_2"],
+#switch02_1:checked ~ .next label[for="switch02_2"],
+#switch02_2:checked ~ .next label[for="switch02_3"],
+#switch02_3:checked ~ .next label[for="switch02_1"] {
+	z-index: 2;
+}
+
+
+/* ここから */
+#switch_introspection01:checked ~ .slideFrame {
+	left: 0px;
+}
+#switch_introspection02:checked ~ .slideFrame {
+	left: -100%;
+}
+#switch_introspection03:checked ~ .slideFrame {
+	left: -200%;
+}
+#switch_introspection01:checked ~ .nav li label[for="switch_introspection01"],
+#switch_introspection02:checked ~ .nav li label[for="switch_introspection02"],
+#switch_introspection03:checked ~ .nav li label[for="switch_introspection03"] {
+	background:black;
+}
+#switch_introspection01:checked ~ .prev label[for="switch_introspection03"],
+#switch_introspection02:checked ~ .prev label[for="switch_introspection01"],
+#switch_introspection03:checked ~ .prev label[for="switch_introspection02"],
+#switch_introspection01:checked ~ .next label[for="switch_introspection02"],
+#switch_introspection02:checked ~ .next label[for="switch_introspection03"],
+#switch_introspection03:checked ~ .next label[for="switch_introspection01"] {
+	z-index: 2;
+}
+
+/* CSS Programming */
+#switch_appearance01:checked ~ .slideFrame {
+	left: 0px;
+}
+#switch_appearance02:checked ~ .slideFrame {
+	left: -100%;
+}
+#switch_appearance03:checked ~ .slideFrame {
+	left: -200%;
+}
+#switch_appearance01:checked ~ .nav li label[for="switch_appearance01"],
+#switch_appearance02:checked ~ .nav li label[for="switch_appearance02"],
+#switch_appearance03:checked ~ .nav li label[for="switch_appearance03"] {
+	background:black;
+}
+#switch_appearance01:checked ~ .prev label[for="switch_appearance03"],
+#switch_appearance02:checked ~ .prev label[for="switch_appearance01"],
+#switch_appearance03:checked ~ .prev label[for="switch_appearance02"],
+#switch_appearance01:checked ~ .next label[for="switch_appearance02"],
+#switch_appearance02:checked ~ .next label[for="switch_appearance03"],
+#switch_appearance03:checked ~ .next label[for="switch_appearance01"] {
+	z-index: 2;
+}
+
+/* CSS Programming */
+#switch_entrance01:checked ~ .slideFrame {
+	left: 0px;
+}
+#switch_entrance02:checked ~ .slideFrame {
+	left: -100%;
+}
+#switch02_3:checked ~ .slideFrame {
+	left: -200%;
+}
+#switch_entrance01:checked ~ .nav li label[for="switch_entrance01"],
+#switch_entrance02:checked ~ .nav li label[for="switch_entrance02"],
+#switch_entrance03:checked ~ .nav li label[for="switch_entrance03"] {
+	background:black;
+}
+#switch_entrance01:checked ~ .prev label[for="switch_entrance03"],
+#switch_entrance02:checked ~ .prev label[for="switch_entrance01"],
+#switch_entrance03:checked ~ .prev label[for="switch_entrance02"],
+#switch_entrance01:checked ~ .next label[for="switch_entrance02"],
+#switch_entrance02:checked ~ .next label[for="switch_entrance03"],
+#switch_entrance03:checked ~ .next label[for="switch_entrance01"] {
+	z-index: 2;
+}
+
+/* CSS Programming */
+#switch_seat01:checked ~ .slideFrame {
+	left: 0px;
+}
+#switch_seat02:checked ~ .slideFrame {
+	left: -100%;
+}
+#switch_seat03:checked ~ .slideFrame {
+	left: -200%;
+}
+#switch_seat01:checked ~ .nav li label[for="switch_seat01"],
+#switch_seat02:checked ~ .nav li label[for="switch_seat02"],
+#switch_seat03:checked ~ .nav li label[for="switch_seat03"] {
+	background:black;
+}
+#switch_seat01:checked ~ .prev label[for="switch_seat03"],
+#switch_seat02:checked ~ .prev label[for="switch_seat01"],
+#switch_seat03:checked ~ .prev label[for="switch_seat02"],
+#switch_seat01:checked ~ .next label[for="switch_seat02"],
+#switch_seat02:checked ~ .next label[for="switch_seat03"],
+#switch_seat03:checked ~ .next label[for="switch_seat01"] {
+	z-index: 2;
+}
+
+
+/* CSS Programming */
+#switch_toilet01:checked ~ .slideFrame {
+	left: 0px;
+}
+#switch_toilet02:checked ~ .slideFrame {
+	left: -100%;
+}
+#switch_toilet03:checked ~ .slideFrame {
+	left: -200%;
+}
+#switch_toilet01:checked ~ .nav li label[for="switch_toilet01"],
+#switch_toilet02:checked ~ .nav li label[for="switch_toilet02"],
+#switch_toilet03:checked ~ .nav li label[for="switch_toilet03"] {
+	background:black;
+}
+#switch_toilet01:checked ~ .prev label[for="switch_toilet03"],
+#switch_toilet02:checked ~ .prev label[for="switch_toilet01"],
+#switch_toilet03:checked ~ .prev label[for="switch_toilet02"],
+#switch_toilet01:checked ~ .next label[for="switch_toilet02"],
+#switch_toilet02:checked ~ .next label[for="switch_toilet03"],
+#switch_toilet03:checked ~ .next label[for="switch_toilet01"] {
+	z-index: 2;
+}
+
+/* CSS Programming */
+#switch_view01:checked ~ .slideFrame {
+	left: 0px;
+}
+#switch_view02:checked ~ .slideFrame {
+	left: -100%;
+}
+#switch_view03:checked ~ .slideFrame {
+	left: -200%;
+}
+#switch_view01:checked ~ .nav li label[for="switch_view01"],
+#switch_view02:checked ~ .nav li label[for="switch_view02"],
+#switch_view03:checked ~ .nav li label[for="switch_view03"] {
+	background:black;
+}
+#switch_view01:checked ~ .prev label[for="switch_view03"],
+#switch_view02:checked ~ .prev label[for="switch_view01"],
+#switch_view03:checked ~ .prev label[for="switch_view02"],
+#switch_view01:checked ~ .next label[for="switch_view02"],
+#switch_view02:checked ~ .next label[for="switch_view03"],
+#switch_view03:checked ~ .next label[for="switch_view01"] {
+	z-index: 2;
+}
+
+
+/* transition  */
+ul.nav li label  {
+	transition: all 0.5s ease 0s;
+	-webkit-transition: all 0.5s ease 0;
+}
+span  {
+	transition: all 0.3s ease 0s;
+	-webkit-transition: all 0.3s ease 0;
+}
+.slideFrame  {
+	transition: left 1s cubic-bezier(0.85, 0.03, 0.15, 0.96) 0s;
+	-webkit-transition: left 1s cubic-bezier(0.85, 0.03, 0.15, 0.96) 0;
+}
+
+.label_btn {
+  border: 1px solid #da153f;
+  background-color: #da153f;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px 8px;
+  margin-right: 14px;
+  border-radius: 3px;/*角の丸み*/
+}
+
+@media (max-width: 599px) {
+  .label_btn {
+    border: 1px solid #da153f;
+    background-color: #da153f;
+    color: #fff;
+    font-size: 12px;
+    padding: 3px 3px;
+    margin-right: 5px;
+    border-radius: 3px;/*角の丸み*/
+  }
+
+  .information_left_images p,
+.information_left_images p label {
+	position: absolute;
+	top: 40%;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	background:rgba(218,218,218,0.5);
+}
+
+.fa-caret-right {
+  font-size: 30px;
+  padding-left: 12px;
+}
+
+.fa-caret-left {
+  font-size: 30px;
+  padding-left: 8px;
+}
+
+.information_left_images p label {
+  top: 0;
+  background: none;
+}
+
+  }
+
+
