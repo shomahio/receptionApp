@@ -47,6 +47,9 @@
     </div>
   </div>
 </div>
+<div class = "pdf_btn">
+  <i class="fa fa-download"></i>PDFでダウンロード
+</div>
 <% if user_signed_in? %>
   <%= link_to "領収書一覧へ戻る", users_receipts_path(id: @receipt.user.id), method: :get, class: "back_path"  %>
 <% else %>

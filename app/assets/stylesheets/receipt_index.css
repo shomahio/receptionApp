@@ -277,12 +277,15 @@
 
 }
 
-
-
 .approval_section {
   height: 15vh;
   margin-bottom: 70px;
 }
+
+.consent_main {
+  font-size: 20px;
+}
+
 .approval_section form {
   width: 50%;
   margin: 0 auto;
@@ -297,7 +300,7 @@
 .approval input[type=checkbox] {
   transform: scale(2.5);
 }
-.send {
+.approval_section .send {
   height: 7vh;
   width: 35%;
   margin: 20px auto;
@@ -387,13 +390,20 @@
 } */
 
 .pdf_btn {
-  background-color: #1bfae7;  /* 背景色指定 */
-  width: 400px;               /* 幅指定 */
+  background-color: #01177a;  /* 背景色指定 */
+  width: 310px;               /* 幅指定 */
   height: 90px;               /* 高さ指定 */
   margin:  0 auto;            /* 中央寄せ */
   padding-top: 30px;
+  margin-bottom: 30px;
   text-align: center;
-  font-size: 25px;
+  font-size: 22px;
+  color: #fff;
+  border-radius: 4px;/*角の丸み*/
+}
+
+.pdf_btn .fa-download {
+  margin-right: 10px;
 }
 
 /* 領収書作成 */
@@ -543,14 +553,20 @@
   }
   
   .pdf_btn {
-    background-color: #1bfae7;  /* 背景色指定 */
-    width: 400px;               /* 幅指定 */
-    height: 90px;               /* 高さ指定 */
+    background-color: #01177a;  /* 背景色指定 */
+    width: 150px;               /* 幅指定 */
+    height: 40px;               /* 高さ指定 */
     margin:  0 auto;            /* 中央寄せ */
-    padding-top: 30px;
+    padding-top: 10px;
     text-align: center;
-    font-size: 25px;
+    font-size: 11px;
+    margin-bottom: 14px;
   }
+
+
+.pdf_btn .fa-download {
+  margin-right: 3px;
+}
 
   .confirmation_submit {
     width: 500px;
@@ -788,33 +804,32 @@
 }
 
 
-
 .approval_section {
   height: 15vh;
-  margin-bottom: 70px;
+  margin-bottom: 10px;
 }
 .approval_section form {
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
   text-align: center;
 }
 .approval {
   margin: 0 20px 0 15px;
-  font-size: 30px;
+  font-size: 14px;
   vertical-align: middle;
   cursor: pointer;
 }
 .approval input[type=checkbox] {
   transform: scale(2.5);
 }
-.send {
-  height: 7vh;
-  width: 35%;
+.approval_section .send {
+  height: 5vh;
+  width: 40%;
   margin: 20px auto;
   border-radius: 3px;
-  background-color: rgb(12, 12, 88);
+  background-color: #01177a;
   color: #fff;
-  font-size: 20px;
+  font-size: 14px;
   cursor: pointer;
   display: block;
   box-shadow:
@@ -822,6 +837,11 @@
     -3px -3px 3px rgb(254, 255, 255),
     inset 1px 1px 3px rgba(222, 225, 226, 0.5);
 }
+
+.consent_main {
+  font-size: 14px;
+}
+
 
 .back_path {
   margin-bottom: 20px;
