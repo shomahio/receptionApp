@@ -86,21 +86,33 @@
 
   .recipt_reservation_table table th {
     width: 180px;
-    height: 70px;
-    padding: 10px 0;
+    height: 40px;
+    padding: 4px 0;
     text-align: center;
     border: 2px solid #fff;
-    font-size: 15px;
+    font-size: 13px;
     white-space: nowrap;
   }
   
   .recipt_reservation_table table td {
     width: 300px;
-    height: 50px;
-    padding: 10px 0;
+    height: 30px;
+    padding: 5px 0;
     text-align: center;
     border: 2px solid #fff;
-    font-size: 15px;
+    font-size: 11px;
     white-space: nowrap;
+  }
+
+  .recipt_unapproved_tag {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px 0;
+  }
+
+  .recipt_approved_tag {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px 0;
   }
 }
