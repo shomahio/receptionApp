@@ -10,218 +10,414 @@
   <%= link_to '領収書一覧', informations_reservation_receipts_path(@information.id), method: :get, class: 'tab-item' %>
 </div>
 <div class= "informaton_show_content">
-  <div class= "information_img_calender_contents">
-    <div class= "top_img_box">
-      <%= image_tag @information.image, class: "information-show-box-img" %>
-    </div>
-    <div class = "informaton_show_content_calender">
-      <%= month_calendar events: @reservations do |date, reservations| %>
-        <%= date.day %>
-        <% if reservations.length >= 2 %>
-          <div class= "yoyakukanou">
-            ◎
+    <div class = "information_left_contents">
+      <div class = "information_left_store_name">
+        <%= @information.store_name %>
+      </div>
+      <div class = "information_left_images">
+      <input type="radio" checked="checked" name="labels" id="top">
+      <input type="radio" name="labels" id="food">
+      <input type="radio" name="labels" id="introspection">
+      <input type="radio" name="labels" id="appearance">
+      <input type="radio" name="labels" id="entrance">
+      <input type="radio" name="labels" id="seat">
+      <input type="radio" name="labels" id="toilet">
+      <input type="radio" name="labels" id="view">
+
+        <div class = "gallery" id="gallery01">
+          <input type="radio" checked="checked" name="gallery" id="switch_top">
+          <div class="slideFrame">
+            <ul>
+              <li><%= image_tag @information.image, class: "img1" %></li>
+            </ul>
           </div>
-        <% elsif reservations.length == 1%>
-          <div class= "yoyakugiri">
-            △
+          <ul class="nav">
+            <li><label for="switch_top" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_top" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_top" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+
+        <div class = "gallery" id="gallery02">
+          <input type="radio" checked="checked" name="gallery" id="switch02_1">
+          <input type="radio" name="gallery" id="switch02_2">
+          <input type="radio" name="gallery" id="switch02_3">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_foods.each do |image_food| %>
+              <li class="switch1">
+                <%= image_tag image_food, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
           </div>
-        <% else %>
-          <div class= "yoyakuhuka">
-          ✖︎
+          <ul class="nav">
+            <li><label for="switch02_1" ></label></li>
+            <li><label for="switch02_2" ></label></li>
+            <li><label for="switch02_3" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch02_1" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch02_2" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch02_3" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch02_1" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch02_2" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch02_3" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        
+        <div class = "gallery" id="gallery03">
+          <input type="radio" checked="checked" name="gallery" id="switch_introspection01">
+          <input type="radio" name="gallery" id="switch_introspection02">
+          <input type="radio" name="gallery" id="switch_introspection03">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_introspections.each do |image_introspection| %>
+              <li class="switch1">
+                <%= image_tag image_introspection, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
           </div>
+          <ul class="nav">
+            <li><label for="switch_introspection01" ></label></li>
+            <li><label for="switch_introspection02" ></label></li>
+            <li><label for="switch_introspection03" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_introspection01" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_introspection02" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_introspection03" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_introspection01" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_introspection02" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_introspection03" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        
+        <div class = "gallery" id="gallery04">
+          <input type="radio" checked="checked" name="gallery" id="switch_appearance01">
+          <input type="radio" name="gallery" id="switch_appearance02">
+          <input type="radio" name="gallery" id="switch_appearance03">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_appearances.each do |image_appearance| %>
+              <li class="switch1">
+                <%= image_tag image_appearance, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch_appearance01" ></label></li>
+            <li><label for="switch_appearance02" ></label></li>
+            <li><label for="switch_appearance03" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_appearance01" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_appearance02" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_appearance03" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_appearance01" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_appearance02" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_appearance03" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        
+        <div class = "gallery" id="gallery05">
+          <input type="radio" checked="checked" name="gallery" id="switch_entrance01">
+          <input type="radio" name="gallery" id="switch_entrance02">
+          <input type="radio" name="gallery" id="switch_entrance03">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_entrances.each do |image_entrance| %>
+              <li class="switch1">
+                <%= image_tag image_entrance, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch_entrance01" ></label></li>
+            <li><label for="switch_entrance02" ></label></li>
+            <li><label for="switch_entrance03" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_entrance01" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_entrance02" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_entrance03" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_entrance01" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_entrance02" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_entrance03" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        
+        <div class = "gallery" id="gallery06">
+          <input type="radio" checked="checked" name="gallery" id="switch_seat01">
+          <input type="radio" name="gallery" id="switch_seat02">
+          <input type="radio" name="gallery" id="switch_seat03">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_seats.each do |image_seat| %>
+              <li class="switch1">
+                <%= image_tag image_seat, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch_seat01" ></label></li>
+            <li><label for="switch_seat02" ></label></li>
+            <li><label for="switch_seat03" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_seat01" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_seat02" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_seat03" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_seat01" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_seat02" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_seat03" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        
+        <div class = "gallery" id="gallery07">
+          <input type="radio" checked="checked" name="gallery" id="switch_toilet01">
+          <input type="radio" name="gallery" id="switch_toilet02">
+          <input type="radio" name="gallery" id="switch_toilet03">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_toilets.each do |image_toilet| %>
+              <li class="switch1">
+                <%= image_tag image_toilet, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch_toilet01" ></label></li>
+            <li><label for="switch_toilet02" ></label></li>
+            <li><label for="switch_toilet03" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_toilet01" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_toilet02" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_toilet03" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_toilet01" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_toilet02" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_toilet03" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        <div class = "gallery" id="gallery08">
+          <input type="radio" checked="checked" name="gallery" id="switch_view01">
+          <input type="radio" name="gallery" id="switch_view02">
+          <input type="radio" name="gallery" id="switch_view03">
+          <div class="slideFrame">
+            <ul>
+            <% @information.image_views.each do |image_view| %>
+              <li class="switch1">
+                <%= image_tag image_view, class: "img1"%>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+          <ul class="nav">
+            <li><label for="switch_view01" ></label></li>
+            <li><label for="switch_view02" ></label></li>
+            <li><label for="switch_view03" ></label></li>
+          </ul>
+          <p class="prev">
+            <label for="switch_view01" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_view02" ><i class="fa fa-caret-left"></i></label>
+            <label for="switch_view03" ><i class="fa fa-caret-left"></i></label>
+          </p>
+          <p class="next ">
+            <label for="switch_view01" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_view02" ><i class="fa fa-caret-right"></i></label>
+            <label for="switch_view03" ><i class="fa fa-caret-right"></i></label>
+          </p>
+        </div>
+        
+        <label for ="top" class="label_btn">トップ画像</label>
+        <label for ="food" class="label_btn">料理</label>
+        <label for ="introspection" class="label_btn">内観</label>
+        <label for ="appearance" class="label_btn">外観</label>
+        <label for ="entrance" class="label_btn">エントランス</label>
+        <label for ="seat" class="label_btn">席</label>
+        <label for ="toilet" class="label_btn">お手洗い</label>
+        <% if @information.image_views.length != 0 %>
+        <label for ="view" class="label_btn">風景</label>
         <% end %>
-        <div class= "hidden" style="display:none;" >
-          <% reservations.each do |reservation| %>
-            <% if reservation.name == nil && user_signed_in? %>
-              <%= link_to edit_users_reservation_path(reservation.id) do %>
-                <%= reservation.start_time.strftime("%H:%M") %>
-                <div class= "yoyakukanou1">
-                ◎
-                </div>
-              <% end %>
-            <% end %>
-            <% if reservation.name == nil && store_signed_in? && reservation.information.store_id == current_store.id %>
-              <%= link_to edit_informations_reservation_path(reservation.id) do %>
-                <%= reservation.start_time.strftime("%H:%M") %>
-                <div class= "delete">
-                ◎ 編集
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
+      </div>
+      <div class = "information_left_explanation">
+        <p class= "explanation"><i class="fas fa-feather-alt"></i>お店からの一言</p>
+        <%= @information.explanation %>
+      </div>
+      <div class = "information_left_chart">
+        <p><i class="fa fa-pie-chart"></i>評価</p>
+        <div class ="charts">
+          <%= image_tag 'comingsoon.png', alt: 'テスト画像', class: "coming_soon-image" %>
+          <%= image_tag 'chart.jpeg', alt: 'テスト画像', class: "chart-image" %>
+          <div class ="chart-date">
+            ①味②立地③雰囲気④値段⑤接客態度の５項目を評価する予定
+          </div>
+        </div>
+      </div>
+      <div class ="information_left_details">
+        <div class= "information_kihon">
+          <p><i class="far fa-file-alt"></i>店舗情報</p>
+          <table>
+            <tr >
+              <th>店名</th>
+              <td><%= @information.store_name %></td>
+            </tr>
+            <tr>
+              <th>ジャンル</th>
+              <td><%= @information.genre.parent.name %>/<%= @information.genre.name %></td>
+            </tr>
+            <tr>
+              <th>お問い合わせ</th>
+              <td><%= @information.tel %></td>
+            </tr>
+            <tr>
+              <th>予約可否</th>
+              <td><%= @information.booking.name %></td>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <td><%= @information.store.postal_code %> <%= @information.place.parent.name %><%= @information.city %><%= @information.address %></td>
+            </tr>
+            <tr>
+              <th>交通手段</th>
+              <td><%= @information.transportation %></td>
+            </tr>
+            <tr>
+              <th>営業時間</th>
+              <td><%= @information.opening_time.strftime("%H:%M") %>~<%= @information.closing_time.strftime("%H:%M") %></td>
+            </tr>
+            <tr>
+              <th>定休日</th>
+              <td><%= @information.holiday.name %></td>
+            </tr>
+            <tr>
+              <th>予算</th>
+              <td><%= @information.budget.name %></td>
+            </tr>
+            <tr>
+              <th>支払い方法</th>
+              <td><% @information.payments.each do |payment| %>
+                    <%= payment.name %>
+                  /<% end %></td>
+            </tr>
+            <tr>
+              <th>喫煙・禁煙</th>
+              <td><%= @information.tobacco.name %></td>
+            </tr>
+            <tr>
+              <th>駐車場の有無</th>
+              <td><%= @information.parking.name %>/</td>
+            </tr>
+            <tr>
+              <th>サービス</th>
+              <td><% @information.services.each do |service| %>
+                    <%= service.name %>
+                  /<% end %></td>
+            </tr>
+            <tr>
+              <th>空間</th>
+              <td><% @information.spaces.each do |space| %>
+                    <%= space.name %>
+                  /<% end %></td>
+            </tr>
+            <tr>
+              <th>設備</th>
+              <td><% @information.rooms.each do |room| %>
+                    <%= room.name %>
+                  <% end %></td>
+            </tr>
+            <tr>
+              <th>ロケーション</th>
+              <td><% @information.locations.each do |location| %>
+                    <%= location.name %>
+                  <% end %></td>
+            </tr>
+            <tr>
+              <th>店内音量</th>
+              <td><%= @information.volume.name %></td>
+            </tr>
+            <tr>
+              <th>店内BGM</th>
+              <td><% @information.musics.each do |music| %>
+                    <%= music.name %>
+                  <% end %></td>
+            </tr>
+            <tr>
+              <th>店内照明</th>
+              <td><%= @information.light.name %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class ="information_right_contents">
+      <%= link_to "#", class: "tel_link" do %>
+        <div class ="information_right_tel">
+          <div class = "information_right_tel_icon"><i class="fa fa-phone"></i></div>
+          <div class = "information_right_tel_number">電話予約はこちらから<br><%= @information.tel %></div>
         </div>
       <% end %>
-      <h2 class= "goyoyaku">
-        ご予約はこちら📞
-        <%= @information.tel %>
-      </h2>
+      <div class = "information_right_calender">
+          <div class = "informaton_show_content_calender">
+          <%= month_calendar events: @reservations do |date, reservations| %>
+            <%= date.day %>
+            <% if reservations.length >= 2 %>
+              <div class= "yoyakukanou">
+                ◎
+              </div>
+            <% elsif reservations.length == 1%>
+              <div class= "yoyakukanou">
+                △
+              </div>
+            <% else %>
+              <div class= "yoyakukanou">
+              ✖︎
+              </div>
+            <% end %>
+            <div class= "hidden" style="display:none;" >
+              <% reservations.each do |reservation| %>
+                <% if reservation.name == nil && user_signed_in? %>
+                  <%= link_to edit_users_reservation_path(reservation.id) do %>
+                    <%= reservation.start_time.strftime("%H:%M") %>
+                    
+                  <% end %>
+                <% end %>
+                <% if reservation.name == nil && store_signed_in? && reservation.information.store_id == current_store.id %>
+                  <%= link_to edit_informations_reservation_path(reservation.id) do %>
+                    <%= reservation.start_time.strftime("%H:%M") %>
+                    <div class= "yoyakukanou">
+                    ◎ 編集
+                    </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
     </div>
-  </div>
-  <div class= "information_kihon">
-    <table>
-      <tr >
-        <th>店名</th>
-        <td><%= @information.store_name %></td>
-      </tr>
-      <tr>
-        <th>ジャンル</th>
-        <td><%= @information.genre.parent.name %>/<%= @information.genre.name %></td>
-      </tr>
-      <tr>
-        <th>お問い合わせ</th>
-        <td><%= @information.tel %></td>
-      </tr>
-      <tr>
-        <th>予約可否</th>
-        <td><%= @information.booking.name %></td>
-      </tr>
-      <tr>
-        <th>住所</th>
-        <td><%= @information.store.postal_code %> <%= @information.place.parent.name %><%= @information.city %><%= @information.address %></td>
-      </tr>
-      <tr>
-        <th>交通手段</th>
-        <td><%= @information.transportation %></td>
-      </tr>
-      <tr>
-        <th>営業時間</th>
-        <td><%= @information.opening_time.strftime("%H:%M") %>~<%= @information.closing_time.strftime("%H:%M") %></td>
-      </tr>
-      <tr>
-        <th>定休日</th>
-        <td><%= @information.holiday.name %></td>
-      </tr>
-      <tr>
-        <th>予算</th>
-        <td><%= @information.budget.name %></td>
-      </tr>
-      <tr>
-        <th>支払い方法</th>
-        <td><% @information.payments.each do |payment| %>
-              <%= payment.name %>
-            /<% end %></td>
-      </tr>
-      <tr>
-        <th>喫煙・禁煙</th>
-        <td><%= @information.tobacco.name %></td>
-      </tr>
-      <tr>
-        <th>駐車場の有無</th>
-        <td><%= @information.parking.name %>/</td>
-      </tr>
-      <tr>
-        <th>サービス</th>
-        <td><% @information.services.each do |service| %>
-              <%= service.name %>
-            /<% end %></td>
-      </tr>
-      <tr>
-        <th>空間</th>
-        <td><% @information.spaces.each do |space| %>
-              <%= space.name %>
-            /<% end %></td>
-      </tr>
-      <tr>
-        <th>設備</th>
-        <td><% @information.rooms.each do |room| %>
-              <%= room.name %>
-            <% end %></td>
-      </tr>
-      <tr>
-        <th>ロケーション</th>
-        <td><% @information.locations.each do |location| %>
-              <%= location.name %>
-            <% end %></td>
-      </tr>
-      <tr>
-        <th>店内音量</th>
-        <td><%= @information.volume.name %></td>
-      </tr>
-      <tr>
-        <th>店内BGM</th>
-        <td><% @information.musics.each do |music| %>
-              <%= music.name %>
-            <% end %></td>
-      </tr>
-      <tr>
-        <th>店内照明</th>
-        <td><%= @information.light.name %></td>
-      </tr>
-    </table>
-  </div>
-</div>
-<div class ="information_show_imges">
-  <div class= "information_show_contents_img_box">
-    <div class= "imags_tags">
-      料理の画像
-    </div>
-    <div class= "information_show_detail_img">
-      <% @information.image_foods.each do |image_food| %>
-        <%= image_tag image_food, class: "information-box-img2"%></li>
-      <% end %>
-    </div>
-  </div>
-  <div class= "information_show_contents_img_box">
-    <div class= "imags_tags">
-      内観の画像
-    </div>
-    <div class= "information_show_detail_img">
-      <% @information.image_introspections.each do |image_introspection| %>
-        <%= image_tag image_introspection, class: "information-box-img2" %>
-      <% end %>
-    </div>
-  </div>
-  <div class= "information_show_contents_img_box">
-    <div class= "imags_tags">
-      席の画像
-    </div>
-    <div class= "information_show_detail_img">
-      <% @information.image_seats.each do |image_seat| %>
-        <%= image_tag image_seat, class: "information-box-img2" %>
-      <% end %>
-    </div>
-  </div>
-  <div class= "information_show_contents_img_box">
-    <div class= "imags_tags">
-      エントランスの画像
-    </div>
-    <div class= "information_show_detail_img">
-      <% @information.image_entrances.each do |image_entrance| %>
-        <%= image_tag image_entrance, class: "information-box-img2" %>
-      <% end %>
-    </div>
-  </div>
-  <div class= "information_show_contents_img_box">
-    <div class= "imags_tags">
-      外観の画像
-    </div>
-    <div class= "information_show_detail_img">
-      <% @information.image_appearances.each do |image_appearance| %>
-        <%= image_tag image_appearance, class: "information-box-img2" %>
-      <% end %>
-    </div>
-  </div>
-  <div class= "information_show_contents_img_box">
-    <div class= "imags_tags">
-      お手洗いの画像
-    </div>
-    <div class= "information_show_detail_img">
-      <% @information.image_toilets.each do |image_toilet| %>
-        <%= image_tag image_toilet, class: "information-box-img2" %>
-      <% end %>
-    </div>
-  </div>
-  <div class= "information_show_contents_img_box">
-    <div class= "imags_tags">
-      風景の画像
-    </div>
-    <div class= "information_show_detail_img">
-      <% @information.image_views.each do |image_view| %>
-        <%= image_tag image_view, class: "information-box-img2" %>
-      <% end %>
-    </div>
-  </div>
-</div>
+  <div>
   <% if store_signed_in? && current_store.id == @information.store_id %>
     <div class ="btn">
       <%= link_to "店舗情報を編集する", edit_information_path(@information.id), data: {"turbolinks" => false}, class: "information_edit_btn" %>

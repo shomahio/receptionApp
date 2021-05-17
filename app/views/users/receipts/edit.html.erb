@@ -1,39 +1,60 @@
-<div class= "recipt_user_edit">
-  <div class= "receipt_show">
-    <div class= "receipt_show_main">
-      <div class= "receipt_main_tag">
-      領収書
+<div class='receipt'>
+  <div class='title'>領収書</div>
+  <div class='top_section'>
+    <div class='number_content'>
+      <div class='side'>No.</div>
+      <div class='number'><%= @receipt.number %></div>
+    </div>
+    <div class='date_content'>
+      <div class='side'>発行日</div>
+      <div class='date'><%= @receipt.created_at.strftime("%Y年%m月%d日") %></div>
+    </div>
+    <div class='receiver'><%= @receipt.name %></div>
+  </div>
+  <div class='middle_section'>
+    <div class='price_content'>
+      <div class='side'>金額</div>
+      <div class='price'><%= @receipt.price.to_s(:delimited) %></div>
+      <div class='side'>（税込）</div>
+    </div>
+    <div class='proviso_content'>
+      <div class='side'>但し</div>
+      <div class='proviso'><%= @receipt.proviso %>として</div>
+    </div>
+    <div class='detail'>上記正に領収いたしました。</div>
+  </div>
+  <div class='bottom_section'>
+    <div class='breakdown'>
+      <div class='desc'>内訳</div>
+      <div class='excluding_tax_content'>
+        <div class='side'>税別金額</div>
+        <div class='price'><%= (@receipt.price / 1.1).to_f.ceil(0).to_s(:delimited) %></div>
       </div>
-      <div class= "receipt_number">
-      No.<%= @receipt.number %>
-      </div>
-      <div class= "receipt_name_date">
-        <div class= "receipt_name">
-          <%= @receipt.name %>様
-        </div>
-        <div class= "receipt_date">
-          <%= @receipt.created_at.strftime("%Y") %>年<%= @receipt.created_at.strftime("%m") %>月<%= @receipt.created_at.strftime("%d") %>日
-        </div>
-      </div>
-      <div class= "receipt_price">
-        ￥<%= @receipt.price %>-
-      </div>
-      <div class= "receipt_priviso">
-      但<%= @receipt.proviso %>として頂きました。
-      </div>
-      <div class= "receipt_address">
-        <%= @receipt.information.store.postal_code %><br>
-        <%= @receipt.information.place.parent.name %><%= @receipt.information.city %><%= @receipt.information.address %>
+      <div class='tax_content'>
+        <div class='side'>消費税額</div>
+        <div class='tax'><%= (@receipt.price / 11).to_f.ceil(0).to_s(:delimited)%></div>
       </div>
     </div>
+    <div class='company_info'>
+      <div class='name'><%= @information.store.store_name %></div>
+      <div class='postal_code'><%= @information.postal_code %></div>
+      <div class='address'><%= @information.place.parent.name %><%= @information.city %><%= @information.address %></div>
+      <div class='building'><%= @information.building %></div>
+      <div class='tel'><%= @information.tel %></div>
+    </div>
+    <div class = "stamp">
+      <div class = "stamp_detail">電子領収書により印紙不要</div>
+    </div>
   </div>
-  <div class= "receipt_from_confirmation">
-    <div class = "receipt_from_confirmation_content">
-  
+</div>
+  <div class= "approval_section">
       <%= form_with(model: @receipt, url: users_receipt_path(@receipt.id), method: :patch ,local: true) do |f| %>
-        <%= f.check_box :consent, {},:as => :boolean, class: "confirmation_btn"%>
-        <%= f.submit "承認する", class: "confirmation_submit"  %>
+        <div class ="consent_main">
+          <%= f.check_box :consent, {},:as => :boolean, class: "approval"%>
+          <%= f.label :consent, "上記の領収書を確認しました。" %>
+        </div>
+        <%= f.submit "承認する", class: "send"  %>
       <% end %>
-    </div>
   </div>
+<%= link_to "領収書一覧へ戻る", users_receipts_path(id: @receipt.user.id), method: :get, class: "back_path"  %>
 </div>

@@ -23,7 +23,7 @@
           </tr>
           <% @reservations.each do |reservation| %>
             <tr>
-              <td><%=reservation.name %></td>
+              <td><%=reservation.name %>様</td>
               <td><%= reservation.number_of_people %>人</td>
               <td><%= reservation.start_time.strftime("%Y/%m/%d/%H:%M") %></td>
               <td>

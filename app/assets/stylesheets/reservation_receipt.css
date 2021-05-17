@@ -1,0 +1,118 @@
+.reservation_down {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.reservation_down_tag {
+  font-weight: bold;
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+.recipt_unapproved {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.recipt_unapproved_tag {
+  font-weight: bold;
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+.recipt_approved {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+.recipt_approved_tag {
+  font-weight: bold;
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+.recipt_reservation_table table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #eee;
+}
+
+.recipt_reservation_table table th {
+  width: 300px;
+  height: 70px;
+  padding: 10px 0;
+  text-align: center;
+  border: 2px solid #fff;
+  font-size: 20px;
+  background-color:  #01177a;
+  color: #fff;
+}
+
+.recipt_reservation_table table td {
+  width: 300px;
+  height: 50px;
+  padding: 10px 0;
+  text-align: center;
+  border: 2px solid #fff;
+}
+
+.recipt_reservation_table table tr:nth-child(odd){
+  background-color: #c7c7c7;
+}
+
+.recipt_reservation_table_url {
+  color: rgb(59, 56, 247);
+}
+
+
+
+@media (max-width: 599px) {
+  .reservation_down {
+    width: 100%;
+  }
+  .reservation {
+    width: 90%;
+    margin: auto;
+  }
+
+  .recipt_reservation_table {
+    
+    margin: auto;
+    
+  }
+
+  .recipt_reservation_table table th {
+    width: 180px;
+    height: 40px;
+    padding: 4px 0;
+    text-align: center;
+    border: 2px solid #fff;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  
+  .recipt_reservation_table table td {
+    width: 300px;
+    height: 30px;
+    padding: 5px 0;
+    text-align: center;
+    border: 2px solid #fff;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .recipt_unapproved_tag {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px 0;
+  }
+
+  .recipt_approved_tag {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px 0;
+  }
+}

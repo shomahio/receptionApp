@@ -108,6 +108,12 @@ RSpec.describe Information, type: :model do
         expect(@information.errors.full_messages).to include("お手洗いの画像を登録してください")
       end
 
+      it "お手洗いの画像が３枚以上では投稿できない" do
+        @information.image_seats << {io: File.open('public/images/test_top.jpg'), filename: 'test_top.jpg'}
+        @information.valid?
+        expect(@information.errors.full_messages).to include("お手洗いの画像は3枚にしてください")
+      end
+
       it "店名がなかったら登録できない" do
         @information.store_name = nil
         @information.valid?

@@ -55,7 +55,6 @@ class Information < ApplicationRecord
     validates :closing_time
     validates :seet
     validates :image
-    validates :image_toilets
     with_options numericality: { other_than: 1, message:'を選択してください'} do
       validates :light_id
       validates :volume_id
@@ -72,6 +71,8 @@ class Information < ApplicationRecord
   validate  :image_introspections_length
   validate  :image_entrances_length
   validate  :image_seats_length
+  validate  :image_views_length
+  validate  :image_toilets_length
 
   private
 
@@ -108,10 +109,16 @@ class Information < ApplicationRecord
     end
   end
 
+  def image_views_length
+    if image_views.length != 3
+      errors.add(:image_views, "は3枚にしてください")
+    end
+  end
 
-  def image_foods_length
-    if image_foods.length != 3
-      errors.add(:image_foods, "は3枚にしてください")
+
+  def image_toilets_length
+    if image_toilets.length != 3
+      errors.add(:image_toilets, "は3枚にしてください")
     end
   end
 

@@ -2,7 +2,6 @@
   <%= search_form_for(@q, url: search_informations_path) do |f| %>
     <div class= "search_boxes">
       <div class= "search_text">
-        <div class= "search_text">
         <div class= "search_text_secondary">
           <%= link_to "ビジグル" ,root_path , class: "root_url"%>
         </div>
@@ -133,10 +132,15 @@
         <div class='information-content'>
           <div class='information-content__inner-left'>
             <%= image_tag information.image, class: "search_information-box-img" %>
+            <div class ="image_none">
+              <% information.image_foods[0..1].each do |image_food| %>
+                <%= image_tag image_food, class: "search_information-box-imgs"%></li>
+              <% end %>
+            </div>
           </div>
           <div class='information-content__inner-right'>
             <div class='store-name'>
-              <%= link_to information.store_name, information_path(information.id)%>
+              <%= link_to information.store_name, information_path(information.id), class: "store-name-url"%>
             </div>
             <div class="address">
               <%= information.store.postal_code %> <%= information.place.parent.name %><%= information.city %><%= information.address %>
@@ -179,7 +183,7 @@
                 </div>
                 <div class='desc'>
                   <%= image_tag 'seat.jpeg', alt: 'テスト画像', class: "image-icon" %>
-                  <div class='icon_text'>○○席数</div>
+                  <div class='icon_text'><%= information.seet %>席</div>
                 </div>
                 <div class='desc'>
                   <%= image_tag 'tobacco.jpeg', alt: 'テスト画像', class: "image-icon" %>
@@ -195,11 +199,11 @@
                       <%= link_to "◎", information_path(information.id), :style=>"color:blue;" %>
                     </div>
                   <% elsif reservations.length == 1%>
-                    <div class= "yoyakugiri">
+                    <div class= "yoyakukanou">
                       <%= link_to "△", information_path(information.id), :style=>"color:blue;" %>
                     </div>
                   <% else %>
-                    <div class= "yoyakuhuka">
+                    <div class= "yoyakukanou">
                     ✖︎
                     </div>
                   <% end %>

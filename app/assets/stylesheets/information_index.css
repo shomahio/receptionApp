@@ -41,10 +41,6 @@
 }
 
 
-/* 検索欄のCSS */
-.search_main {
-  width: 100vw;
-}
 
 .search_boxes {
   height: 100px;
@@ -57,7 +53,7 @@
 .search_text {
   display: flex;
   height: 100px;
-  width: 85%;
+  width: 90%;
   margin: auto;
 }
 
@@ -145,7 +141,7 @@
   font-size: 30px;
   margin-top: 50px;
   font-weight: bold;
-}
+} 
 
 .sample_radio {
   display: inline-block;
@@ -185,7 +181,7 @@
   border-radius: 3px;
   text-decoration:none;
   margin-bottom: 70px;
-  margin-top: 30px;
+  
   cursor: pointer;
 }
 
@@ -199,7 +195,7 @@
   font-size: 30px;
   margin-top: 50px;
   font-weight: bold;
-}
+} 
 
 .place_btn {
   margin-top: 25px; 
@@ -369,10 +365,6 @@ margin: auto;
     inset -3px -3px 3px #c7c8ca;
 }
 
-
-.submit_detail_btn {
-  text-align: center;
-}
 
 /* ツイート欄 */
 
@@ -710,18 +702,7 @@ margin: auto;
     font-size: 20px;
     margin-top: 20px;
   }
-/*   
-  .root_url {
-    color:navy;
-    text-decoration: none;
-  }
-  
-  .search_text_boxes {
-    width: 70%;
-    display: flex;
-    align-items: center;
-  } */
-  
+
   .text_keyword {
     border: 1px solid #ddd;
     width: 44%;
@@ -774,6 +755,17 @@ margin: auto;
     margin: auto;
   }
 
+
+.search_genre {
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
+  font-size: 20px;
+  margin-top: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+} 
+
+
   .genre_btn {
     margin-left: 33px;
     margin-right: 0;
@@ -781,7 +773,7 @@ margin: auto;
   
   .sample_radio {
     display: inline-block;
-    font-size: 15px;
+    font-size: 10px;
     color       :#ffffff;
     text-shadow:   2px  2px 10px #777 ,
                   -2px  2px 10px #777 ,
@@ -789,163 +781,228 @@ margin: auto;
                   -2px -2px 10px #777;
     vertical-align: top;
     text-align: center;
-    padding: 0.5em 1em;
-      margin: 1em 5px;
+    padding: 0.5em 0.5em;
+      margin: 5px 5px;
       font-weight: bold;
-      border: solid 3px #000000;
-    height: 130px;
+      border: solid 2px #000000;
     width: calc(85% / 4);
+    height: 80px;
+  }
+
+  .search_submit_place_genre {
+    text-align: center;
+    padding-top: 20px;
   }
 
   .search_place {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
-    margin-left: 70px;
-    margin-top: 25px;
+    color: black;
+    font-size: 20px;
+    margin-top: 30px;
+    font-weight: bold;
+  } 
+  
+  
+  .sample_radio_place, .sample_btn {
+    display: inline-block;
+    height: 45px;
+    width: calc(100% / 4);
+    font-size: 12px;
+    padding: 9px;
+    margin: 8px 9px;
+    border-radius: 23%/50%;
+    background-color: #f2f6f8;
+    color: #212529;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow:
+      3px 3px 3px #8e9597,
+      -3px -3px 3px #fbfdfd,
+      inset 1px 1px 1px #f2f5f6,
+      inset -1px -1px 1px #a7acad;
+  }
+  
+
+  .search_submit_detail {
+    margin: auto;
+    height: 50px;
+    width: 100px;
+    color: #fff;;
+    font-size: 25px;
+    background-color: #01177a;
+    box-shadow: 
+    3px 3px 3px rgb(129, 133, 134),
+    -5px -5px 10px #F2F5F6;
+    text-align: center;
+    border-radius: 3px;
+    text-decoration:none;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    cursor: pointer;
   }
   
   .place_btn {
     margin-left: 33px;
-    margin-top: 15px;
-    margin-right: 0;
   }
 
-  .sample_radio1 {
-    display: inline-block;
-    font-size: 15px;
-    vertical-align: top;
-    text-align: center;
-    padding: 3px;
-    margin: 8px 9px;
-    font-weight: bold;
-    border: solid 3px #6091d3;/*線*/
-    border-radius: 10px;/*角の丸み*/
-    height: 33px;
-    width: 88px;
-  }
-
-  .budget {
-    width: 90%;
-    margin: auto;
-  
-  }
-  
-  .search_budget_tag {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
-    margin-left: 35px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-  }
-  
   .search_budget {
     width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-  
-  }
-  
-  .max_btn {
-    height: 35px;
-    width: 28%;
-    margin-right: 15px;
-  }
-  
-  .min_btn {
-    height: 35px;
-    width: 28%;
-    margin-right: 15px;
-  }
-  
-  .budget_submit {
-    height: 35px;
-    width: 22%;
-    background-color:coral;
-    font-size: 18px;
-    color: white;
-    text-align: center;
-    text-decoration:none;
-  }
-  
-  /* ツイート一欄 */
-  .information_tweets_main {
-    width: 100%;
-    border-top: 1px solid;
+    height: 6vh;
   }
 
-  .tweet_title {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
+  .budget_submit {
+    font-size: 18px;
   }
+
+
   
-  .tweet_post_btn {
-    margin: auto;
-    background-color: rgb(167, 208, 255);
-    margin: 5px auto;
-    border-radius: 10px;
+  
+  /* ツイート一欄 */
+  .tweet_post_btn_url {
+    font-size: 1.0rem;
+    font-weight: 700;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+    margin-bottom: 20px;
   }
   
   .tweet_post_btn_url {
-    color:#ffffff;
-    margin: auto;
-    font-size: 30px;
-    text-decoration: none;
-  }
-
-  .tweet_post_btn {
-    margin: auto;
-    background-color: rgb(167, 208, 255);
-    margin: 5px auto;
-    border-radius: 10px;
+    overflow: hidden;
+    color: #fff;
+    border-radius: 0;
+    background: #000;
+    border-radius: 5px;
+  
   }
   
-  .information_tweet_lists {
-    width: 80%;
+  .tweet_post_btn_url span {
+    position: relative;
+  }
+  
+  .tweet_post_btn_url:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    width: 150%;
+    height: 500%;
+  
+    content: "";
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  
+    background: #da153f;
+  }
+  
+  .tweet_post_btn_url:hover:before {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+  
+  .information_tweets_main {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #f5f4f4;
+    border-radius: 3px;/*角の丸み*/
+    padding-bottom: 15px;
+  }
+  
+  .tweet_title {
+    font-size: 30px;
+    padding-left: 30px;
+    letter-spacing: 2px;
+  }
+  
+  .information_tweets_main .information_tweet_lists {
+    position: relative;
+    border-top: 5px solid black;
+    width: 100%;
     margin: auto;
-    display: flex;
-    justify-content: space-around;
+    display: block;
   }
   
   .tweet_info {
-    height: 300px;
-    width: calc(90% / 3);
-    position: relative;
-    padding: 0.5em 0.7em;
-    margin: 2em 0;
-    background: #e6f4ff;
-    color: #5c98d4;
+    height: 450px;
+    width: 85%;
+    margin: 40px auto;
+    background: #ffffff;
+    color: black;
     font-weight: bold;
+    border: 1px solid rgb(94, 94, 94);
+    position: relative;
+    border-radius: 3px;/*角の丸み*/
+  }
+  
+  .info-child {/*三角形左下*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-right: 70px solid transparent;
+    border-bottom: 70px solid #da153f;
+  }
+  
+  
+  .tweet_info:before {
+    content: "";
+    position: absolute;
+    bottom: -24px;
+    left: 30%;
+    margin-left: -15px;
+    border: 12px solid transparent;
+    border-top: 12px solid #FFF;
+    z-index: 2;
   }
   
   .tweet_info:after {
+    content: "";
     position: absolute;
-    content: '';
-    top: 100%;
-    left: 30px;
-    border: 15px solid transparent;
-    border-top: 15px solid #e6f4ff;
-    width: 0;
-    height: 0;
+    bottom: -30px;
+    left: 30%;
+    margin-left: -17px;
+    border: 14px solid transparent;
+    border-top: 14px solid black;
+    z-index: 1;
   }
+  
   .tweet_info p {
-    margin: 0; 
+    margin: 0;
     padding: 0;
   }
   
-  .tweet_path_url {
+  .tweet_info .tweet_path_url{
     text-decoration: none;
+    width: 100%;
+    height: 100%;
   }
   
-  .information_tweet_name {
-    text-align: center;
-    font-size: 15px;
-    color: coral;
+  .info_tweet_title {
+    font-size: 20px;
+    color: #000000;
+    padding-left: 20px;
   }
   
   .tweet_img {
     width: 100%;
-    height: 100px;
+    height: 49%;
   }
   
   .item_tweet_img {
@@ -954,13 +1011,37 @@ margin: auto;
   }
   
   .tweet_text {
+    text-align: center;
+    height: 30%;
     width: 90%;
-    height: 100px;
-    margin: 20px auto;
-    background-color:  white;
+    margin: auto;
+    background-color: rgb(238, 237, 237);
+    font-size: 30px;
+  }
+  
+  .tweet_path_url .tweet_text {
+    width: 100%;
+    height: 35%;
+    background-color:  #ffffff;
     font-size: 18px;
-    padding-top: 10px;
-    
+    color: #000000;
+    margin-top: 3%;
+  }
+  
+  .tweet_path_url .tweet_text:before{
+    width: 80%;
+    margin: 0 auto;
+    content: '';
+    border-top: 3px solid black;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .information_tweet_name {
+    width: 100%;
+    color: #B68602;
+    text-align: end;
+    padding-right: 10px;
   }
   
   .user_tweet_post_btn {
@@ -976,6 +1057,11 @@ margin: auto;
   
   .for_store_languages {
     display: none;
+  }
+
+  .root_url {
+    font-size: 20px;
+    text-align: center;
   }
   
 }

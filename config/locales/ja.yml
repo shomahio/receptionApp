@@ -1,4 +1,8 @@
 ja:
+  simple_calender:
+    previous: "先月"
+    next: "次月"
+    
   date:
     abbr_day_names:
       - 日
@@ -48,6 +52,7 @@ ja:
       - 10月
       - 11月
       - 12月
+      
 
   time:
     am: 午前

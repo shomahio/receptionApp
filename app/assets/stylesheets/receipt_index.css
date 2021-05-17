@@ -1,54 +1,329 @@
 /* 領収書一覧 */
-.recipts {
-  width: 60%;
-  text-align: center;
-  margin: auto;
+.reservation_informations {
+  width: 80%;
+  margin: 0 auto;
 }
 
-.recipt_unapproved {
+.reservation_informations .reservation_down_tag {
+  margin-top: 20px;
+  margin-bottom: -30px;
+}
+
+.reservation_deta {
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 5px;
+}
+
+.fa-clock-o {
+  font-size: 25px;
+}
+
+.delete_url {
+  color: #000000;
+}
+
+.recipt_information {
   width: 100%;
-  margin: 0,auto;
 }
 
-.recipt_unapproved_tag {
-  font-size: 30px;
-  color: chocolate;
-  text-align: left;
-}
-
-
-.recipt_reservation_table table{
+.reservation_deta {
   width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: 2px solid;
-  
 }
 
-.recipt_reservation_table table th,table td{
-  width: 300px;
-  padding: 10px 0;
+.search-page__inner-right {
+  width: 100%;
+}
+
+.recipt_information .calendar {
+  border: 2px solid rgb(207, 207, 207);
+  height: 40%;
+  padding: 0;
+  margin-top: 1%;
+}
+
+.information_food {
+  border-bottom: 1px solid rgb(207, 207, 207);
+  padding: 2px 0;
+  height: 22%;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.information_explanation1 {
+  height: 80%;
+  width: 99%;
+  padding: 3px 0;
+}
+
+.information_explanation {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reservation_informations h2 {
+  font-size: 25px;
+  margin-top: 60px;
+  border: 1px solid rgb(204, 203, 203);
   text-align: center;
-  border: 2px solid;
-}
-
-.recipt_reservation_table table tr:nth-child(odd){
-  background-color: #eee
-}
-
-.recipt_approved_tag {
-  font-size: 30px;
-  color: chocolate;
-  text-align: left;
-  margin-top: 50px;
-}
-
-.recipt_reservation_table_url {
-  color: rgb(59, 56, 247);
+  height: 150px;
+  padding-top: 55px;
+  border-radius: 4px;/*角の丸み*/
 }
 
 /* 領収書詳細ページ */
-.receipt_show_main {
+.receipt {
+  height: 95vh;
+  width: 85vw;
+  padding: 50px 80px;
+  margin: 15px auto 50px;
+  background-color: #F7F7F7;
+  border: 1px solid #CCC;
+  border-right-color: #999;
+  border-left-color: #999;
+  border-bottom-color: #999;
+  border-top-color: #DADADA;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 1px #999;
+  color: #666;
+}
+.receipt .title {
+  height: 10%;
+  margin-bottom: 5px;
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 5px;
+}
+.receipt .top_section {
+  height: 18%;
+  margin-bottom: 40px;
+  position: relative;
+}
+.receipt .top_section .number_content {
+  font-size: 17px;
+  display: flex;
+  position: absolute;
+  right: 0;
+}
+.receipt .top_section .number {
+  width: 300px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #000;
+  text-align: center;
+}
+.receipt .top_section .date_content {
+  font-size: 17px;
+  display: flex;
+  position: absolute;
+  top: 30px;
+  right: 0;
+}
+.receipt .top_section .date {
+  width: 300px;
+  border-bottom: 1px solid #000;
+  text-align: center;
+}
+.receipt .top_section .receiver {
+  font-size: 35px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-bottom: 1px solid #000;
+}
+.receipt .top_section .receiver:after {
+  content: '様';
+  margin-left: 30px;
+  font-size: 30px;
+}
+.receipt .middle_section {
+  height: 35%;
+  width: 70%;
+  margin: 0 auto;
+}
+.receipt .price_content {
+  height: 55%;
+  margin: 0 auto;
+  padding: 0 30px;
+  border-top: 2px solid #000;
+  display: flex;
+  align-items: center;
+}
+.receipt .price_content .price {
+  width: 60%;
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.receipt .price_content .price:before {
+  content: '¥';
+}
+.receipt .price_content .price:after {
+  content: '-';
+}
+.receipt .price_content .side {
+  width: 25%;
+  font-size: 35px;
+  text-align: center;
+}
+
+.side_tag {
+  width: 25%;
+  font-size: 35px;
+  text-align: center;
+}
+
+.receipt .proviso_content {
+  height: 23%;
+  padding: 8px 75px 3px;
+  border-top: 2px solid #000;
+  font-size: 17px;
+  display: flex;
+}
+.receipt .proviso_content .side {
+  width: 10%;
+}
+.receipt .proviso_content .proviso {
+  width: 90%;
+  text-align: start;
+}
+.receipt .detail {
+  width: 100%;
+  height: 15%;
+
+  padding: 8px 75px 3px;
+  border-top: 2px solid #000;
+  font-size: 17px;
+}
+.receipt .bottom_section {
+  height: 25%;
+  font-size: 17px;
+  position: relative;
+}
+.receipt .bottom_section .breakdown {
+  height: 100%;
+  width: 23%;
+  text-align: center;
+  position: absolute;
+  top: 30px;
+  left: 0;
+}
+.receipt .bottom_section .breakdown .desc {
+  height: 23%;
+  border-bottom: 1px solid #000;
+}
+.receipt .bottom_section .breakdown .excluding_tax_content {
+  height: 23%;
+  padding-top: 5px;
+  border-bottom: 1px solid #000;
+  display: flex;
+}
+.receipt .bottom_section .breakdown .excluding_tax_content .price {
+  width: 60%;
+}
+.receipt .bottom_section .breakdown .excluding_tax_content .price:before {
+  content: '¥';
+}
+.receipt .bottom_section .breakdown .excluding_tax_content .price:after {
+  content: '-';
+}
+.receipt .bottom_section .breakdown .tax_content {
+  height: 23%;
+  padding-top: 5px;
+  border-bottom: 1px solid #000;
+  display: flex;
+}
+.receipt .bottom_section .breakdown .tax_content .tax {
+  width: 60%;
+}
+.receipt .bottom_section .breakdown .tax_content .tax:before {
+  content: '¥';
+}
+.receipt .bottom_section .breakdown .tax_content .tax:after {
+  content: '-';
+}
+.receipt .bottom_section .breakdown .side {
+  width: 40%;
+}
+.receipt .bottom_section .company_info {
+  height: 100%;
+  width: 35%;
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+.receipt .name, .receipt .postal_code, .receipt .address, .receipt .building, .receipt .tel {
+  height: 20%;
+}
+.receipt .bottom_section .company_info .postal_code:before {
+  content: '〒';
+}
+.receipt .bottom_section .company_info .tel:before {
+  content: 'TEL：';
+}
+
+.stamp {
+  position: absolute;
+  right: 0;
+  border: 1px dashed;
+  height: 100%;
+  width: 10%;
+  padding: 10px 5px;
+
+}
+
+.approval_section {
+  height: 15vh;
+  margin-bottom: 70px;
+}
+
+.consent_main {
+  font-size: 20px;
+}
+
+.approval_section form {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+.approval {
+  margin: 0 20px 0 15px;
+  font-size: 30px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.approval input[type=checkbox] {
+  transform: scale(2.5);
+}
+.approval_section .send {
+  height: 7vh;
+  width: 35%;
+  margin: 20px auto;
+  border-radius: 3px;
+  background-color: rgb(12, 12, 88);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: block;
+  box-shadow:
+    3px 3px 3px rgba(129, 133, 134, 0.7),
+    -3px -3px 3px rgb(254, 255, 255),
+    inset 1px 1px 3px rgba(222, 225, 226, 0.5);
+}
+
+.back_path {
+  margin-bottom: 20px;
+  text-align: center;
+  display: block;
+}
+
+
+/* .receipt_show_main {
   width: 70%;
   height: 600px;
   margin: auto;
@@ -112,16 +387,23 @@
   padding-top: 10px;
   padding: 0.5em 1em;
   border: solid 1px #000000;
-}
+} */
 
 .pdf_btn {
-  background-color: #1bfae7;  /* 背景色指定 */
-  width: 400px;               /* 幅指定 */
+  background-color: #01177a;  /* 背景色指定 */
+  width: 310px;               /* 幅指定 */
   height: 90px;               /* 高さ指定 */
   margin:  0 auto;            /* 中央寄せ */
   padding-top: 30px;
+  margin-bottom: 30px;
   text-align: center;
-  font-size: 25px;
+  font-size: 22px;
+  color: #fff;
+  border-radius: 4px;/*角の丸み*/
+}
+
+.pdf_btn .fa-download {
+  margin-right: 10px;
 }
 
 /* 領収書作成 */
@@ -271,14 +553,20 @@
   }
   
   .pdf_btn {
-    background-color: #1bfae7;  /* 背景色指定 */
-    width: 400px;               /* 幅指定 */
-    height: 90px;               /* 高さ指定 */
+    background-color: #01177a;  /* 背景色指定 */
+    width: 150px;               /* 幅指定 */
+    height: 40px;               /* 高さ指定 */
     margin:  0 auto;            /* 中央寄せ */
-    padding-top: 30px;
+    padding-top: 10px;
     text-align: center;
-    font-size: 25px;
+    font-size: 11px;
+    margin-bottom: 14px;
   }
+
+
+.pdf_btn .fa-download {
+  margin-right: 3px;
+}
 
   .confirmation_submit {
     width: 500px;
@@ -296,4 +584,268 @@
     left: 30%;
   }
 
+  .reservation_informations .reservation_down_tag {
+    margin-top: 20px;
+    margin-bottom: -30px;
+    font-size: 20px;
+  }
+
+
+/* 領収書詳細ページ */
+.receipt {
+  height: 95vh;
+  width: 85vw;
+  padding: 25px 40px;
+  margin: 7px auto 25px;
+  background-color: #F7F7F7;
+  border: 1px solid #CCC;
+  border-right-color: #999;
+  border-left-color: #999;
+  border-bottom-color: #999;
+  border-top-color: #DADADA;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 1px #999;
+  color: #666;
+}
+.receipt .title {
+  height: 8%;
+  margin-bottom: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 3px;
+}
+.receipt .top_section {
+  height: 15%;
+  margin-bottom: 20px;
+  position: relative;
+}
+.receipt .top_section .number_content {
+  font-size: 14px;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 10;
+}
+
+.receipt .top_section .number {
+  width: 100%;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #000;
+  text-align: center;
+}
+
+.receipt .top_section .date_content {
+  font-size: 14px;
+  display: flex;
+  position: absolute;
+  top: 30px;
+  right: 0;
+}
+
+.receipt .date_content .side {
+  width: 60px;
+}
+
+.receipt .top_section .date {
+  width: 100%;
+  border-bottom: 1px solid #000;
+  text-align: end;
+}
+
+.receipt .top_section .receiver {
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-bottom: 1px solid #000;
+}
+.receipt .top_section .receiver:after {
+  content: '様';
+  margin-left: 15px;
+  font-size: 18px;
+}
+.receipt .middle_section {
+  height: 25%;
+  width: 100%;
+  margin: 0 auto;
+}
+.receipt .price_content {
+  height: 45%;
+  margin: 0 auto;
+  padding: 0 ;
+  border-top: 2px solid #000;
+  display: flex;
+  /* align-items: center; */
+}
+.receipt .price_content .price {
+  width: 60%;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-left: 33px;
+}
+.receipt .price_content .price:before {
+  content: '¥';
+}
+.receipt .price_content .price:after {
+  content: '-';
+}
+.receipt .price_content .side {
+  width: 40%;
+  font-size: 14px;
+  text-align: center;
+}
+
+.side_tag {
+  display: none;
+}
+
+.receipt .proviso_content {
+  height: 20%;
+  padding: 4px 20px 3px;
+  border-top: 2px solid #000;
+  font-size: 14px;
+  display: flex;
+}
+.receipt .proviso_content .side {
+  width: 20%;
+}
+.receipt .proviso_content .proviso {
+  width: 80%;
+  text-align: start;
+}
+.receipt .detail {
+  width: 100%;
+  height: 20%;
+  padding: 4px 20px 3px;
+  border-top: 2px solid #000;
+  font-size: 14px;
+}
+.receipt .bottom_section {
+  height: 46%;
+  font-size: 14px;
+  position: relative;
+}
+.receipt .bottom_section .breakdown {
+  height: 23%;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.receipt .bottom_section .breakdown .desc {
+  height: 33%;
+  border-bottom: 1px solid #000;
+}
+.receipt .bottom_section .breakdown .excluding_tax_content {
+  height: 33%;
+  padding-top: 2px;
+  border-bottom: 1px solid #000;
+  display: flex;
+}
+.receipt .bottom_section .breakdown .excluding_tax_content .price {
+  width: 60%;
+}
+.receipt .bottom_section .breakdown .excluding_tax_content .price:before {
+  content: '¥';
+}
+.receipt .bottom_section .breakdown .excluding_tax_content .price:after {
+  content: '-';
+}
+.receipt .bottom_section .breakdown .tax_content {
+  height: 33%;
+  padding-top: 2px;
+  border-bottom: 1px solid #000;
+  display: flex;
+}
+.receipt .bottom_section .breakdown .tax_content .tax {
+  width: 60%;
+}
+.receipt .bottom_section .breakdown .tax_content .tax:before {
+  content: '¥';
+}
+.receipt .bottom_section .breakdown .tax_content .tax:after {
+  content: '-';
+}
+.receipt .bottom_section .breakdown .side {
+  width: 40%;
+}
+.receipt .bottom_section .company_info {
+  height: 30%;
+  width: 100%;
+  position: absolute;
+  top:30%;
+  left: 0;
+}
+.receipt .name, .receipt .postal_code, .receipt .address, .receipt .building, .receipt .tel {
+  height: 20%;
+}
+.receipt .bottom_section .company_info .postal_code:before {
+  content: '〒';
+}
+.receipt .bottom_section .company_info .tel:before {
+  content: 'TEL：';
+}
+
+.stamp {
+  position: absolute;
+  border: 1px dashed;
+  height: 33%;
+  width: 40%;
+  top:69%;
+}
+
+.stamp_detail {
+  width: 95%;
+  margin: 0 auto;
+}
+
+
+.approval_section {
+  height: 15vh;
+  margin-bottom: 10px;
+}
+.approval_section form {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+.approval {
+  margin: 0 20px 0 15px;
+  font-size: 14px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.approval input[type=checkbox] {
+  transform: scale(2.5);
+}
+.approval_section .send {
+  height: 5vh;
+  width: 40%;
+  margin: 20px auto;
+  border-radius: 3px;
+  background-color: #01177a;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  display: block;
+  box-shadow:
+    3px 3px 3px rgba(129, 133, 134, 0.7),
+    -3px -3px 3px rgb(254, 255, 255),
+    inset 1px 1px 3px rgba(222, 225, 226, 0.5);
+}
+
+.consent_main {
+  font-size: 14px;
+}
+
+
+.back_path {
+  margin-bottom: 20px;
+  text-align: center;
+  display: block;
+}
 }

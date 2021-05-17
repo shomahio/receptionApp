@@ -1,3 +1,10 @@
+.search_main .search_boxes {
+  height: 100px;
+  width: 100vw;
+  margin-top: 20px;
+  border-bottom: solid 2px #5d627b;
+}
+
 .search-page {
   width: 100%;
   padding: 30px;
@@ -20,6 +27,21 @@
   border-radius: 5px;
   background-color: #565656;
 }
+
+.search_main .search_text {
+  display: flex;
+  height: 100px;
+  width: 90%;
+  margin: auto;
+}
+
+.search_main .search_text_secondary {
+  font-family: 'Courier New', Courier, monospace;
+  width: 30%;
+  font-size: 40px;
+  margin-top: 19px;
+}
+
 /* --- 雰囲気検索・こだわり検索 --- */
 .ambience-search, .commitment-search {
   padding: 5px 15px;
@@ -30,8 +52,10 @@
 }
 .search-content h3 {
   color: #874E4C;
-  border-bottom: 1px solid #C09933;
+  border-bottom: 1px solid #B68602;
+  font-size: 18px;
 }
+
 .search-content .search {
   margin: 20px 0;
   border: 1px solid #ddd;
@@ -50,7 +74,7 @@
   margin-bottom: 10px;
   border: 1px solid #000;
   border-radius: 5px;
-  background-color: #849974;
+  background-color: #01177a;
   color: #fff;
 }
 
@@ -77,7 +101,7 @@
 .search-page__inner-right .information-content {
   height: 370px;
   padding: 15px;
-  border: 3px solid #C09933;
+  border: 3px solid #B68602;
   border-radius: 5px;
   background-color: #fff;
   display: flex;
@@ -91,6 +115,10 @@
   text-align: center;
 }
 
+.image_none {
+  display: none;
+}
+
 .search_information-box-img {
   width: 100%;
   height: 100%;
@@ -100,6 +128,12 @@
 .information-content__inner-right {
   width: 65%;
 }
+
+.information-content__inner-right .store-name {
+  height: 10%;
+  margin-bottom: 1%;
+}
+
 .information-content__inner-right a {
   font-size: 30px;
   color: #874E4C;
@@ -107,6 +141,7 @@
   letter-spacing: 2px;
 }
 .information-content__inner-right .address {
+  height: 8%;
   width: 100%;
   margin-bottom: 5px;
   max-width: 100%;
@@ -116,6 +151,7 @@
   display: block;
 }
 .information-content__inner-right .store-desc {
+  height: 35%;
   margin-bottom: 5px;
   display: flex;
 }
@@ -134,7 +170,6 @@
   display: block;
 }
 
-
 .image-icon {
   height: 25px;
   width: 25px;
@@ -143,15 +178,16 @@
   border: 1px solid #565656;
   border-radius: 5px;
 }
+
 .calendar {
-  height: 65px;
+  height: 45%;
   padding-top: 15px;
-  
 }
 
 .calendar .simple-calendar {
   height: 10%;
   width: 100%;
+  
 }
 
 .calendar .calendar-heading {
@@ -200,7 +236,7 @@
   }
   .search-content h3 {
     color: #874E4C;
-    border-bottom: 1px solid #C09933;
+    border-bottom: 1px solid #B68602;
   }
   .search-content .search {
     margin: 20px 0;
@@ -220,7 +256,7 @@
     margin-bottom: 10px;
     border: 1px solid #000;
     border-radius: 5px;
-    background-color: #849974;
+    background-color: #01177a;
     color: #fff;
   }
   
@@ -245,30 +281,49 @@
     border-radius: 5px;
   }
   .search-page__inner-right .information-content {
-    height: 250px;
+    height: 350px;
     padding: 15px;
-    border: 3px solid #C09933;
+    border: 3px solid #B68602;
     border-radius: 5px;
     background-color: #fff;
-    display: flex;
+    display: block;
   }
+
   /* --- お店写真 --- */
   .information-content__inner-left {
-    width: 35%;
+    width: 100%;
+    height: 100px;
     margin-right: 30px;
     border: 1px solid #ddd;
     border-radius: 5px;
     text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
   }
-  
+
   .search_information-box-img {
-    width: 100%;
+    width:calc(100% / 3);
     height: 100%;
+    /* margin-right: 5%; */
   }
-  
+
+  .image_none {
+    display: block;
+    width: calc((100% / 3)*2);
+    display: flex;
+  } 
+
+  .search_information-box-imgs {
+    width: 50%;
+    height: 100%;
+    margin-left: 2%;
+  }
+
   /* --- お店情報 --- */
+
   .information-content__inner-right {
-    width: 65%;
+    width: 100%;
   }
   .information-content__inner-right a {
     font-size: 25px;
@@ -276,6 +331,11 @@
     text-decoration: none;
     letter-spacing: 2px;
   }
+
+  .information-content__inner-right .store-name-url {
+    font-size: 24px;
+  } 
+  
   .information-content__inner-right .address {
     width: 100%;
     margin-bottom: 3px;
@@ -284,6 +344,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     display: block;
+    font-size: 15px;
   }
   .information-content__inner-right .store-desc {
     margin-bottom: 3px;
