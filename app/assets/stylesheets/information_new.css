@@ -8,8 +8,7 @@
 
 .store_information_title {
   text-align: center;
-  font-size: 50px;
-  color: coral;
+  font-size: 40px;
   margin-bottom: 30px;
 }
 
@@ -20,7 +19,6 @@
 .weight-bold-text {
   margin-top: 25px;
 }
-
 
 .stores-text {
   width: 100%;
@@ -89,4 +87,28 @@
   text-align: center;
   border-radius: 10px;/*角の丸み*/
   background-color: #72c5f8;
+}
+
+@media (max-width: 599px) {
+  .store_information_main {
+    width: 95%;
+    margin: 10px auto;
+    border: 2px solid #d8d8d8;
+    padding: 30px 10px;
+    border-radius: 10px;/*角の丸み*/
+  }
+
+
+.store_information_title {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+
+.click-upload {
+  text-align: end;
+  font-size: 10px;
+}
+
 }

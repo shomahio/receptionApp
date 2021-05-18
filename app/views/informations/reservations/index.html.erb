@@ -28,7 +28,7 @@
               <td><%= reservation.start_time.strftime("%Y/%m/%d/%H:%M") %></td>
               <td>
               <% if reservation.receipt == nil && reservation.user_id != nil%>
-              <%=link_to "未作成", new_informations_reservation_receipt_path(reservation.id) %>
+                <%=link_to "作成する", new_informations_reservation_receipt_path(reservation.id) %>
               <% else %>
               作成済
               <% end %>

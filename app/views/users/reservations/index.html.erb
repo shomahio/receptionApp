@@ -26,6 +26,11 @@
           <div class='information-content'>
             <div class='information-content__inner-left'>
               <%= image_tag reservation.information.image, class: "search_information-box-img" %>
+              <div class ="image_none">
+                <% reservation.information.image_foods[0..1].each do |image_food| %>
+                  <%= image_tag image_food, class: "search_information-box-imgs"%></li>
+                <% end %>
+              </div>
             </div>
             <div class='information-content__inner-right'>
               <div class='store-name'>
