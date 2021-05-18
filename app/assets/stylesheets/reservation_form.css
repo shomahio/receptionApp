@@ -3,14 +3,14 @@
   width: 60%;
   margin: auto;
   display: flex;
-  padding-top: 40px;
-  margin-bottom: 40px;
+  padding-top: 20px;
+  margin-bottom: 20px;
 }
 
 .reservation_store_name {
   margin: auto;
   font-size: 40px;
-  color: coral;
+  color: #874E4C;
 }
 
 .reservation_date {
@@ -18,16 +18,18 @@
   font-size: 40px;
 }
 
+
 .reservation_content {
   width: 60%;
   margin: auto;
-  border: 1px solid;
-  padding: 40px 40px;
+  border: 1px solid gray;
+  padding: 20px 40px;
+  border-radius: 3px;/*角の丸み*/
 }
 
 .input_name_tag {
   font-size: 30px;
-  color: coral;
+  color: #043296;
 }
 
 .precautions {
@@ -39,12 +41,82 @@
 
 .action {
   width: 80%;
-  height: 60px;
+  height: 40px;
   margin: auto;
+  text-align: center;
 }
 
 .reservation_form_btn {
-  width: 100%;
+  width: 40%;
   height: 100%;
-  font-size: 35px;
+  font-size: 23px;
+  background-color: #043296;
+  color: #ffffff;
+  border-radius: 3px;/*角の丸み*/
+}
+
+@media (max-width: 599px) {
+  /* 領収書で共通部分あり */
+.reservation_detail {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+.reservation_store_name {
+  margin: auto;
+  font-size: 25px;
+  color: #874E4C;
+  width: 50%;
+}
+
+.reservation_date {
+  width: 50%;
+  font-size: 25px;
+}
+
+
+.reservation_content {
+  width: 95%;
+  margin: auto;
+  border: 1px solid gray;
+  padding: 10px 20px;
+  border-radius: 3px;/*角の丸み*/
+  font-size: 7px;
+}
+
+.input_name_tag {
+  font-size: 20px;
+  color: #043296;
+}
+
+.precautions {
+  margin: 30px;
+  padding: 5px 5px;
+  border: 1px solid;
+  background-color: rgb(247, 247, 174);
+  width: 95%;
+  margin: 15px auto;
+}
+
+.action {
+  width: 80%;
+  height: 40px;
+  margin: auto;
+  text-align: center;
+}
+
+.reservation_form_btn {
+  width: 40%;
+  height: 100%;
+  font-size: 23px;
+  background-color: #043296;
+  color: #ffffff;
+  border-radius: 3px;/*角の丸み*/
+}
+
+
+
 }
