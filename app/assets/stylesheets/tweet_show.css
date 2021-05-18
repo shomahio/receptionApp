@@ -98,7 +98,6 @@
 }
 
 
-
 /* ツイート投稿ページ */
 .tweet_form_grp {
   width: 40%;
@@ -109,7 +108,7 @@
 .tweet_form_grp_tag {
   text-align: center;
   font-size: 30px;
-  color: darkgoldenrod;
+  color: #da153f;
 }
 
 .tweet_form_grp_name {
@@ -117,10 +116,11 @@
 }
 
 .tweet_form_grp_name_tag {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bolder;
-  margin-left: 20px;
+  margin: 15px 20px 5px 0;
 }
+
 .tweet_form_grp_name_form {
   width: 100%;
 }
@@ -128,25 +128,49 @@
 .tweet_form_grp_name_form_field {
   width: 100%;
   height: 50px;
+  border: 1px solid gray;
+  border-radius: 3px;/*角の丸み*/
 }
+
+.tweet_form_grp_up_tag {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 
 .tweet_form_grp_text_form_field {
   width: 100%;
   height: 250px;
+  border: 1px solid gray;
+  border-radius: 3px;/*角の丸み*/
 }
 
 .tweet_form_grp_img_tag {
-  width: 50%;
-  margin: 0 0 0 auto;
-  height: 100px;
+width: 100%;
+margin-bottom: 25px;
+float: right;
+margin-right: 10px;
+}
+
+
+.tweet_form_grp_file_form_field {
+  font-size: 17px;
+  height: 40px;
+}
+
+.send_btn {
+  height: 200px;
+  text-align: center;
 }
 
 .tweet_form_btn{
-  width: 100%;
-  height: 50px;
+  width: 40%;
+  margin: 50px auto;
   font-size: 30px;
   border-radius: 4px;/*角の丸み*/
-  background-color: cyan;
+  background-color: #da153f;
+  color: #ffffff;
 }
 
 @media (max-width: 599px) {
@@ -199,6 +223,18 @@
 .tweet_form_grp {
   width: 80%;
   margin: auto;
+}
+
+.tweet_form_grp_name_tag {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 15px 20px 5px 0;
+}
+
+.tweet_form_grp_up_tag {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 }
 
