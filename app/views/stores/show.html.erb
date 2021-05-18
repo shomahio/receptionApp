@@ -417,12 +417,12 @@
           <% end %>
       </div>
     </div>
-  <div>
   <% if store_signed_in? && current_store.id == @information.store_id %>
     <div class ="btn">
       <%= link_to "店舗情報を編集する", edit_information_path(@information.id), data: {"turbolinks" => false}, class: "information_edit_btn" %>
       <%= link_to "店舗情報を削除する", information_path(@information.id), method: :delete, class: "information_edit_btn" %>
     </div>
   <% end %>
+  <div>
 
 

@@ -1,7 +1,7 @@
 # アプリケーション概要
 **ビジネスシーンに特化した飲食店予約アプリです。**<br>
 従来の飲食店予約アプリ同様、飲食店の検索、予約、マイページ機能に加えて**店舗の雰囲気検索機能**、**予約可能時間の自動作成機能**、**電子領収書作成機能**を実装し、ビジネスマンの接待や簡単な食事の際に重要なお店選びに使えるアプリです。
-[![Image from Gyazo](https://i.gyazo.com/5c845fa8d952856fb6415696ae57d33e.jpg)](https://gyazo.com/5c845fa8d952856fb6415696ae57d33e)
+[![Image from Gyazo](https://i.gyazo.com/2c51c35a2e56457074e21421557e7893.jpg)](https://gyazo.com/2c51c35a2e56457074e21421557e7893)
 # 本番環境のURL
 http://3.114.114.184/
 
@@ -41,42 +41,52 @@ http://3.114.114.184/
 ## 飲食店ユーザー、一般ユーザー登録機能(device)
 飲食店、ユーザーがアプリを使用するために登録することができます。（検索機能は登録しなくても可能です。）<br>
 飲食店はアプリ登録後、店舗情報を登録しなければマイページに遷移できない為登録前はマイページに飛べずに店舗情報登録ページに遷移します。
-[![Image from Gyazo](https://i.gyazo.com/a0638a6c7479e489a2be28b16516eca0.gif)](https://gyazo.com/a0638a6c7479e489a2be28b16516eca0)
-[![Image from Gyazo](https://i.gyazo.com/ab9a90f7e61dcf77cba4cbc9df63b594.gif)](https://gyazo.com/ab9a90f7e61dcf77cba4cbc9df63b594)
-
+[![Image from Gyazo](https://i.gyazo.com/87e94587c1a386e6a8b8106034802d96.gif)](https://gyazo.com/87e94587c1a386e6a8b8106034802d96)
+[![Image from Gyazo](https://i.gyazo.com/7d2ffe7452be8b115ff50c3abffb84a9.gif)](https://gyazo.com/7d2ffe7452be8b115ff50c3abffb84a9)
 * * *  
 ## 店舗情報登録機能（ancestry,Ajax）
 飲食店は店舗の情報を登録することができます。<br>
 店舗は登録に付き１つの店舗情報しか登録できないために店舗情報登録後、マイページに遷移します。<br>
-[![Image from Gyazo](https://i.gyazo.com/b32a93b6078609dde9f8ed28deaaf449.gif)](https://gyazo.com/b32a93b6078609dde9f8ed28deaaf449)
+[![Image from Gyazo](https://i.gyazo.com/fd4294090125c4e2785eb7e14e34bc61.gif)](https://gyazo.com/fd4294090125c4e2785eb7e14e34bc61)
 * * * 
 
 ## 予約可能時間自動作成機能(module)
 自作のmoduleにより予約可能時間自動作成機能。<br>
 店舗詳細ページを誰かが開く度に、店舗情報の営業開始時間、終了時間から自動的に１時間ごとの予約可能時間を作成することができる。また前日以降のレコードの自動削除機能、一般ユーザー、店舗ユーザーどちらも編集可能です。
 予約があれば、マイページの予約一覧から確認可能です。
-[![Image from Gyazo](https://i.gyazo.com/576b51f8abb6ec31b451b856be956533.gif)](https://gyazo.com/576b51f8abb6ec31b451b856be956533)
-* * * 
+[![Image from Gyazo](https://i.gyazo.com/399cad578151757b25dab8559a02dc84.gif)](https://gyazo.com/399cad578151757b25dab8559a02dc84)
 
 ## 店舗検索機能(ransack)
 ransackを用いた検索機能。<br>
 ジャンル、エリアはancestryを用いて階層構造にすることで親と子を紐付けている為、キーワード検索のキーワードは店名、食材、親ジャンル、子ジャンルが検索可能です。エリアは交通手段、都道府県、子エリアから検索可能です。<br>
 予算は上限、下限の範囲検索が可能です。<br>
 上記以外はラジオボタン検索が可能です。
-[![Image from Gyazo](https://i.gyazo.com/e2005ce13b24198fe22cd3fdb15235a2.gif)](https://gyazo.com/e2005ce13b24198fe22cd3fdb15235a2)
+[![Image from Gyazo](https://i.gyazo.com/0a4432544d63f97a268900518bb4c6f6.gif)](https://gyazo.com/0a4432544d63f97a268900518bb4c6f6)
 * * * 
 
 ## 飲食店予約機能(simple_calender)
 moduleにより作成したレコードをsimple_calenderにより表示しています。<br>
 予約可能時間があればカレンダーに◎、△を表示しそこから予約ページに遷移でき、情報を送信すれば、飲食店、一般ユーザーの予約一覧に追加され確認することができます。飲食店、一般ユーザーともに削除編集可能です。
 また予約が残り一席になればカレンダーには△、埋まれば×になり予約できなくなります。
-[![Image from Gyazo](https://i.gyazo.com/277ab203f22a49b609ea34bbaca939d3.gif)](https://gyazo.com/277ab203f22a49b609ea34bbaca939d3)
+予約が完了すると、一般ユーザー、店舗ユーザーそれぞれのマイページの予約一覧に表示されます。
+[![Image from Gyazo](https://i.gyazo.com/ccf1a2e46bba8af6260808a1177a6359.gif)](https://gyazo.com/ccf1a2e46bba8af6260808a1177a6359)
 * * * 
 
 ## 領収書作成機能
 一般ユーザーが電子領収書を希望された場合、店舗ユーザーは予約一覧から領収書作成ページに飛び、情報を入力することで作成できます。作成された領収書が正しかったら、ユーザーが承認します。承認された領収書が確定領収書として店舗、一般ユーザーのマイページの領収書一覧に追加されます。領収書がアプリで一元管理できることで、一般ユーザーの領収書管理の負担を軽減できます。
-[![Image from Gyazo](https://i.gyazo.com/d1ffe7729dd5a417345147b85a86b431.gif)](https://gyazo.com/d1ffe7729dd5a417345147b85a86b431)
+[![Image from Gyazo](https://i.gyazo.com/6eac26e1f6d486200528be960f33a609.gif)](https://gyazo.com/6eac26e1f6d486200528be960f33a609)
 * * * 
+
+## ツイート機能
+一般ユーザーは、店舗に関するツイートをすることができ、良かったお店を簡単に共有することができます。また、トップページの下の部分には、最新のツイートを三件のみ表示し、マイページから全てのツイートを確認することができます。また気になったユーザーの投稿からその人のマイページに飛ぶこともできます。追加実装でタグ機能を追加しツイートから直接予約ができるようにする予定です。
+[![Image from Gyazo](https://i.gyazo.com/c4fa492c041070fbdc062887a0f0f410.gif)](https://gyazo.com/c4fa492c041070fbdc062887a0f0f410)
+* * * 
+
+## その他機能
+-  一般ユーザーのメインのデバイスはスマホを想定している為、レスポンシブデザインも実装済みです。
+-  飲食店情報、ツイート、予約それぞれ編集、削除機能も実装済みです。
+
+
 
 # 洗い出した要件定義
 | 優先順位  （高:3 中:2 低:1） | 機能 | 目的 | 詳細 | 
@@ -109,10 +119,7 @@ moduleにより作成したレコードをsimple_calenderにより表示して�
 # ER図
 [![Image from Gyazo](https://i.gyazo.com/299afa806c44ceb757176d9af1920436.jpg)](https://gyazo.com/299afa806c44ceb757176d9af1920436)
 
-
-
 # テーブル設計
-
 
 ## users テーブル
 
