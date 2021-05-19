@@ -62,7 +62,7 @@ input[name="tab-item"] {
 
 /*選択されているタブのスタイルを変える*/
 .tabs input:checked + .tab-item {
-  border-bottom: 3px solid rgb(85, 85, 85, 0.9);
+  border-bottom: 3px solid rgba(85, 85, 85, 0.9);
 }
 
 @media (max-width: 599px) {
