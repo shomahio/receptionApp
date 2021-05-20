@@ -232,14 +232,18 @@
   width: 95%;
 }
 
-.yoyakukanou1 {
+
+.information_right_calender .reservation_availability {
   text-align: center;
   font-size: 15px;
+  color: blue;
+  cursor: pointer;
 }
 
-.yoyakukanou {
+.information_right_calender .reservation_nonavailability {
   text-align: center;
   font-size: 15px;
+  color: black;
 }
 
 .hidden {
@@ -257,10 +261,7 @@
   padding-bottom: 20px; 
 }
 
-.goyoyaku {
-  font-size: 40px;
-  padding-top: 15px;
-}
+
 
 .information_kihon {
   width: 55%;

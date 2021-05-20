@@ -194,15 +194,15 @@
               <%= week_calendar( events: @reservations.where(information_id: information.id), number_of_weeks: 1) do |date, reservations| %>
                   <%= date.day %>
                   <% if reservations.length >= 2 %>
-                    <div class= "yoyakukanou">
+                    <div class= "reservation_availability">
                       <%= link_to "◎", information_path(information.id), :style=>"color:blue;" %>
                     </div>
                   <% elsif reservations.length == 1%>
-                    <div class= "yoyakukanou">
+                    <div class= "reservation_availability">
                       <%= link_to "△", information_path(information.id), :style=>"color:blue;" %>
                     </div>
                   <% else %>
-                    <div class= "yoyakukanou">
+                    <div class= "reservation_availability">
                     ✖︎
                     </div>
                   <% end %>

@@ -388,15 +388,15 @@
           <%= month_calendar events: @reservations do |date, reservations| %>
             <%= date.day %>
             <% if reservations.length >= 2 %>
-              <div class= "yoyakukanou">
+              <div class= "reservation_availability">
                 ◎
               </div>
             <% elsif reservations.length == 1%>
-              <div class= "yoyakukanou">
+              <div class= "reservation_availability">
                 △
               </div>
             <% else %>
-              <div class= "yoyakukanou">
+              <div class= "reservation_nonavailability">
               ✖︎
               </div>
             <% end %>
@@ -411,7 +411,7 @@
                 <% if reservation.name == nil && store_signed_in? && reservation.information.store_id == current_store.id %>
                   <%= link_to edit_informations_reservation_path(reservation.id) do %>
                     <%= reservation.start_time.strftime("%H:%M") %>
-                    <div class= "yoyakukanou">
+                    <div class= "reservation_availability">
                     ◎ 編集
                     </div>
                   <% end %>

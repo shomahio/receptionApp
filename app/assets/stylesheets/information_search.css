@@ -202,6 +202,10 @@
   height: 70%;
 }
 
+.calendar .reservation_availability {
+  text-align: center;
+}
+
 @media (max-width: 1024px) {
   .search-page {
     width: 100%;
