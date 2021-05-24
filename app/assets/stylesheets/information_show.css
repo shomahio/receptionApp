@@ -203,7 +203,6 @@
 .information_right_tel {
   display: flex;
   width: 50%;
-  /* height: 60px; */
   background-color: #da153f;
   border-radius: 7px;/*角の丸み*/
   text-align: center;
@@ -238,6 +237,12 @@
   font-size: 15px;
   color: blue;
   cursor: pointer;
+}
+
+.information_right_calender .nonreservation_availability {
+  text-align: center;
+  font-size: 15px;
+  color: black;
 }
 
 .information_right_calender .reservation_nonavailability {
